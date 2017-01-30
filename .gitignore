@@ -1,0 +1,4 @@
+# * = alle
+# #.bak vil si alle .bak filer
+
+*.bak
