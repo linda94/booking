@@ -164,3 +164,6 @@ touch .gitignore
 
 # Hvordan skippe staging area?
 git commit -a -m
+
+# Hvordan klone fra GitHub
+git clone https://github.com/linda94/booking
