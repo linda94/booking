@@ -1,5 +1,3 @@
-# booking
-
 # Lage ny lokal repository:
 git init
 
