@@ -36,7 +36,7 @@ echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
     //    echo ("%s %s %d\n", $obj->firstName, $obj->lastName, $obj->age);
     //}
 
-$query = mysqli_query($link, "INSERT INTO user (firstName, lastName, age) VALUES ('Andreas', 'Semb', 23)");
+$query = mysqli_query($link, "INSERT INTO user (firstName, lastName, age) VALUES ('Andreas', 'Semb', 24)");
 
 
 
