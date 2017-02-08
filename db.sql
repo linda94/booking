@@ -1,7 +1,9 @@
+use booking;
+
 CREATE TABLE user (
-firstName VARCHAR(45),
-lastName VARCHAR(45),
-age INT
+    firstName VARCHAR(45),
+    lastName VARCHAR(45),
+    age INT
 );
 
 
