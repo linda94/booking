@@ -33,23 +33,24 @@
     <button type="submit" class="btn_frontPage" id="btn_log_in">Logg inn</button>
     <div class="btn_group btn-group-justified">
     	<button type="submit" class="btn_frontPage col-5" id="btn_new_user"> Ny bruker</button>
-    	<button type="submit" class="btn_frontPage col-5"> Glemt passord</button>
+    	<button type="submit" class="btn_frontPage col-5" id="btn_forgot_password"> Glemt passord</button>
     </div>
+
+      <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h4><label>Skriv inn din e-post</label></h4><br/>
+      <input type="email" id="e-post-im" class="new-content" placeholder="E-post" required autofocus>
+      <button class="btn_frontPage" type="submit" id="send">Send</button>
+    </div>
+
+  </div>
+
 </div>
   </form>
 </div>
-
-	<div id="myModal" class="modal">
-
-		<!-- Modal content -->
-		<div class="modal-content">
-			<span class="close">&times;</span>
-			<label class="sr-only">Skriv inn din E-post</label><br/>
-			<input type="email" id="e-post-im" class="new-content" placeholder="E-post" id="test" required autofocus>
-			<button class="btn_frontPage" type="submit" id="send">Send</button>
-		</div>
-
-	</div>
 
 <script>
 // Get the modal

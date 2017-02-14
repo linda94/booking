@@ -102,10 +102,10 @@ color: #ffffff;
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 5px;
+    padding: 2%;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-	margin-top: 50%;
+    width: 20%; /* Could be more or less, depending on screen size */
+	margin-top: 10%;
 }
 
 /* The Close Button */
@@ -132,14 +132,10 @@ color: #ffffff;
           box-sizing: border-box;
   padding: 12px;
   font-size: 16px;
-  width: 100%;
   border: 1px solid #ccc;
   border-radius: 8px;
-  margin-top: 6px;
 }
-.new-content {
-margin-top: 15px;
-}
+
 #send {
 width: 100%;
 margin-top: 10px;
