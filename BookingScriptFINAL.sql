@@ -108,10 +108,10 @@ VALUES(1, 'Stanley', 'Ntiamoah', 'UIA', '93445532', 'syntia14student@uia.no', 'L
 /*
    Insert Location
 */
-INSERT INTO User (LocID, LocName)
+INSERT INTO Location (LocID, LocName)
 VALUES(5,'Markens gate 8');
 
-INSERT INTO User (LocID, LocName)
+INSERT INTO Location (LocID, LocName)
 VALUES(2,'Sørlandsturnet 35');
 
 /*
