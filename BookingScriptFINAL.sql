@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS mydb;
-CREATE SCHEMA mydb;
-USE mydb;
+DROP SCHEMA IF EXISTS booking;
+CREATE SCHEMA booking;
+USE booking;
 
 CREATE TABLE User (
     UserID INT NOT NULL,
@@ -106,7 +106,7 @@ INSERT INTO User (UserID, FirstName , LastName , Company , Phone, Email, Passwor
 VALUES(1, 'Stanley', 'Ntiamoah', 'UIA', '93445532', 'syntia14student@uia.no', 'Lekenhet',  'Bacprosjekt', 1);
 
 /*
-   Insert Location
+   Insert Location
 */
 INSERT INTO Location (LocID, LocName)
 VALUES(5,'Markens gate 8');
@@ -115,15 +115,15 @@ INSERT INTO Location (LocID, LocName)
 VALUES(2,'Sørlandsturnet 35');
 
 /*
-   Insert Room 
+   Insert Room 
 */
 INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location_LocID, Privacy)
 VALUES(1, 'Big Screen Room', 20, 1, 5, 'Ingen');
 
 INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location_LocID, Privacy)
-VALUES(2, 'Small Room', 6, 3, 5, 'Ingen');
+VALUES(2, 'Small Room', 6, 3, 5, 'Only for NIGGAZ');
 /*
-   Insert Reservation  
+   Insert Reservation  
 */
 INSERT INTO Reservation (ResID , ResDate, ResTime, DepDate, DepTime , User_UserID, Room_RoomID, Description)
 VALUES(0, '2017-03-24', '14.00', '2017-03-25', '16.00', 0, 2, 'asdadaalsalklsadada');
@@ -132,7 +132,7 @@ INSERT INTO Reservation (ResID , ResDate, ResTime, DepDate, DepTime , User_UserI
 VALUES(1, '2017-02-24', '14.00', '2017-03-25', '16.00', 1, 1, 'Allah is Great the terrorist');
 
 /*
-   Insert User_has_Room  
+   Insert User_has_Room  
 */
 INSERT INTO User_has_Room (User_UserID , Room_RoomID)
 VALUES(0, 2);
@@ -140,7 +140,7 @@ VALUES(0, 2);
 INSERT INTO User_has_Room (User_UserID , Room_RoomID)
 VALUES(1, 1);
 /*
-   Insert User_has_Location  
+   Insert User_has_Location  
 */
 INSERT INTO User_has_Location (User_UserID , Location_LocID)
 VALUES(0, 5);
@@ -148,7 +148,7 @@ VALUES(0, 5);
 INSERT INTO User_has_Location (User_UserID , Location_LocID)
 VALUES(1, 5);
 /*
-   Insert Labels 
+   Insert Labels 
 */
 INSERT INTO Labels (LabelID, LabelName)
 VALUES(2,'Rom m/ stor skjerm');
@@ -157,11 +157,10 @@ INSERT INTO Labels (LabelID, LabelName)
 VALUES(3,'Rom uten skjerm');
 
 /*
-  Insert Label_has_Room 
+  Insert Label_has_Room 
 */
 INSERT INTO Label_has_Room (Label_LabelID, Room_RoomID)
-VALUES(2, 1);
+VALUES(2, 2);
 
 INSERT INTO Label_has_Room (Label_LabelID, Room_RoomID)
-VALUES(3, 0);
-
+VALUES(3, 1);
