@@ -117,10 +117,10 @@ VALUES(2,'Sørlandsturnet 35');
 /*
    Insert Room 
 */
-INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location, Privacy)
+INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location_LocID, Privacy)
 VALUES(1, 'Big Screen Room', 20, 1, 5, 'Ingen');
 
-INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location, Privacy)
+INSERT INTO Room (RoomID, RoomName, Capacity, Floor, Location_LocID, Privacy)
 VALUES(2, 'Small Room', 6, 3, 5, 'Ingen');
 /*
    Insert Reservation  
