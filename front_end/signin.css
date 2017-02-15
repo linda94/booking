@@ -145,9 +145,11 @@ margin-top: 10px;
 .site_name {
 text-align: center;
 font-size: 48px;
-color: #4CAF50; 
+color: #4CAF50;
+border-bottom: 2px solid green;
 }
 .container {
+width: 100%;
 }
 #carousel {
 padding: 1%;
@@ -166,6 +168,7 @@ margin:0 auto;
 	position: center;
 	margin-top: 1%;
 }
+
 
 
 
