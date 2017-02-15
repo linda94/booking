@@ -140,3 +140,31 @@ color: #ffffff;
 width: 100%;
 margin-top: 10px;
 }
+
+
+.site_name {
+text-align: center;
+font-size: 48px;
+}
+.container {
+background-color: black;
+}
+#carousel {
+background-color: blue;
+padding: 1%;
+}
+.carousel-inner img {
+margin:0 auto;
+}
+.btn_mainpage {
+position: absolute;
+margin: 0 auto;
+}
+.buttons button{
+margin: 0 auto;
+background-color: green;
+}
+
+
+
+
