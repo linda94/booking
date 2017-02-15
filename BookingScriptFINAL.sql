@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS booking;
-CREATE SCHEMA booking;
-USE booking;
+DROP SCHEMA IF EXISTS booking; // mydb
+CREATE SCHEMA booking; // mydb
+USE booking; // mydb
 
 CREATE TABLE User (
     UserID INT NOT NULL,
