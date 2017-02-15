@@ -163,5 +163,5 @@ INSERT INTO Label_has_Room (Label_LabelID, Room_RoomID)
 VALUES(2, 1);
 
 INSERT INTO Label_has_Room (Label_LabelID, Room_RoomID)
-VALUES(3, 0);
+VALUES(3, 2);
 
