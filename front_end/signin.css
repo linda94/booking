@@ -181,11 +181,18 @@ p {
 	font-size: 16px;
 	border: 1px solid #808080;
  	border-radius: 8px;
+	padding: 5px;
 }
 hr {
 	border-color: #4CAF50;
 }
-
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+#login {
+margin-right: 15px;
+}
 
 
 
