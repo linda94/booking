@@ -12,5 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $users = DB::table('user')->get();
+
+    return view('welcome', compact('users'));
+});
+
+Route::get('/login', function () {
+    return view('login');
 });
