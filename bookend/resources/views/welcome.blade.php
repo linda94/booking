@@ -5,6 +5,9 @@
 </head>
 <body>
     <ul>
+
+        <h1>Users:</h1>
+
         @foreach ($users as $user)
 
             <li> {{ $user->FirstName }} </li>
@@ -16,5 +19,7 @@
         @endforeach
 
     </ul>
+
+    <a href=/post>Submit new user</button>
 </body>
 </html>

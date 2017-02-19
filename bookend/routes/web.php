@@ -18,6 +18,13 @@ Route::get('/', function () {
     return view('welcome', compact('users'));
 });
 
+Route::get('/post', function () {
+
+    return view('post');
+});
+
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::post('/post', 'PostController@store');
