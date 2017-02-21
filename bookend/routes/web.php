@@ -13,9 +13,10 @@
 
 Route::get('/', function () {
 
-    $users = DB::table('user')->get();
+   $users = DB::table('user')->get();
 
-    return view('welcome', compact('users'));
+   return view('welcome', compact('users'));
+
 });
 
 Route::get('/post', function () {
