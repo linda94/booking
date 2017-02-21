@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
@@ -36,15 +36,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
-        dd(request()->all());
+        //dd(request()->all());
         //Create new data
-        $post = new Post;
-        $post->title =  request('title');
-        $post->body = request('body');
+        $post = new User;
+        $post->UserID =  request('userID');
+        $post->FirstName = request('FirstName');
         //Save to database
         $post->save();
         //Redirect back to previous page / where ever...
-        return redirect('/');
+        //return redirect('/');
     }
 
     /**
