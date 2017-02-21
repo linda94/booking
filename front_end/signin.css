@@ -1,16 +1,16 @@
 body {
   background-color: #ffffff;
+  font-family: "Lato";
 }
 .frame {
-  max-width: 330px;
+  max-width: 450px;
   padding: 2%;
   margin: 0 auto;
   background-color: #eee;
-  font-family: "Lato";
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-top: 0.5%;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 .form-signing-heading {
   text-align: center;
@@ -133,9 +133,9 @@ margin-top: 10px;
 
 h1 {
 	text-align: center;
-	font-family: Lato;
-	font-size: 42px;
+  font-size: 42px;
 	font-weight: bold;
+margin-bottom: 5%;
 }
 h5 {
 	text-align: center;
@@ -144,7 +144,7 @@ h5 {
 }
 p {
 	text-align: center;
-		font-family: Lato;
+	font-family: Lato;
 
 }
 .topbar {
@@ -203,20 +203,22 @@ width: 100%;
 height: 100%;
 }
 .container-left {
-background-color: gray;
 padding: 15px;
 }
 .container-right {
-background-color: blue;
+height: 100%;
 }
 .label_nybruker {
 font-size: 24px;
 margin-bottom: 3%;
 padding-left: 10px;
+font-weight: bold;
 }
 .sign_up_inputs {
 font-size: 16px;
 padding: 5px;
+border-radius: 8px;
+border: 1px solid black;
 }
 .sign_up_text {
 font-size: 16px;
@@ -232,12 +234,68 @@ text-align: center;
 font-size: 16px;
 padding: 3px;
 resize: none;
+border-radius: 8px;
 }
 #sign_up_btn_reg {
-margin-right: 29px;
+margin-right: 4%;
+}
+h4 {
+  text-align: center;
+  margin-bottom: 1%;
 }
 
+.register-name {
+padding: 2%;
+margin-bottom: 2%;
+width: 34%;
+border: 1px solid #ccc;
+border-radius: 8px;
+}
+.register-input {
+padding: 2%;
+margin-bottom: 2%;
+width: 71%;
+border: 1px solid #ccc;
+border-radius: 8px;
+}
 
+#register-fornavn {
+margin-right: 2%;
+}
 
+.reg_title {
+  text-align: center;
+  font-weight: bold;
+}
 
+.btn_reg {
+border: 1px solid #808080;
+border-radius: 5px;
+padding: 2%;
+background-color: #4CAF50;
+color: #ffffff;
+margin-top: 2%;
+}
+.btn_reg:hover {
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
+}
 
+.already_user_text {
+padding: 0;
+padding-top: 1%;
+margin-top: 2%;
+margin-bottom: 3%;
+}
+.btn-fb {
+background-color: #3B5998;
+color: #fff;
+margin-right: 5%;
+}
+.btn-gplus {
+background-color: #DD4B39;
+color: #fff;
+}
+.social_login {
+margin-top: 0.5%;
+width: 100%;
+}
