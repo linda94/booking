@@ -12,6 +12,9 @@ CREATE TABLE User (
     Passwordd VARCHAR(45) NOT NULL,
     Description VARCHAR(500) NOT NULL,
     AccessLevel INT NOT NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
+    
     PRIMARY KEY (UserID)
 )  ENGINE=INNODB;
 
@@ -19,6 +22,8 @@ CREATE TABLE User (
 CREATE TABLE Location (
     LocID INT NOT NULL,
     LocName VARCHAR(45) NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (LocID)
 )  ENGINE=INNODB;
 
@@ -30,6 +35,8 @@ CREATE TABLE Room (
     Floor INT NULL,
     Location_LocID INT NOT NULL,
     Privacy VARCHAR(45) NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (RoomID),
     CONSTRAINT fk_Rooms_Location FOREIGN KEY (Location_LocID)
         REFERENCES Location (LocID)
@@ -45,6 +52,8 @@ CREATE TABLE Reservation (
     User_UserID INT NOT NULL,
     Room_RoomID INT NOT NULL,
     Description VARCHAR(200) NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (ResID),
     CONSTRAINT fk_Reservations_User FOREIGN KEY (User_UserID)
         REFERENCES User (UserID),
@@ -56,6 +65,8 @@ CREATE TABLE Reservation (
 CREATE TABLE User_has_Room (
     User_UserID INT NOT NULL,
     Room_RoomID INT NOT NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (User_UserID , Room_RoomID),
     CONSTRAINT fk_User_has_Room_Users FOREIGN KEY (User_UserID)
         REFERENCES User (UserID),
@@ -68,6 +79,8 @@ CREATE TABLE User_has_Room (
 CREATE TABLE User_has_Location (
     User_UserID INT NOT NULL,
     Location_LocID INT NOT NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (User_UserID , Location_LocID),
     CONSTRAINT fk_User_has_Location_users FOREIGN KEY (User_UserID)
         REFERENCES User (UserID),
@@ -79,6 +92,8 @@ CREATE TABLE User_has_Location (
 CREATE TABLE Labels (
     LabelID INT NOT NULL,
     LabelName VARCHAR(45) NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (LabelID)
 )  ENGINE=INNODB;
 
@@ -86,6 +101,8 @@ CREATE TABLE Labels (
 CREATE TABLE Label_has_Room (
     Label_LabelID INT NOT NULL,
     Room_RoomID INT NOT NULL,
+    created_at VARCHAR(45),
+    updated_at VARCHAR(45),
     PRIMARY KEY (Label_labelID , Room_RoomID),
     CONSTRAINT fk_Label_has_room_Labels FOREIGN KEY (Label_labelID)
         REFERENCES Labels (labelID),
