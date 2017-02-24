@@ -1,6 +1,11 @@
+------------------------------------------------- /* Logg inn v1 */
+
 body {
   background-color: #ffffff;
   font-family: "Lato";
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
 }
 .frame {
   max-width: 450px;
@@ -71,8 +76,6 @@ color: #ffffff;
   margin-bottom: 15px;
 }
 
----------------------------------------------
-
  /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -93,7 +96,7 @@ color: #ffffff;
     margin: 15% auto; /* 15% from the top and centered */
     padding: 2%;
     border: 1px solid #888;
-    width: 20%; /* Could be more or less, depending on screen size */
+    width: 30%; /* Could be more or less, depending on screen size */
 	margin-top: 10%;
 }
 /* The Close Button */
@@ -127,7 +130,7 @@ margin-top: 10px;
 }
 
 
----------------------------------------------
+------------------------------------------------- /* index v1 */
 
 
 
@@ -186,6 +189,9 @@ p {
  	border-radius: 8px;
 	padding: 5px;
 }
+.btn_main:hover {
+box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
+}
 hr {
 	border-color: #4CAF50;
 }
@@ -197,7 +203,7 @@ hr {
 margin-right: 15px;
 }
 
------------------------------------------------
+------------------------------------------------- /* Sign up v1 */
 .sign_up {
 width: 100%;
 height: 100%;
@@ -300,7 +306,7 @@ margin-top: 0.5%;
 width: 100%;
 }
 
--------------------------------------------------
+------------------------------------------------- /* Booking v1 */
 
 .bookingv1_pholder {
 width: 100%;
@@ -315,6 +321,8 @@ display: inline-block;
 }
 .bookingv1_right {
 background-color: blue;
+height: 100%;
+min-height: 500px;
 }
 .location_text {
 color: white;
@@ -379,6 +387,7 @@ background-color: green;
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
 }
 
+----------- /* ikke for side meny noe mer */
 
 
 
