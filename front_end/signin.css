@@ -10,14 +10,21 @@ body {
   margin-bottom: 60px;
 }
 .frame {
-  max-width: 380px;
+  min-width: 362px;
+  max-width: 361px;
+  max-height: 450px;
   padding: 2%;
-  margin: 0 auto;
   background-color: #eee;
   border-radius: 15px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   padding-top: 0.5%;
   margin-top: 2%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 .form-signing-heading {
   text-align: center;
@@ -53,7 +60,7 @@ body {
   margin-bottom: 5%;
 }
 .btn_frontPage {
-  width: 48%;
+width: 48%;
 font-size: 16px;
 border: 1px solid #808080;
 border-radius: 8px;
@@ -205,31 +212,36 @@ margin-right: 15px;
 .register-name {
 padding: 2%;
 margin-bottom: 2%;
-width: 34%;
 border: 1px solid #ccc;
 border-radius: 8px;
+width: 48%;
 }
 .register-input {
 padding: 2%;
 margin-bottom: 2%;
-width: 71%;
 border: 1px solid #ccc;
 border-radius: 8px;
+width: 100%;
 }
 #register-fornavn {
-margin-right: 2%;
+float: left;
+}
+#register-etternavn {
+float: right;
 }
 .reg_title {
-  text-align: center;
-  font-weight: bold;
+text-align: center;
+font-weight: bold;
 }
 .btn_reg {
+width: 48%;
+font-size: 16px;
 border: 1px solid #808080;
-border-radius: 5px;
-padding: 2%;
+border-radius: 8px;
+padding: 7px;
+margin-top: 3%;
 background-color: #4CAF50;
 color: #ffffff;
-margin-top: 2%;
 }
 .btn_reg:hover {
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
@@ -240,18 +252,8 @@ padding-top: 1%;
 margin-top: 2%;
 margin-bottom: 3%;
 }
-.btn-fb {
-background-color: #3B5998;
-color: #fff;
-margin-right: 5%;
-}
-.btn-gplus {
-background-color: #DD4B39;
-color: #fff;
-}
-.social_login {
-margin-top: 0.5%;
-width: 100%;
+.already_user_div {
+
 }
 
 ------------------------------------------------- /* Booking v1 */
