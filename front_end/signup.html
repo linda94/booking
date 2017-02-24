@@ -19,30 +19,30 @@
 				<h1 class="form-signing-heading reg_title"> Ny bruker </h1><br>
 				<form class="form-signing">
 					<div class="text-center">
-						<input type="text" class="register-name" placeholder="Fornavn" id="register-fornavn">
-						<input type="text" class="register-name" id="register-etternavn" placeholder="Etternavn">
+						<input type="text" class="register-name" placeholder="Fornavn" id="register-fornavn" required>
+						<input type="text" class="register-name" id="register-etternavn" placeholder="Etternavn" required>
 					</div>
 					<div class="text-center">
-						<input type="password" class="register-input" placeholder="Passord" type="password">
+						<input type="password" class="register-input" placeholder="Passord" required>
 					</div>
 					<div class="text-center">
-						<input type="password" class="register-input" placeholder="Bekreft passord" type="password">
+						<input type="password" class="register-input" placeholder="Bekreft passord" required>
 					</div>
 					<div class="text-center">
-						<input type="email" class="register-input" placeholder="E-post" type="email">
+						<input type="email" class="register-input" placeholder="E-post" required>
 					</div>
 					<div class="text-center">
-						<input type="text" class="register-input" placeholder="Telefonnummer" type="tel">
+						<input type="tel" class="register-input" placeholder="Telefonnummer" required>
 					</div>
 					<div class="text-center">
-						<input type="text" class="register-input" placeholder="Din bedrift">
+						<input type="text" class="register-input" placeholder="Din bedrift" required>
 					</div>
 					<div class="text-center">
-						<button type="submit" class="btn_reg"> Registrer deg </button>
+						<button type="submit" class="btn_reg" onclick="change_page_bookingv1()"> Registrer deg </button>
 					</div>
 				</form>
 				<div class="text-center already_user_div">
-					<div class="already_user_text"> Allerede en bruker? <a> Logg inn her </a></div>
+					<div class="already_user_text"> Allerede en bruker? <label class="label_alreadyauser" onclick="change_page_login()"> Logg inn her </label></div>
 				</div>
 			</div>
 		</div>
@@ -52,6 +52,16 @@
         <p class="text-muted">Copyright © 2017 The Dreamers Inc. All rights reserved.</p>
     </div>
 </footer>
+
+<script>
+	function change_page_bookingv1(){
+	  window.location.href = "Bookingv1.html";
+	}
+	
+	function change_page_login(){
+	  window.location.href = "log_in.html";
+	}
+</script>
 
 	</body>
 </html>

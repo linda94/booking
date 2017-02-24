@@ -208,7 +208,14 @@ margin-right: 15px;
 }
 
 /* ------------------------------ Signup v1 */
-
+.label_alreadyauser {
+color: blue;
+font-weight: normal;
+}
+.label_alreadyauser:hover , 
+.label_alreadyauser:focus{
+font-weight: bold;
+}
 .register-name {
 padding: 2%;
 margin-bottom: 2%;
@@ -265,8 +272,9 @@ height: 100%;
 .bookingv1_left {
 background-color: green;
 height: 100vh;
-overflow-y: auto; 
-min-width: 250px;
+overflow-y: auto;
+overflow-x: hidden;
+min-width: 200px;
 display: inline-block;
 }
 .bookingv1_right {
@@ -308,7 +316,8 @@ font-size: 12px;
 font-family: "Lato";
 }
 .spacing_div {
-   /*margin-top: -10px;*/
+margin-left: -20px;
+width: 120%;
 }
 #div_under_text {
 margin-top: -15px;
