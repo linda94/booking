@@ -20,6 +20,17 @@
 
     </ul>
 
-    <a href=/post>Submit new user</button>
+    <div>
+        <a href=/post>Submit New User</a>
+    </div>
+
+    <div>
+        <a href=/register>Register New User</a>
+    </div>
+
+    <div>
+        <a href=/login>Log In</a>
+    </div>
+
 </body>
 </html>
