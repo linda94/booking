@@ -30,7 +30,7 @@
           <div class="checkbox">
             <label><input type="checkbox"> Husk meg </label>
           </div>
-          <button type="submit" class="btn_frontPage" id="btn_log_in" onclick="change_page_bookingv1()">Logg inn</button>
+          <button type="submit" class="btn_frontPage" id="btn_log_in" onclick="change_page_home()">Logg inn</button>
         </form>
         <div class="btn_group btn-group-justified">
           <button class="btn_frontPage col-xs-5" id="btn_new_user" onclick="change_page_register()"> Ny bruker</button>
@@ -78,8 +78,8 @@
         }
         }
         
-    function change_page_bookingv1(){
-      window.location.href = "Bookingv1.html";
+    function change_page_home(){
+      window.location.href = "/home";
     }
     
     function change_page_register(){

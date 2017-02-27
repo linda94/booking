@@ -38,7 +38,7 @@
                         <input type="text" class="register-input" placeholder="Din bedrift" required>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="btn_reg" onclick="change_page_bookingv1()"> Registrer deg </button>
+                        <button type="submit" class="btn_reg" onclick="change_page_home()"> Registrer deg </button>
                     </div>
                 </form>
                 <div class="text-center already_user_div">
@@ -54,8 +54,8 @@
 </footer>
 
 <script>
-    function change_page_bookingv1(){
-      window.location.href = "Bookingv1.html";
+    function change_page_home(){
+      window.location.href = "/home";
     }
     
     function change_page_login(){
