@@ -29,6 +29,10 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/register', function () {
+    return view('register');
+});
+
 Route::post('/post', function (Request $request)
     {
         //dd(request()->all());
@@ -52,3 +56,6 @@ Route::post('/post', function (Request $request)
 //Route::post('/post', 'PostController@store');
 //Route::post('/post', 'userController@store');
 //Route::post('/post', 'userController@create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
