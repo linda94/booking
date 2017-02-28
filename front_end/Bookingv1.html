@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="css/navbar-fixed-side.css" rel="stylesheet" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
@@ -17,12 +18,12 @@
 </head>
 <body>
 
-<div class="bookingv1_pholder">
-
-	<div class="container bookingv1_left col-xs-2">
+<div class="container-fluid bookingv1_pholder">
+<div class="row">
+	<div class="bookingv1_left col-xs-4 pull-xs-4 col-sm-3 col-md-2 col-lg-2">
 		<form class="navbar-form navbar-left form-horizontal">	
-			<nav class="nav nav-stacked navbar-fixed-left">
-				<div class="container-fluid	 form-group">
+			<nav class="nav nav-stacked navbar-fixed-side">
+				<div class="container-fluid	form-group">
 					<div class="spacing_div col-xs-12 dropdown">
 						<li class="dropdown">
 							<button class="dropdown-toggle location_text" data-toggle="dropdown"> CoWorx
@@ -104,10 +105,11 @@
 		</form>
 	</div>
 	
-	<div class="container bookingv1_right div-fixed-right col-xs-10">
+	<div class="bookingv1_right col-xs-8 push-xs-8 col-sm-9 col-md-10 col-lg-10">
 			<label> Some text </label>
 	</div>
 	
+</div>
 </div>
 
 </body>
