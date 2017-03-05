@@ -4,14 +4,14 @@ USE mydb;
 
 CREATE TABLE User (
     UserID INT NOT NULL,
-    FirstName VARCHAR(60) NOT NULL,
-    LastName VARCHAR(45) NOT NULL,
-    Company VARCHAR(50) NOT NULL,
-    Phone VARCHAR(45) NOT NULL,
-    Email VARCHAR(45) NOT NULL,
-    Passwordd VARCHAR(45) NOT NULL,
-    Description VARCHAR(500) NOT NULL,
-    AccessLevel INT NOT NULL,
+    FirstName VARCHAR(60),
+    LastName VARCHAR(45),
+    Company VARCHAR(50),
+    Phone VARCHAR(45),
+    Email VARCHAR(45),
+    Passwordd VARCHAR(45),
+    Description VARCHAR(500),
+    AccessLevel INT,
     created_at VARCHAR(45),
     updated_at VARCHAR(45),
     

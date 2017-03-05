@@ -6,15 +6,14 @@
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider within a group which| contains the "web" middleware group. Now create something great!
 |
 */
 use App\user;
 
 Route::get('/', function () {
 
-   $users = DB::table('users')->get();
+   $users = DB::table('user')->get();
 
    return view('welcome', compact('users'));
 
@@ -33,8 +32,9 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post('/post', function (Request $request)
-    {
+Route::post('/register', 'RegisterController@create');
+
+Route::post('/post', function (Request $request) {
         //dd(request()->all());
         //Create new data
         $user = new user;
@@ -51,7 +51,7 @@ Route::post('/post', function (Request $request)
         $user->save();
         //Redirect back to previous page / where ever...
         return redirect('/');
-    });
+});
 
 //Route::post('/post', 'PostController@store');
 //Route::post('/post', 'userController@store');

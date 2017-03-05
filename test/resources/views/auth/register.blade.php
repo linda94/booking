@@ -60,6 +60,10 @@
                             </div>
                         </div>
 
+                        <div class="col-md-6">
+                            <input id="phone" type="text" name="phone">
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
