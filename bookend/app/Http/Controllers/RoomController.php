@@ -14,6 +14,9 @@ class RoomController extends Controller
      */
     public function index()
     {
+
+        //$rooms = DB::table('room')->get();
+        //return $rooms;
         return view('rooms');
     }
 
@@ -25,6 +28,16 @@ class RoomController extends Controller
     public function create()
     {
         return view('newroom');
+    }
+
+    /**
+     * Show the form for editing a resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+        public function editroom()
+    {
+
     }
 
     /**
@@ -52,9 +65,14 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function show(Room $room)
-    {
-        //
+    public function show(Room $room) //Room::find(wildcard);
+    {   
+
+        //$room = Room::find($id);
+
+        return $room;
+
+        return view('rooms.show', compact('room'));
     }
 
     /**
@@ -77,7 +95,7 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        //
+        $room = App\Room::find(1);
     }
 
     /**

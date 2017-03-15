@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
+Route::get('/rooms/{room}', 'RoomController@show');
 Route::get('/newroom', 'RoomController@create');
+Route::get('/editroom', 'RoomController@editroom');
 
 Route::post('/newroom', 'RoomController@store');

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>New Room</title>
+	<title>Edit existing room</title>
 </head>
 <body>
 
-	<h1>Post new room to database</h1>
+	<h1>Edit existing room</h1>
 
 <form method="POST" action="/newroom">
 
