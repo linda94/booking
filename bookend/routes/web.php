@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/*Route::get('/rooms', function () {
+
+	$rooms = DB::table('room')->get();
+
+    return view('rooms', ['rooms' => $rooms]);
+}); 
+*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -24,3 +31,5 @@ Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
 Route::post('/newroom', 'RoomController@store');
+
+Route::patch('/rooms/{room}', 'RoomController@update');

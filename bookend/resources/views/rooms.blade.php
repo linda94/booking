@@ -5,11 +5,18 @@
 </head>
 <body>
     <ul>
-
         <h1>Rooms:</h1>
-        @foreach ($rooms as $room)
-            <li> {{ $room->name }} </li>
-        @endforeach        
+        <li>
+        
+        <?php foreach ($rooms as $room) { ?>
+            <li>
+                <a href="/rooms/{{ $room->id }}"> 
+                <?php echo $room->name; ?>
+                </a>
+            </li>
+        <?php } ?>
+        
+        </li>
     </ul>
 
     <div>

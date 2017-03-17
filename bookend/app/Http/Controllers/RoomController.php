@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Room;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,9 @@ class RoomController extends Controller
     public function index()
     {
 
-        //$rooms = DB::table('room')->get();
+        $rooms = DB::table('room')->get();
         //return $rooms;
-        return view('rooms');
+        return view('rooms', compact('rooms'));
     }
 
     /**
@@ -70,7 +71,7 @@ class RoomController extends Controller
 
         //$room = Room::find($id);
 
-        return $room;
+        //return $room;
 
         return view('rooms.show', compact('room'));
     }
@@ -96,6 +97,18 @@ class RoomController extends Controller
     public function update(Request $request, Room $room)
     {
         $room = App\Room::find(1);
+
+        //$room->name = 'NewRoomName';
+        //$room->capacity ='NewCapacity';
+        //$room->equipment ='equipment';
+
+        $room -> name = $request->NewRoomName;
+        $room -> capacity = $request->NewCapacity;
+        $room -> equipment = $request->equipment;
+
+        $room->save();
+
+        Return redirect('/rooms');
     }
 
     /**
