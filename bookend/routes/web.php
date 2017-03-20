@@ -26,12 +26,6 @@ Route::get('/rooms', function () {
 Auth::routes();
 
 Route::get('/', 'WelcomeController@index');
-
-Route::get('/HTML/log_in', 'LogInController@index')->name('log_in');
-Route::get('/HTML/sign_up', 'SignUpController@index')->name('sign_up');
-Route::post('/posts', 'SignUpController@store');
-
-
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
 Route::get('/rooms/{room}', 'RoomController@show');

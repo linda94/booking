@@ -48,9 +48,9 @@
 
 		<div class="fancy text-center btn-group-justified">
 		<br>
-			<button type="submit" class="btn_main col-xs-5 col-centered" id="login" onclick="location.href='{{ route('log_in') }}'"> Logg inn </button>
+			<button type="submit" class="btn_main col-xs-5 col-centered" id="login" onclick="location.href='{{ route('login') }}'"> Logg inn </button>
 			
-			<button type="submit" class="btn_main col-xs-5 col-centered" onclick="location.href='{{ route('sign_up') }}'"> Ny bruker </button>
+			<button type="submit" class="btn_main col-xs-5 col-centered" onclick="location.href='{{ route('register') }}'"> Ny bruker </button>
 		</div>
 	</div>
 </div>	

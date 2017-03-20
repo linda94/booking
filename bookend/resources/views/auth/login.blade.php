@@ -46,9 +46,13 @@
 				<a class="btn btn-link" href="{{ route('password.request') }}">
 					Forgot Your Password?
 				</a>
-				<button class="btn_frontPage col-xs-5" id="btn_new_user" onclick="location.href='{{ route('sign_up') }}'"> Ny bruker</button>
+				<button class="btn_frontPage col-xs-5" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
 			</div>
 		</form>
     </div>
 </div>
+
+@include ('layouts.footer')
+
 </body>
+</html>
