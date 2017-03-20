@@ -10,19 +10,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/rooms', function () {
+Route::get('/rooms', function () {
 
 	$rooms = DB::table('room')->get();
 
     return view('rooms', ['rooms' => $rooms]);
 }); 
 */
+
 Auth::routes();
+
+Route::get('/', 'WelcomeController@index');
+
+Route::get('/HTML/log_in', 'LogInController@index')->name('log_in');
+Route::get('/HTML/sign_up', 'SignUpController@index')->name('sign_up');
+Route::post('/posts', 'SignUpController@store');
+
 
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
