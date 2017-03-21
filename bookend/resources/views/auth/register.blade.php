@@ -21,7 +21,7 @@
     <div class="frame">
 		<h1 class="form-signing-heading reg_title"> Ny bruker </h1><br>
         <form class="form-signing" role="form" method="POST" action="{{ route('register') }}"> {{ csrf_field() }}
-		<div class="text-center{{ $errors->has('name') ? ' has-error' : '' }}">
+		<div class="text-center{{ $errors->has('name') ? ' has-error' : '' }}" id="div_form_space">
 			<input type="text" class="register-name" 
 			placeholder="Navn" name="name" value="{{ old('name') }}" required autofocus>
 			@if ($errors->has('name'))
@@ -41,7 +41,7 @@
 		</div>
 		<div class="text-center{{ $errors->has('password') ? ' has-error' : '' }}">
 			<input id="password" type="password" class="register-input" 
-			id="confirm_password" placeholder="Bekreft passord" name="password" required>
+			id="confirm_password" placeholder="Passord" name="password" required>
 			@if ($errors->has('password'))
 				<span class="help-block">
 					<strong>{{ $errors->first('password') }}</strong>
@@ -68,7 +68,8 @@
 	</div>
 </div>
 
-
+@include ('layouts.footer')
+<script src="{{ asset('js/ConfirmPassword.js') }}"></script>
 
 	</body>
 </html>
