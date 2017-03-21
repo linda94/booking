@@ -42,12 +42,13 @@
 				<label>
 					<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Husk meg
 				</label>
-				<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
-				<a class="btn btn-link" href="{{ route('password.request') }}">
-					Forgot Your Password?
-				</a>
-				<button class="btn_frontPage col-xs-5" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
 			</div>
+			
+				<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
+				
+				<button class="btn_frontPage" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
+			
+			<a class="btn btn-link" href="{{ route('password.request') }}"> Forgot Your Password? </a>
 		</form>
     </div>
 </div>

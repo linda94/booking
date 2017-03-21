@@ -21,8 +21,8 @@
     <div class="frame">
 		<h1 class="form-signing-heading reg_title"> Ny bruker </h1><br>
         <form class="form-signing" role="form" method="POST" action="{{ route('register') }}"> {{ csrf_field() }}
-		<div class="text-center{{ $errors->has('name') ? ' has-error' : '' }}" id="div_form_space">
-			<input type="text" class="register-name" 
+		<div class="text-center{{ $errors->has('name') ? ' has-error' : '' }}">
+			<input type="text" class="register-name" id="testinging"
 			placeholder="Navn" name="name" value="{{ old('name') }}" required autofocus>
 			@if ($errors->has('name'))
 				<span class="help-block">
@@ -31,7 +31,7 @@
 			@endif
 		</div>
 		<div class="text-center{{ $errors->has('email') ? ' has-error' : '' }}">	
-			<input id="email" type="email" class="register-input" placeholder="E-post" 
+			<input type="email" class="register-input" placeholder="E-post" 
 			name="email" value="{{ old('email') }}" required>
 			@if ($errors->has('email'))
 				<span class="help-block">
