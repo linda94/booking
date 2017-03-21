@@ -96,7 +96,7 @@ class RoomController extends Controller
      */
     public function update(Request $request, Room $room)
     {
-        $room = App\Room::find(1);
+        $room = App\Room::find($room);
 
         //$room->name = 'NewRoomName';
         //$room->capacity ='NewCapacity';

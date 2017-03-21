@@ -6,7 +6,7 @@
 <body>
 	<h1> {{$room->name}} </h1>
 
-<form method="PATCH" action="/rooms{room}">
+<form method="PATCH" action="/rooms/1">
 
 	{{ csrf_field() }} 
 

@@ -25,6 +25,8 @@ Route::get('/rooms', function () {
 
 Auth::routes();
 
+Route::get('/bookingV', 'BookingController@index')
+
 Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
@@ -34,4 +36,4 @@ Route::get('/editroom', 'RoomController@editroom');
 
 Route::post('/newroom', 'RoomController@store');
 
-Route::patch('/rooms/{room}', 'RoomController@update');
+Route::patch('/rooms{room}/', 'RoomController@update');
