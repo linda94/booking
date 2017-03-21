@@ -34,4 +34,4 @@ Route::get('/editroom', 'RoomController@editroom');
 
 Route::post('/newroom', 'RoomController@store');
 
-Route::patch('/rooms/{room}', 'RoomController@update');
+Route::patch('/rooms{room}/', 'RoomController@update');
