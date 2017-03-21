@@ -4,10 +4,9 @@
     <title>Møterom</title>
 </head>
 <body>
-    <ul>
         <h1>Rooms:</h1>
-        <li>
-        
+    <ul>
+
         <?php foreach ($rooms as $room) { ?>
             <li>
                 <a href="/rooms/{{ $room->id }}"> 
@@ -15,10 +14,9 @@
                 </a>
             </li>
         <?php } ?>
-        
-        </li>
     </ul>
 
+        <h1>Options:</h1>
     <div>
         <a href=/newroom>Submit New room</a>
     </div>
@@ -26,6 +24,10 @@
     <div>
         <a href=/editroom>Edit room</a>
     </div>
+    <div>
+        <a href=/home>Back</a>
+    </div>
+
 
 </body>
 </html>
