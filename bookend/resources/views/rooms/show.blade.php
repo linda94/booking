@@ -8,7 +8,8 @@
 
 <form method="PATCH" action="/rooms/1">
 
-	{{ csrf_field() }} 
+	{{ csrf_field() }}
+  {!! method_field('patch') !!} 
 
   <div class="form-group">
     <label for="1">New Room name</label>
