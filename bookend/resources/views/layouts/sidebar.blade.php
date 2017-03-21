@@ -29,9 +29,17 @@
 			  <li><a href="#">Min profil</a></li>
 			  <li><a href="#">Rom liste </a>
 			  <ul class="room_list">
+			  
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
-				<li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
-				<li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
+			    <?php foreach ($rooms as $room) { ?>
+            	<li>
+                <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> <a href="/rooms/{{ $room->id }}"> 
+                <?php echo $room->name; ?>
+                </a>
+            	</li>
+        		<?php } ?>
+
+
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
 				  </ul>

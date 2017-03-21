@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use DB;
-
-class BookingController extends Controller
+class SidebarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +13,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-
-        $rooms = DB::table('room')->get();
-
-        return view('bookingV', compact('rooms'));
+        //
     }
 
     /**
