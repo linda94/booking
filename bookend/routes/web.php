@@ -25,8 +25,12 @@ Route::get('/rooms', function () {
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/bookingV', 'BookingController@index')
 
+=======
+Route::get('/bookingV', 'BookingController@index');
+>>>>>>> bdd4f14329373f0148fcafec131d3c807ca80c12
 Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');

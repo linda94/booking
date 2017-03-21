@@ -8,6 +8,7 @@ body {
   min-height: 100%;
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  overflow-x: hidden;
 }
 .frame {
   min-width: 362px;
@@ -283,10 +284,6 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0
 margin-left: 20px;
 }
 
------------ /* ikke for side meny noe mer */
-
-
-
 ----------- /* Footer */
 html {
 position: relative;
@@ -307,6 +304,12 @@ padding: 0 15px;
 .cont_div .text-muted {
 margin: 10px 0;
 text-align: center;
+}
+.stay_on_top {
+	z-index: 99;
+	position: relative;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 
