@@ -27,6 +27,5 @@
     </div>
   </div>
 @include ('layouts.footer')
->>>>>>> bdd4f14329373f0148fcafec131d3c807ca80c12
 </body>
 </html>
