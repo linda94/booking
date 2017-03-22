@@ -10,9 +10,15 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
+
                 <div class="panel-body">
                     <a href="/rooms">Manage your rooms</a>
                 </div>
+
+                <div class="panel-body">
+                    <a href="/bookingV">Booking</a>
+                </div>
+
             </div>
         </div>
     </div>

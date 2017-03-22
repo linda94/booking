@@ -15,9 +15,10 @@
 			<ul class="nav navbar-nav">
 			  <li>
 				<div class="dropdown dd_div">
-				  <button class="btn dropdown-toggle dd_knappen" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> CoWorx <span class="caret"></span></button>
+				  <button class="btn dropdown-toggle dd_knappen" href="#" data-toggle="dropdown" 
+				  aria-haspopup="true" aria-expanded="false"> CoWorx <span class="caret"></span></button>
 				  <ul class="dropdown-menu">
-					<li class="dropdown-header dd_text_header"> Dine andre løsninger </li>
+					<li class="dropdown-header dd_text_header"> Dine andre lÃ¸sninger </li>
 					<!-- Give items in this list class="dd_text_item" -->
 					<li class="dd_text_item"><a href="#"> Google </a></li>
 					<li class="dropdown-header dd_text_header"> Brukerinnstillinger </li>
@@ -29,9 +30,18 @@
 			  <li><a href="#">Min profil</a></li>
 			  <li><a href="#">Rom liste </a>
 			  <ul class="room_list">
+
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
-				<li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
-				<li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
+			   <?php foreach ($rooms as $room) { ?>
+            	<li>
+                	<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
+                	<a href="/rooms/{{ $room->id }}"> 
+               			<?php echo $room->name; ?>
+                	</a>
+            	</li>
+        		<?php } ?>
+
+
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
 				  </ul>
