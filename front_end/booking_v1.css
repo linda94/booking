@@ -5,9 +5,19 @@ p {
 	color: black !important;
 }
 
-#date {
+.flexContainer {
+	display: flex;
 	width: 50% !important;
-	margin: 0 auto;
+	margin: 0 auto; 
+}
+
+#date {
+	flex: 1;
+	border-radius: 0;
+}
+
+#submit {
+	border-radius: 0;
 }
 
 @media (max-width: 768px){
