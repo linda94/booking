@@ -1,0 +1,279 @@
+body {
+	font-family: "Lato" !important;
+} 
+p {
+	color: black !important;
+}
+
+#date {
+	width: 50% !important;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px){
+	.navbar-fixed-side{
+		margin-left:-15px;margin-right:-15px
+	}
+}
+@media (min-width: 768px){
+	.navbar-fixed-side{
+		position:fixed;
+		margin:0 -15px;
+		height:100vh;
+		width: inherit;
+		overflow:auto;
+		border-top-width:0;
+		border-bottom-width:0;
+		border-radius:0
+	}
+	.navbar-fixed-side .container,.navbar-fixed-side .container-fluid{
+		width:auto;
+		padding-left:0;
+		padding-right:0
+	}
+	.navbar-fixed-side .navbar-header{
+		float:none
+	}
+	.navbar-fixed-side .navbar-brand{
+		height:auto
+	}
+	.navbar-fixed-side>.container .navbar-brand,.navbar-fixed-side>.container-fluid .navbar-brand{
+		margin-left:0
+	}
+	.navbar-fixed-side .navbar-collapse{
+		width:100%;
+		border-top:1px solid #e7e7e7
+	}
+	.navbar-fixed-side .navbar-nav{
+		float:none;
+		margin:0 -15px
+	}
+	.navbar-fixed-side .navbar-nav>li{
+		float:none
+	}
+	.navbar-fixed-side .navbar-nav>li>a{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	.navbar-fixed-side .navbar-form{
+		margin:0;
+		margin-left:-15px;
+		margin-right:-15px;
+		padding:10px 15px;
+		border-bottom:1px solid #e7e7e7
+	}
+	.navbar-fixed-side .navbar-text{
+		float:none;
+		margin-left:0;
+		margin-right:0
+	}
+	.navbar-fixed-side .navbar-left,.navbar-fixed-side .navbar-right{
+		float:none !important
+	}
+	.navbar-fixed-side .navbar-nav .dropdown-menu{
+		position:static;
+		float:none;
+		width:auto;
+		margin-top:0;
+		background-color:transparent;
+		border:0;
+		box-shadow:none;
+		border-bottom:1px solid #e7e7e7
+	}
+	.navbar-fixed-side .navbar-nav .dropdown-menu>li>a,.navbar-fixed-side .navbar-nav .dropdown-menu .dropdown-header{
+		padding:5px 15px 5px 25px
+	}
+	.navbar-fixed-side .navbar-nav .dropdown-menu>li>a{
+		line-height:20px;color:#777
+	}
+
+	.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:hover,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:focus{
+		background-image:none
+	}
+	.navbar-fixed-side .navbar-nav .dropdown-menu>.active>a{
+		background-color:#e7e7e7;
+		color:#555
+	}/* Grå bakgrunn ved hover funksjon
+	.navbar-fixed-side .navbar-nav>li>a:hover,.navbar-fixed-side .navbar-nav>li>a:focus,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:hover,.navbar-fixed-side .navbar-nav .dropdown-menu>li>a:focus{
+		background-color:#f0f0f0;
+		color:#333
+	}*/
+	.navbar-fixed-side .dropdown>.dropdown-toggle,.navbar-fixed-side .dropdown-menu>.dropdown-header{
+		background-color:transparent !important;
+		cursor:default;
+		text-transform:uppercase;
+		border-bottom:none;
+		padding-bottom:0
+	}
+	/* Gjør at pilen bak lokasjonsnavnet forsvinner
+	.navbar-fixed-side .dropdown-toggle .caret{
+		display:none
+	} */
+	/* Gjør at dropdown menyen vises hele tiden
+	.navbar-fixed-side .dropdown-menu{
+		display:block
+	} */
+	.navbar-fixed-side.navbar-inverse .navbar-collapse,.navbar-fixed-side.navbar-inverse .navbar-nav>li>a,.navbar-fixed-side.navbar-inverse .navbar-form,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu{
+		border-color:#363636
+	}
+	.navbar-fixed-side.navbar-inverse .divider{
+		background-color:#363636
+	}
+	.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li>a{
+		color:#9d9d9d
+	}
+	.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>.active>a{
+		background-color:#090909;
+		color:#fff;
+	}
+	.navbar-fixed-side.navbar-inverse .navbar-nav>li:not(.active)>a:hover,.navbar-fixed-side.navbar-inverse .navbar-nav>li:not(.active)>a:focus,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li:not(.active)>a:hover,.navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu>li:not(.active)>a:focus{
+		background-color:#2f2f2f;
+		color:#fff
+	}
+	.navbar-fixed-side.navbar-inverse .dropdown>.dropdown-toggle{
+		color:#777777 !important
+	}
+}
+
+.navbar-default {
+	background-color: #18993f;
+}
+
+.dd_text_header {
+	font-size: 13px;
+}
+
+.dd_text_item {
+	font-size: 12px;
+}
+
+.dd_div {
+	padding-bottom: 2%;
+}
+
+.name_placerholder {
+	margin-top: -5%;
+}
+
+.dd_knappen {
+	font-size: 20px;
+	color: white;
+	font-weight: bold;
+	border: none !important;
+	background-color: transparent;
+	padding-left: 15px !important;
+}
+
+.navbar-default .navbar-nav>li>a, .room_list>li>a{
+	color: white;
+}
+
+.room_list>li {
+	margin-bottom: 3% !important;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu>li {
+	color: white;
+}
+.nav>li>p {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.add_a_white {
+	color: white !important;
+}
+
+.room_list, .user_list_in_location {
+	list-style-type: none;
+}
+.new_item {
+	list-style-type: none;
+	padding-bottom: 3%;
+}
+.calendar_glyp {
+	color: white;
+}
+.navbar-default .navbar-nav .open .dropdown-menu {
+	border-radius: 0;
+}
+.content_placeholder {
+	width: 100%;
+	height: 100vh;
+}
+.calendar_top {
+	width: 100%;
+	height: 10vh;
+	padding-top: 2%;
+}
+.book_a_room {
+	background-color: purple;
+	height: 60vh;
+	padding: 20px;
+	margin-top: 2%;
+	border: 2px solid black;
+}
+.room_header {
+	background-color: green;
+	height: 15vh;
+	width: 100%;
+}
+.change_day {
+	background-color: #2ecc71;
+ /*
+}
+}
+}
+}
+}
+.navbar-nav .open .dropdown-menu {
+	border-bottom: 1px solid #e7e7e7;	
+}
+
+
+.room_list>li {
+	margin-bottom: 3% !important;
+}
+
+
+
+.user_title {
+	padding-bottom: 10%;
+}
+
+
+
+.add_a_white {
+	color: white !important;
+	list-style-type: none;
+}
+
+
+
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form{
+	border: 0;
+	content: initial !important;
+}
+
+
+
+
+
+.nav>li {
+	margin-bottom: 5%;
+}
+.btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before, .btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before, .container-fluid:after, .container-fluid:before, .container:after, .container:before, .dl-horizontal dd:after, .dl-horizontal dd:before, .form-horizontal .form-group:after, .form-horizontal .form-group:before, .modal-footer:after, .modal-footer:before, .modal-header:after, .modal-header:before, .nav:after, .nav:before, .navbar-collapse:after, .navbar-collapse:before, .navbar-header:after, .navbar-header:before, .navbar:after, .navbar:before, .pager:after, .pager:before, .panel-body:after, .panel-body:before, .row:after, .row:before {
+	content: none !important;
+}
+
+.innhold {
+	background-color: blue;
+	height: 100vh;
+}
+
+
+
+
+
+
