@@ -20,7 +20,11 @@ class RoomController extends Controller
         //return $rooms;
         return view('rooms', compact('rooms'));
     }
-
+	
+	public function index2(){
+		return view('room_profile');
+	}
+	
     /**
      * Show the form for creating a new resource.
      *

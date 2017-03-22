@@ -197,6 +197,7 @@ p {
 .innhold {
 	position: relative;
 	margin-left: 200px;
+	z-index: 5;
 }
 .navbar-default .navbar-nav .open .dropdown-menu {
 	border-radius: 0;
