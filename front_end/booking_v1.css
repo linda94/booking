@@ -6,7 +6,6 @@ p {
 }
 
 #date {
-	width: 50% !important;
 	margin: 0 auto;
 }
 
@@ -220,7 +219,11 @@ p {
 }
 .change_day {
 	background-color: #2ecc71;
+}
+.test {
+	display: inline-block;
  /*
+}
 }
 }
 }
