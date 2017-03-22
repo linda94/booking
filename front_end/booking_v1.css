@@ -5,8 +5,24 @@ p {
 	color: black !important;
 }
 
+<<<<<<< HEAD
 #date {
 	margin: 0 auto;
+=======
+.flexContainer {
+	display: flex;
+	width: 50% !important;
+	margin: 0 auto; 
+}
+
+#date {
+	flex: 1;
+	border-radius: 0;
+}
+
+#submit {
+	border-radius: 0;
+>>>>>>> 682004db3b2cd3bb657de62c1ea409f8b3d3d04e
 }
 
 @media (max-width: 768px){
