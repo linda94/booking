@@ -19,7 +19,7 @@
         var date_input=$('input[name="date"]'); //our date input has the name "date"
         var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
-            format: 'mm/dd/yyyy',
+            format: 'dd/mm/yyyy',
             container: container,
             todayHighlight: true,
             autoclose: true,
@@ -98,11 +98,15 @@
                     <a class="btn btn-primary"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
                   </div>
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
-                    <div class="btn-group">
-                      <div class="btn btn-default"><strong><span class="hidden-xs">Tirsdag </span>24.01.17</strong></div>
-                      <div id="datepicker"> </div>
-                      <button type="button" class="btn btn-default" onclick="toggle_dp();"><span class="glyphicon glyphicon-calendar"></span></button>
-                    </div>
+                    <form method="post">
+				      <div class="form-group"> <!-- Date input -->
+				        <label class="control-label" for="date">Date</label>
+				        <input class="form-control" id="date" name="date" placeholder="DD/MM/YYYY" type="text"/>
+				      </div>
+				      <div class="form-group"> <!-- Submit button -->
+				        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+				      </div>
+				     </form>
                   </div>
                   <div class="col-xs-2 col-sm-4 col-md-4 text-right">
                     <a class="btn btn-primary"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
@@ -123,16 +127,6 @@
                 <div class="room_header">
                 </div>
               </div>
-
-<form method="post">
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-      </div>
-      <div class="form-group"> <!-- Submit button -->
-        <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-      </div>
-     </form>
  
 
             </div>
