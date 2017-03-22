@@ -1,29 +1,23 @@
 body {
 	font-family: "Lato";
-	color: white;
 } 
-p {
-	color: black !important;
-}
 
 @media (max-width: 768px){
 	.navbar-fixed-side{
 		margin-left:-15px;margin-right:-15px
 	}
-	.innhold {
-        margin-left: 0 !important;
-    }
 }
 @media (min-width: 768px){
 	.navbar-fixed-side{
 		position:fixed;
 		margin:0 -15px;
 		height:100vh;
-		width: 200px;
-		overflow:auto;
+		width: inherit;
+		overflow-y: auto;
+		overflow-x: hidden;
 		border-top-width:0;
 		border-bottom-width:0;
-		border-radius:0
+		border-radius:0;
 	}
 	.navbar-fixed-side .container,.navbar-fixed-side .container-fluid{
 		width:auto;
@@ -192,12 +186,6 @@ p {
 }
 .calendar_glyp {
 	color: white;
-}
-
-.innhold {
-	position: relative;
-	margin-left: 200px;
-	z-index: 5;
 }
 .navbar-default .navbar-nav .open .dropdown-menu {
 	border-radius: 0;

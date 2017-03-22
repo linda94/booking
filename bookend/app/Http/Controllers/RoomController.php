@@ -22,7 +22,8 @@ class RoomController extends Controller
     }
 	
 	public function index2(){
-		return view('room_profile');
+		$rooms = DB::table('room')->get();
+		return view('room_profile', compact('rooms'));
 	}
 	
     /**

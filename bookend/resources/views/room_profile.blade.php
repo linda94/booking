@@ -18,9 +18,7 @@
 <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
 <div class="container-fluid">
 	<div class="row">
-	<div class="col-sm-2">
-		
-	</div>
+		@include ('layouts.sidebar')
 	
 		<div class="col-sm-10">
 			<div class="page-header room_header_div">
@@ -46,7 +44,7 @@
 						<p><b>Room for:</b><span> 6 people</span></p>
 						<p><b>Equipment:</b><span> Screen</span></p>
 						<p><b>Floor number:</b><span> 2</span></p>
-						<div class="btn btn-primary">Book this room</div>
+						<div class="btn btn-primary btn_placeholder_room">Some placeholder</div>
 					</div>
 				</div>
 				<div class="row"><br/></div>

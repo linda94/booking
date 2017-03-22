@@ -26,8 +26,6 @@ Route::get('/rooms', function () {
 Auth::routes();
 
 Route::get('/room_profile', 'RoomController@index2');
-
-
 Route::get('/bookingV', 'BookingController@index');
 Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');

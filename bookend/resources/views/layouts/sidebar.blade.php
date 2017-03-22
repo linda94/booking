@@ -1,4 +1,4 @@
-<div class="col-sm-2 col-lg-2">
+<div class="col-sm-2 col-lg-2 stay_on_top">
 	<nav class="navbar navbar-default navbar-fixed-side">
 		<div class="container-fluid test">
 		  <!-- Brand and toggle get grouped for better mobile display -->

@@ -307,12 +307,6 @@ padding: 0 15px;
 margin: 10px 0;
 text-align: center;
 }
-.stay_on_top {
-	z-index: 99;
-	position: relative;
-	width: 100%;
-	overflow-x: hidden;
-}
 
 /* ------------------- new room ----------- */
 
@@ -321,6 +315,12 @@ text-align: center;
 }
 .room_button {
 	margin-top:15px;
+}
+.btn_placeholder_room {
+	background-color: green;
+}
+.stay_on_top{
+	z-index:5;
 }
 
 

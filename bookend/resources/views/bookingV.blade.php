@@ -13,7 +13,7 @@
   </head>
   <body>
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
-    <div class="container-fluid stay_on_top">
+    <div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
 			<div class="col-sm-10 col-lg-10 innhold">
