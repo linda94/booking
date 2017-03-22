@@ -5,11 +5,6 @@ p {
 	color: black !important;
 }
 
-#date {
-	width: 50% !important;
-	margin: 0 auto;
-}
-
 @media (max-width: 768px){
 	.navbar-fixed-side{
 		margin-left:-15px;margin-right:-15px
@@ -220,7 +215,11 @@ p {
 }
 .change_day {
 	background-color: #2ecc71;
+}
+.test {
+	display: inline-block;
  /*
+}
 }
 }
 }
