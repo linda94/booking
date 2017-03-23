@@ -18,14 +18,22 @@
 
 <script>
   $(document).ready(function(){
+    $("#date").datepicker({
+      format: 'DD dd/mm/yyyy',
+      language: 'nb',
+    }).datepicker("setDate", new Date()); 
+
+
+
     var date_input=$('div[name="date"]'); //our date input has the name "date"
     var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
     date_input.datepicker({
-      format: 'dd/mm/yyyy',
+      format: 'DD DD/MM/YYYY',
       container: container,
       todayHighlight: true,
       autoclose: true,
       language: 'nb',
+      setDate: new Date(),
     })
   })
 </script>
@@ -103,7 +111,7 @@
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
                     <div class="form-group">
                       <div class="input-group date" id="date" name="date">
-                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+                            <input class="form-control" placeholder="DD/MM/YYYY" type="text"/>
                             <div class="input-group-addon"> 
                               <span class="glyphicon glyphicon-calendar"></span> 
                             </div>
