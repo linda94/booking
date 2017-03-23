@@ -5,6 +5,21 @@ p {
 	color: black !important;
 }
 
+.roomTable {
+	width: 100%;
+	color: black !important;
+	margin-top: 5px;
+}
+
+.roomTable, .roomTd, .roomTr {
+	border: 1px solid black;
+	text-align: center;
+}
+
+#firstTd {
+	width: 20%;
+}
+
 @media (max-width: 768px){
 	.navbar-fixed-side{
 		margin-left:-15px;margin-right:-15px
