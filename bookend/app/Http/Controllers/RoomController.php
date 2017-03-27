@@ -15,10 +15,10 @@ class RoomController extends Controller
      */
     public function index()
     {
-
         $rooms = DB::table('room')->get();
+		$users = DB::table('users')->get();
         //return $rooms;
-        return view('rooms', compact('rooms'));
+        return view('rooms', compact('rooms', 'users'));
     }
 	
 	public function index2(){
@@ -73,12 +73,15 @@ class RoomController extends Controller
      */
     public function show(Room $room) //Room::find(wildcard);
     {   
-
+	
+		$rooms = DB::table('room')->get();
+		$users = DB::table('users')->get();
+		
         //$room = Room::find($id);
 
         //return $room;
 
-        return view('rooms.show', compact('room'));
+        return view('rooms.show', compact('room', 'rooms', 'users'));
     }
 
     /**
