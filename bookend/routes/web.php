@@ -22,16 +22,19 @@ Route::get('/rooms', function () {
     return view('rooms', ['rooms' => $rooms]);
 }); 
 */
+use App\Room;
 
 Auth::routes();
 
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2');
+Route::get('rooms/{room}/edit', 'RoomController@edit');
+Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 
 Route::get('/bookingV', 'BookingController@index');
 Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
-Route::get('/rooms/{room}', 'RoomController@show');
+Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
 Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 

@@ -15,7 +15,7 @@
 </head>
 <body>
 
-<form method="PATCH" action="/rooms/1">
+<form method="PATCH" action="/rooms">
 
 	{{ csrf_field() }}
   {!! method_field('patch') !!} 

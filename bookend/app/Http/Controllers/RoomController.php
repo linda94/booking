@@ -92,9 +92,11 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function edit(Room $room)
+    public function edit($id)
     {
-        
+        $room = DB::table('room')->find($id);
+		
+		return view('rooms/edit_room', compact('room'));
     }
 
     /**
@@ -104,21 +106,19 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Room $room)
+    public function update(Request $request, $id)
     {
-        $room = App\Room::findOrFail($room);
-
-        //$room->name = 'NewRoomName';
-        //$room->capacity ='NewCapacity';
-        //$room->equipment ='equipment';
-
-        $room -> name = $request->NewRoomName;
-        $room -> capacity = $request->NewCapacity;
-        $room -> equipment = $request->equipment;
-
-        $room->save();
-
-        Return redirect('/rooms');
+		$room = DB::table('room')->find($id);
+		
+		$Room_name = $request->room_name;
+        $Room_capacity = $request->room_space;
+        $Room_Equipment = $request->room_equipment;
+		
+		DB::table('room')
+			->where('id', $id)
+			->update(array('name' => $Room_name, 'capacity' => $Room_capacity, 'equipment' => $Room_Equipment));
+			
+		return redirect()->route('room_profile', ['id' => $id]);
     }
 
     /**

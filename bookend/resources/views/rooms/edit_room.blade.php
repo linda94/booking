@@ -15,10 +15,9 @@
 </head>
 <body>
 
-<form method="PATCH" action="/rooms/1">
+{{ Form::model($room, array('route' => array('update', $room->id), 'method' => 'PUT')) }}
 
 	{{ csrf_field() }}
-  {!! method_field('patch') !!} 
 
 	<div class="container-fluid">
 		<div class="row">
@@ -54,7 +53,7 @@
 							<input class="room_inputs" type="text" name="room_equipment" 
 							placeholder="{{ $room->equipment }}"></input></span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
-							<div class="btn btn-primary btn_placeholder_room">Lagre endringene</div>
+							<button type="submit" class="btn btn-primary btn_placeholder_room">Lagre endringene</button>
 						</div>
 					</div>
 					<div class="row"><br/></div>
@@ -86,7 +85,7 @@
 			</div>
 		</div>
 	</div>
-</form>
+{{ Form::close() }}
 @include ('layouts.footer')
 </body>
 </html>
