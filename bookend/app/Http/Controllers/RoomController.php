@@ -131,5 +131,4 @@ class RoomController extends Controller
     {
         //
     }
-
 }

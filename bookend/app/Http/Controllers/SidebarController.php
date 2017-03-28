@@ -25,7 +25,6 @@ class SidebarController extends Controller
      */
     public function create()
     {
-
         $newroom = new Room;
 
         $newroom->name = "Nytt Rom";
@@ -33,8 +32,6 @@ class SidebarController extends Controller
         $newroom->Save();
 
         return view('newroom');
-
-        return redirect('bookingV');
     }
 
     /**
