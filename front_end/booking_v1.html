@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title></title>
     <meta charset="utf-8">
@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
 
 <!-- Include Date Range Picker -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
@@ -47,8 +51,52 @@
       var date = $('#date').datepicker('getDate');
       date.setTime(date.getTime() - (1000*60*60*24))
         $('#date').datepicker("setDate", date);
+    });    
+  });
+
+  /*$(function () {
+    $(".new_room").click(function() {
+    $('.room_lister').append('<div class="book_a_room col-sm-6 col-md-4"><div class="room_header text-center"><h4 class="room_title"> Markens </h4><p> 6 sitteplasser </p><p> HDMI, VGA </p></div><table class="roomTable"><tr class="roomTr"><td class="roomTd" id="firstTd">08:00</td><td class="roomTd tdspacing"></td></tr><tr class="roomTr"><td class="roomTd">08:30</td><td class="roomTd tdspacing"></td></table>');
+    })
+  });*/
+
+    $(function () {
+    $(".new_room").click(function() {
+      var kjop = $('.room_lister').append('<div class="book_a_room col-sm-6 col-md-4"><div class="room_header text-center"><h4 class="room_title"> Markens </h4><p> 6 sitteplasser </p><p> HDMI, VGA </p></div><table class="roomTable"></table>');
+      for(var i = 0; i < 10; i++) {
+        $(this).append('<tr class="roomTr"><th class="roomTd" id="firstTd">08:00</th><td class="roomTd tdspacing"></td></tr>');
+      } 
+    })
+  });
+
+
+  $(function () {
+  var isMouseDown = false,
+    isHighlighted;
+  $(".roomTable .tdspacing")
+    .mousedown(function () {
+      isMouseDown = true;
+      $(this).toggleClass("highlighted");
+      isHighlighted = $(this).hasClass("highlighted");
+      return false; // prevent text selection
+    })
+    .mouseover(function () {
+      if (isMouseDown) {
+        $(this).toggleClass("highlighted", isHighlighted);
+      }
+    })
+    .bind("selectstart", function () {
+      return false;
+    })
+
+  $(document)
+    .mouseup(function () {
+      isMouseDown = false;
     });
   });
+
+
+
 </script>
 
 
@@ -93,7 +141,7 @@
                     <li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
                     <li> <a href="#"> <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> Markens </a></li>
                       <ul>
-                        <li class="new_item"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
+                        <li class="new_item new_room"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
                       </ul>
                   </ul>
                 </li>
@@ -116,7 +164,7 @@
           <!-- your page content -->
           <div class="container-fluid content_placeholder">
             <div class="row">
-              <div class="calendar_top">
+              <div class="calendar_top page-header">
                 <div class="row">
                   <div class="col-xs-2 col-sm-4 col-md-4 text-left">
                     <a class="btn btn-primary prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
@@ -137,96 +185,495 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row room_lister">
               <div class="book_a_room col-sm-6 col-md-4">
-                <div class="room_header">
+                <div class="room_header text-center">
+                  <h4 class="room_title"> Markens </h4>
+                  <p> 6 sitteplasser </p>
+                  <p> HDMI, VGA </p>
                 </div>
                 	<table class="roomTable">
                 		<tr class="roomTr">
-                			<td class="roomTd" id="firstTd">
+                			<th class="roomTd" id="firstTd">
                 				08:00
+                			</th>
+                			<td class="roomTd tdspacing">
+                				
                 			</td>
-                			<td class="roomTd" class="tdspacing">
+                		</tr>
+                    <tr class="roomTr">
+                			<th class="roomTd">
+                				08:30
+                			</th>
+                			<td class="roomTd tdspacing">
                 				
                 			</td>
                 		</tr>
                 		<tr class="roomTr">
-                			<td class="roomTd">
+                			<th class="roomTd">
                 				09:00
-                			</td>
-                			<td class="roomTd">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<td class="roomTd">
-                				10:00
-                			</td>
-                			<td class="roomTd">
-                				
+                			</th>
+                			<td class="roomTd tdspacing">
+
                 			</td>
                 		</tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
                 	</table>
               </div>
               <div class="book_a_room col-sm-6 col-md-4">
-                <div class="room_header">
+                <div class="room_header text-center">
+                  <h4 class="room_title"> Lounge </h4>
+                  <p> 15 sitteplasser </p>
+                  <p> HDMI, VGA, Skjerm </p>
                 </div>
-                <table class="roomTable">
-                		<tr class="roomTr">
-                			<td class="roomTd" id="firstTd">
-                				08:00
-                			</td>
-                			<td class="roomTd" class="tdspacing">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<td class="roomTd">
-                				09:00
-                			</td>
-                			<td class="roomTd">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<td class="roomTd">
-                				10:00
-                			</td>
-                			<td class="roomTd">
-                				
-                			</td>
-                		</tr>
-                	</table>
+                  <table class="roomTable">
+                    <tr class="roomTr">
+                      <th class="roomTd" id="firstTd">
+                        08:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        08:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                  </table>
               </div>
               <div class="book_a_room col-sm-6 col-md-4">
-                <div class="room_header">
+                <div class="room_header text-center">
+                  <h4 class="room_title"> Tangen </h4>
+                  <p> 10 sitteplasser </p>
+                  <p> HDMI, VGA, Skjerm </p>
                 </div>
-                <table class="roomTable">
-                		<tr class="roomTr">
-                			<td class="roomTd" id="firstTd">
-                				08:00
-                			</td>
-                			<td class="roomTd" class="tdspacing">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<td class="roomTd">
-                				09:00
-                			</td>
-                			<td class="roomTd">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<td class="roomTd">
-                				10:00
-                			</td>
-                			<td class="roomTd">
-                				
-                			</td>
-                		</tr>
-                	</table>
+                  <table class="roomTable">
+                    <tr class="roomTr">
+                      <th class="roomTd" id="firstTd">
+                        08:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        08:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                  </table>
               </div>
  
 
@@ -239,5 +686,6 @@
 
     </div>
   </div>
+
 </body>
 </html>
