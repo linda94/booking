@@ -21,10 +21,12 @@ class RoomController extends Controller
         return view('rooms', compact('rooms', 'users'));
     }
 	
-	public function index2(){
+	public function index2(Room $room){
 		$rooms = DB::table('room')->get();
-		return view('room_profile', compact('rooms'));
+		$users = DB::table('users')->get();
+		return view('/rooms/edit_room', compact('room', 'rooms', 'users'));
 	}
+	
 	
     /**
      * Show the form for creating a new resource.
@@ -43,7 +45,7 @@ class RoomController extends Controller
      */
         public function editroom()
     {
-
+		return view('editroom');
     }
 
     /**
@@ -92,7 +94,7 @@ class RoomController extends Controller
      */
     public function edit(Room $room)
     {
-        //
+        
     }
 
     /**

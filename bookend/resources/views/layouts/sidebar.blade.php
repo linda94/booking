@@ -26,9 +26,9 @@
 				  </ul>
 				</div>
 			  </li>
-			  <li class="name_placeholder"><p>Kevin Benjamin Zeppo Adriaansen</p></li>
+			  <li class="name_placeholder"><p>{{ Auth::user()->name }}</p></li>
 			  <li><a href="#">Min profil</a></li>
-			  <li><a href="/room_profile"> Rom liste </a>
+			  <li><a> Rom liste </a>
 			  <ul class="room_list">
 
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->

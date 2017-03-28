@@ -23,7 +23,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-		
+			
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
@@ -31,9 +31,9 @@
 							<h1> {{ $room->name }} <small> {{ $room->capacity }} plasser</small></h1>
 						</div>
 						<div class="col-sm-1">
-							<button type="button" class="btn btn-default btn-lg room_button">
+							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-							</button>
+							</a>
 						</div>
 					</div>
 				</div>

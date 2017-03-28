@@ -22,8 +22,6 @@ class CreateTableRooms extends Migration
         });
     }
 
-
-
     /**
      * Reverse the migrations.
      *
