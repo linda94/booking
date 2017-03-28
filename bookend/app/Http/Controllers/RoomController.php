@@ -83,7 +83,7 @@ class RoomController extends Controller
 
         //return $room;
 
-        return view('rooms.show', compact('room', 'rooms', 'users'));
+        return view('rooms.show', compact('room', 'rooms', 'users', 'newroom'));
     }
 
     /**
@@ -131,4 +131,5 @@ class RoomController extends Controller
     {
         //
     }
+
 }

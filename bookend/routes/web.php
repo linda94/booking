@@ -38,6 +38,8 @@ Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
 Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
-Route::post('/newroom', 'RoomController@store');
+Route::get('/newroom', 'SidebarController@create');
+
+//Route::post('/newroom', 'RoomController@store');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');

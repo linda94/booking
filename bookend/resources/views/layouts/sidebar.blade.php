@@ -27,7 +27,7 @@
 				</div>
 			  </li>
 			  <li class="name_placeholder"><p>{{ Auth::user()->name }}</p></li>
-			  <li><a href="#">Min profil</a></li>
+			  <li><a href="/home">Min profil</a></li>
 			  <li><a> Rom liste </a>
 			  <ul class="room_list">
 
@@ -43,7 +43,7 @@
 
 
 				  <ul>
-					<li class="new_item"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
+					<li class="new_item"> <a href="{{action('SidebarController@create')}}" class="add_a_white"> + Nytt rom </a> </li>
 				  </ul>
 			  </ul>
 			</li>

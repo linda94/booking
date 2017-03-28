@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Room;
+use DB;
 
 class SidebarController extends Controller
 {
@@ -23,7 +25,16 @@ class SidebarController extends Controller
      */
     public function create()
     {
-        //
+
+        $newroom = new Room;
+
+        $newroom->name = "Nytt Rom";
+
+        $newroom->Save();
+
+        return view('newroom');
+
+        return redirect('bookingV');
     }
 
     /**
