@@ -11,11 +11,13 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 	<link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 	
 </head>
 <body>
+
 
 <div class="mid">
 	<div class="container col-xs-8 slideshow" id="carousel">
@@ -53,7 +55,7 @@
 			<button type="submit" class="btn_main col-xs-5 col-centered" onclick="location.href='{{ route('register') }}'"> Ny bruker </button>
 		</div>
 	</div>
-</div>	
+</div>
 
 @include ('layouts.footer')
 

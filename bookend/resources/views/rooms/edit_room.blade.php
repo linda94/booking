@@ -2,7 +2,7 @@
 <html>
 <head>
   <title></title>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -11,6 +11,14 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+
+  <!--[if IE]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 
 </head>
 <body>
@@ -28,32 +36,32 @@
 					<div class="container-fluid">
 						<div class="col-sm-11">
 							<h1> 
-								<input class="room_inputs" type="text" name="room_name" placeholder="{{ $room->name }}"></input>
+								<input class="room_inputs" type="text" name="room_name" value="{{ $room->name }}"></input>
 							</h1>
-						</div>
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-default btn-lg room_button">
-								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-							</button>
 						</div>
 					</div>
 				</div>
 			  <!-- your page content -->
 				<div class="container-fluid col-sm-6">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="50%" width="100%"/>
+						<img src="{{ asset('images/meeting-room-g1.jpg')}}" id="blah" 
+						alt="Last opp ett bilde" height="50%" width="100%"/>
 					</div>
 					<div class="row">
 						<div class="well well-sm">
 							<br/>
 							<p><b>Room for:</b><span>
-							<input class="room_inputs" type="text" name="room_space" 
-							placeholder="{{ $room->capacity }}"> people</input></span></p>
+							<input class="room_inputs" type="text" name="room_space"
+							value="{{ $room->capacity }}"> people</input></span></p>
 							<p><b>Equipment:</b><span>
 							<input class="room_inputs" type="text" name="room_equipment" 
-							placeholder="{{ $room->equipment }}"></input></span></p>
+							value="{{ $room->equipment }}"></input></span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
 							<button type="submit" class="btn btn-primary btn_placeholder_room">Lagre endringene</button>
+							{{ Form::model($room, array('route' => array('delete', $room->id), 'method' => 'delete')) }}
+							<button class="btn btn-primary btn_placeholder_room">Slett rom</button>
+							{{ Form::close() }}
+							<input type='file' onchange="readURL(this);"/>
 						</div>
 					</div>
 					<div class="row"><br/></div>

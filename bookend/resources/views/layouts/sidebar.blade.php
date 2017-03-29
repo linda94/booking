@@ -27,6 +27,7 @@
 				</div>
 			  </li>
 			  <li class="name_placeholder"><p>{{ Auth::user()->name }}</p></li>
+			  <li><a href="/bookingV">Booking</a></li>
 			  <li><a href="/home">Min profil</a></li>
 			  <li><a> Rom liste </a>
 			  <ul class="room_list">

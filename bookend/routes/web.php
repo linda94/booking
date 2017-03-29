@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
+Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
 Route::get('/bookingV', 'BookingController@index');
 Route::get('/', 'WelcomeController@index');
