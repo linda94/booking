@@ -41,10 +41,25 @@
                 	</a>
             	</li>
         		<?php } ?>
-
-
 				  <ul>
-					<li class="new_item"> <a href="{{action('SidebarController@create')}}" class="add_a_white"> + Nytt rom </a> </li>
+					<li class="new_item"> <a href="#" class="add_a_white"
+					data-toggle="modal" data-target=".new_room"> + Nytt rom </a> </li>
+					<div class="modal new_room" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="mySmallModalLabel2">
+					  <div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+						  <div class="modal-content">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel2">Vil du lage ett nytt rom?</h4>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+								<button type="button" class="btn btn-default" onclick="location.href='{{action('SidebarController@create')}}'">OK</button>
+							  </div>
+							</div>
+						</div>
+					  </div>
+					</div>
 				  </ul>
 			  </ul>
 			</li>

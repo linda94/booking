@@ -33,7 +33,7 @@ class SidebarController extends Controller
 
         $newroom->Save();
 
-        return view('newroom');
+        return redirect('/bookingV');
     }
 
     /**

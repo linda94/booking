@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="no">
 <head>
   <title></title>
   <meta charset="utf-8">
@@ -59,7 +59,24 @@
 							<p><b>Floor number:</b><span> 2 </span></p>
 							<button type="submit" class="btn btn-primary btn_placeholder_room">Lagre endringene</button>
 							{{ Form::model($room, array('route' => array('delete', $room->id), 'method' => 'delete')) }}
-							<button class="btn btn-primary btn_placeholder_room">Slett rom</button>
+							<!-- Small modal -->
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Slett rom</button>
+							<div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+							  <div class="modal-dialog modal-sm" role="document">
+								<div class="modal-content">
+								  <div class="modal-content">
+									  <div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title" id="myModalLabel">Er du sikker pa at du vil slette {{ $room->name }}? </h4>
+									  </div>
+									  <div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
+										<button type="submit" class="btn btn-danger">Slett</button>
+									  </div>
+									</div>
+								</div>
+							  </div>
+							</div>
 							{{ Form::close() }}
 							<input type='file' onchange="readURL(this);"/>
 						</div>
