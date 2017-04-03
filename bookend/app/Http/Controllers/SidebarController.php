@@ -19,8 +19,8 @@ class SidebarController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
+     * Create a new room from the sidebar. Loads standard template which can then be edited from
+     * RoomController@edit + RoomController@update
      * @return \Illuminate\Http\Response
      */
     public function create()

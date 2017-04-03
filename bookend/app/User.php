@@ -4,7 +4,10 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+/**
+* Class for the User model. Used to create dynamic user objects which can be assigned variables.
+*
+*/
 class User extends Authenticatable
 {
     use Notifiable;
