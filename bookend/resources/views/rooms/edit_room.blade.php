@@ -58,6 +58,7 @@
 							value="{{ $room->equipment }}"></input></span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
 							<button type="submit" class="btn btn-primary btn_placeholder_room">Lagre endringene</button>
+							{{ Form::close() }}
 							{{ Form::model($room, array('route' => array('delete', $room->id), 'method' => 'delete')) }}
 							<!-- Small modal -->
 							<button type="button" class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Slett rom</button>
@@ -79,6 +80,17 @@
 							</div>
 							{{ Form::close() }}
 							<input type='file' onchange="readURL(this);"/>
+							<div class="dropdown dd_div">
+								<button class="btn dropdown-toggle " href="#" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false"> Brukerrettigheter <span class="caret"></span></button>
+								<ul class="dropdown-menu">
+									<li class="dropdown-header dd_text_header"> Hvilke brukernivaer kan booke rommet? </li>
+									<!-- Give items in this list class="dd_text_item" -->
+									<li class="dd_text_item"><a href="#"> Brukere </a></li>
+									<li class="dd_text_item"> <a href="#"> Super brukere </a> </li>
+									<li class="dd_text_item"><a href="#"> Administrator </a></li>
+							  </ul>
+							</div>
 						</div>
 					</div>
 					<div class="row"><br/></div>
@@ -110,7 +122,7 @@
 			</div>
 		</div>
 	</div>
-{{ Form::close() }}
+
 @include ('layouts.footer')
 </body>
 </html>
