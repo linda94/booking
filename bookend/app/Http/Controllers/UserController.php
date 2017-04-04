@@ -9,7 +9,7 @@ use DB;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Retrieves user data from the databse and passes the user data to the booking view
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,7 +18,7 @@ class UserController extends Controller
 
         $users = DB::table('users')->get();
         //return $users;
-        return view('BookingV', compact('rooms'));
+        return view('BookingV', compact('users'));
     }
 
     /**

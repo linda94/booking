@@ -9,8 +9,8 @@ use App\Room;
 class BookingController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Returns booking view
+     * Retrieves room and user data from the DB and passes them to booking view
      * @return \Illuminate\Http\Response
      */
     public function index(Room $room)

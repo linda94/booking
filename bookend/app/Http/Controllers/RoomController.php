@@ -49,8 +49,8 @@ class RoomController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Store a new room in the database. This method is used primarilly as a test method for creating rooms.
+     * The proper method for creating rooms is located in SidebarController@Create
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -68,8 +68,8 @@ class RoomController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Display the required room. Takes a wildcard and creates a url based on the wildcard/room object (primary key from the DB table in question)
+     * Uses Route model binding.
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
@@ -87,7 +87,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Edit the curent room. Based of wildcard $id that corresponds with current room.
      *
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
@@ -100,7 +100,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Stores edited room information in the databse.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Room  $room
@@ -122,7 +122,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete a room completely from the database.
      *
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
