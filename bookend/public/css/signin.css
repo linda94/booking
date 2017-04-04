@@ -321,6 +321,11 @@ text-align: center;
 .stay_on_top{
 	z-index:5;
 }
+.styling_dd_button{
+	background-color:transparent;
+	border: 0;
+	margin-left: 20px;
+}
 
 
 

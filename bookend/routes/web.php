@@ -41,6 +41,11 @@ Route::get('/editroom', 'RoomController@editroom');
 
 Route::get('/newroom', 'SidebarController@create');
 
+Route::get('/logout', function() {
+	Auth::logout();
+	return redirect('/');
+	})->name('logout');
+
 //Route::post('/newroom', 'RoomController@store');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');

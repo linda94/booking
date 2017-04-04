@@ -22,7 +22,8 @@
 					<!-- Give items in this list class="dd_text_item" -->
 					<li class="dd_text_item"><a href="#"> Google </a></li>
 					<li class="dropdown-header dd_text_header"> Brukerinnstillinger </li>
-					<li class="dd_text_item"> <a href="#"> Logg ut </a> </li>
+					<li class="dd_text_item"> <button class="styling_dd_button" 
+					onclick="location.href='{{ route('logout') }}'"> Logg ut </button> </li>
 				  </ul>
 				</div>
 			  </li>
