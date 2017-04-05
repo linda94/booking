@@ -36,7 +36,7 @@
 					<div class="container-fluid">
 						<div class="col-sm-11">
 							<h1> 
-								<input class="room_inputs" type="text" name="room_name" value="{{ $room->name }}"></input>
+								<input class="room_inputs" type="text" name="room_name" value="{{ $room->name }}" required ></input>
 							</h1>
 						</div>
 					</div>
@@ -52,10 +52,10 @@
 							<br/>
 							<p><b>Room for:</b><span>
 							<input class="room_inputs" type="text" name="room_space"
-							value="{{ $room->capacity }}"> people</input></span></p>
+							value="{{ $room->capacity }}" required > people</input></span></p>
 							<p><b>Equipment:</b><span>
 							<input class="room_inputs" type="text" name="room_equipment" 
-							value="{{ $room->equipment }}"></input></span></p>
+							value="{{ $room->equipment }}" required ></input></span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
 							<button type="submit" class="btn btn-primary btn_placeholder_room">Lagre endringene</button>
 							{{ Form::close() }}

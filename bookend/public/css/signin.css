@@ -326,8 +326,21 @@ text-align: center;
 	border: 0;
 	margin-left: 20px;
 }
-
-
+.email_spacer{
+margin-top: 8px;
+}
+.btn_emailPage {
+width: 100%;
+font-size: 16px;
+border: 1px solid #808080;
+border-radius: 8px;
+padding: 7px;
+background-color: #4CAF50;
+color: #ffffff;
+}
+.reset_spacing {
+	padding: 5px;
+}
 
 
 
