@@ -7,19 +7,17 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
-class ExampleTest extends TestCase
+class testDatabase extends TestCase
 {
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testDatabase()
     {
-        $response = $this->get('/');
-        $response = $this->get('/register');
-        $response = $this->get('/login');
-
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('users', [
+        'email' => 'danielconnery1@hotmail.com'
+    ]);
     }
 }
