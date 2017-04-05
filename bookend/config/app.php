@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Laravel',
+    'name' => 'Book and Meet',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
-
+        //Laravel\Dusk\DuskServiceProvider::class,
         /*
          * Application Service Providers...
          */
