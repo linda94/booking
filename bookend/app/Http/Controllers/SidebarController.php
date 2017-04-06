@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Room;
+use DB;
 
 class SidebarController extends Controller
 {
@@ -17,13 +19,21 @@ class SidebarController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
+     * Create a new room from the sidebar. Loads standard template which can then be edited from
+     * RoomController@edit + RoomController@update
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $newroom = new Room;
+
+        $newroom->name = "Nytt Rom";
+        $newroom->equipment = "Default";
+        $newroom->capacity = 0;
+
+        $newroom->Save();
+
+        return redirect('/bookingV');
     }
 
     /**

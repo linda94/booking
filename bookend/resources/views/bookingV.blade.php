@@ -10,22 +10,213 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+	<script src="{{ asset('js/nb.js') }}"></script>
+	<script src="{{ asset('js/kalender.js') }}"></script>
   </head>
   <body>
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
     <div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-			<div class="col-sm-10 col-lg-10 innhold">
-			  <!-- your page content --><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nec faucibus orci. Maecenas ut tempor massa, non faucibus felis. Vivamus facilisis lorem nec nisl rhoncus ultricies. Fusce in consequat nisl. Vivamus vel rhoncus diam. Aenean vitae arcu pharetra, dictum lectus ac, convallis lectus. Proin eget rutrum erat. Vestibulum suscipit convallis lacus, maximus efficitur mauris elementum vel. Donec pharetra augue eu diam porttitor ultricies.
-			  Donec a tincidunt sem. Phasellus tempus ut purus id pharetra. Sed interdum metus mi, a commodo nunc dapibus vitae. Nullam ante lacus, sodales a tortor sed, rhoncus elementum nunc. Aliquam ultrices eu velit vitae porttitor. Sed lobortis felis dui, vitae viverra velit iaculis ac. Mauris non scelerisque orci. Pellentesque vitae lorem tortor. Mauris posuere tellus vel luctus ultricies. Nam vitae sodales nibh, sed consequat nulla.
-			  Phasellus viverra congue libero sit amet faucibus. Mauris cursus neque et nisi blandit suscipit. Ut ut lacinia nulla. Cras ex nisi, gravida nec commodo non, varius eu dolor. Etiam sit amet nulla vel diam gravida sagittis. Phasellus nisl nunc, vehicula at mauris id, auctor interdum libero. Nulla facilisi. Vivamus pharetra lectus urna, non tincidunt lectus facilisis vitae. Fusce sed magna libero.
-			  Donec eget eros sit amet purus vehicula ullamcorper. Quisque ac augue vitae nisl feugiat molestie eget fringilla dolor. Maecenas malesuada, eros nec vehicula viverra, sapien tellus suscipit ex, nec sagittis tellus odio vel sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc at interdum dui. Sed non augue eget libero dapibus laoreet. Sed felis ante, pulvinar a egestas at, sodales id magna. Phasellus dignissim nibh urna, eget tincidunt purus rutrum vitae. Nulla suscipit elit fringilla augue placerat lacinia. Mauris luctus venenatis gravida. Aliquam eget felis sit amet neque pretium semper id eget lacus. Aliquam erat volutpat. Nam id rutrum elit. Donec ut ullamcorper elit. Nullam blandit, mauris sit amet porttitor molestie, velit augue semper massa, sit amet accumsan turpis diam at ante. Cras eleifend laoreet enim, sit amet congue ante aliquet vel.
-			  Praesent diam diam, hendrerit ut suscipit eleifend, sodales nec sem. Quisque id augue et enim egestas interdum. Vivamus feugiat libero ut massa rutrum vehicula quis eu ligula. Aliquam erat volutpat. Sed nec condimentum elit, at dignissim mauris. Praesent auctor nibh vel libero euismod fringilla. Donec in tortor congue, sollicitudin enim in, eleifend velit. Nulla quis facilisis lorem.
-			</p>
+			<div class="col-sm-9 col-md-10 col-lg-10">
+          <!-- your page content -->
+          <div class="container-fluid content_placeholder">
+            <div class="row">
+              <div class="calendar_top page-header">
+                <div class="row">
+                  <div class="col-xs-2 col-sm-4 col-md-4 text-left">
+                    <a class="btn btn-primary prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
+                  </div>
+                  <div class="col-xs-8 col-sm-4 col-md-4 text-center">
+                    <div class="form-group">
+                      <div class="input-group date" id="date" name="date">
+                            <input class="form-control" type="text"/>
+                            <div class="input-group-addon"> 
+                              <span class="glyphicon glyphicon-calendar"></span> 
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-2 col-sm-4 col-md-4 text-right">
+                    <a class="btn btn-primary next-day"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row room_lister">
+			@foreach ($rooms as $room)
+              <div class="book_a_room col-sm-6 col-md-4">
+                <div class="room_header text-center">
+                  <h4 class="room_title"> {{ $room->name }} </h4>
+                  <p> {{ $room->capacity }} sitteplasser </p>
+                  <p> {{ $room->equipment }} </p>
+                </div>
+                	<table class="roomTable">
+                		<tr class="roomTr">
+                			<th class="roomTd" id="firstTd">
+                				08:00
+                			</th>
+                			<td class="roomTd tdspacing">
+                				
+                			</td>
+                		</tr>
+                    <tr class="roomTr">
+                			<th class="roomTd">
+                				08:30
+                			</th>
+                			<td class="roomTd tdspacing">
+                				
+                			</td>
+                		</tr>
+                		<tr class="roomTr">
+                			<th class="roomTd">
+                				09:00
+                			</th>
+                			<td class="roomTd tdspacing">
+
+                			</td>
+                		</tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        09:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        10:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:00
+                      </th>
+                      <td class="roomTd tdspacing">
+
+                      </td>
+                    </tr>
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        11:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        12:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        13:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        14:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        15:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:00
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+
+                    <tr class="roomTr">
+                      <th class="roomTd">
+                        16:30
+                      </th>
+                      <td class="roomTd tdspacing">
+                        
+                      </td>
+                    </tr>
+                	</table>
+              </div>
+			@endforeach
+            </div>
+          </div>
+        </div>
+			@include ('layouts.footer')
 		</div>
-    </div>
-  </div>
-@include ('layouts.footer')
+	</div>
+
 </body>
 </html>

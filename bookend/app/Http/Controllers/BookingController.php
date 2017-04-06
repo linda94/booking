@@ -5,21 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
-
+use App\Room;
 class BookingController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
+     * Returns booking view
+     * Retrieves room and user data from the DB and passes them to booking view
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Room $room)
     {
 
-        $rooms = DB::table('room')->get();
-        $users = DB::table('users')->get();
+		$rooms = DB::table('room')->get();
+		$users = DB::table('users')->get();
 
-        return view('bookingV', compact('rooms', 'users'));
+        return view('bookingV', compact('room', 'rooms', 'users'));
     }
 
     /**

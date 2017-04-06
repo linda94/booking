@@ -22,13 +22,15 @@
 					<!-- Give items in this list class="dd_text_item" -->
 					<li class="dd_text_item"><a href="#"> Google </a></li>
 					<li class="dropdown-header dd_text_header"> Brukerinnstillinger </li>
-					<li class="dd_text_item"> <a href="#"> Logg ut </a> </li>
+					<li class="dd_text_item"> <button class="styling_dd_button" 
+					onclick="location.href='{{ route('logout') }}'"> Logg ut </button> </li>
 				  </ul>
 				</div>
 			  </li>
-			  <li class="name_placeholder"><p>Kevin Benjamin Zeppo Adriaansen</p></li>
-			  <li><a href="#">Min profil</a></li>
-			  <li><a href="/room_profile"> Rom liste </a>
+			  <li class="name_placeholder"><p>{{ Auth::user()->name }}</p></li>
+			  <li><a href="/bookingV">Booking</a></li>
+			  <li><a href="/home">Min profil</a></li>
+			  <li><a> Rom liste </a>
 			  <ul class="room_list">
 
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
@@ -40,10 +42,25 @@
                 	</a>
             	</li>
         		<?php } ?>
-
-
 				  <ul>
-					<li class="new_item"> <a href="#" class="add_a_white"> + Nytt rom </a> </li>
+					<li class="new_item"> <a href="#" class="add_a_white"
+					data-toggle="modal" data-target=".new_room"> + Nytt rom </a> </li>
+					<div class="modal new_room" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="mySmallModalLabel2">
+					  <div class="modal-dialog modal-sm" role="document">
+						<div class="modal-content">
+						  <div class="modal-content">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel2">Vil du lage ett nytt rom?</h4>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Avbryt</button>
+								<button type="button" class="btn btn-default" onclick="location.href='{{action('SidebarController@create')}}'">OK</button>
+							  </div>
+							</div>
+						</div>
+					  </div>
+					</div>
 				  </ul>
 			  </ul>
 			</li>

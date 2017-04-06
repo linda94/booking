@@ -11,11 +11,12 @@
     
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
 <body>
-<div class="container">
+<div class="container-fluid">
 	<div class="frame">
         <h1 class="form-signing-heading">Logg inn</h1>
 		<form class="form-signing" role="form" method="POST" action="{{ route('login') }}">
@@ -52,8 +53,8 @@
 		</form>
     </div>
 </div>
-
 @include ('layouts.footer')
+
 
 </body>
 </html>

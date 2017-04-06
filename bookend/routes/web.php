@@ -22,18 +22,30 @@ Route::get('/rooms', function () {
     return view('rooms', ['rooms' => $rooms]);
 }); 
 */
+use App\Room;
 
 Auth::routes();
 
-Route::get('/room_profile', 'RoomController@index2');
+Route::get('/rooms/edit_room/{room}', 'RoomController@index2');
+Route::get('rooms/{room}/edit', 'RoomController@edit');
+Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
+Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
+
 Route::get('/bookingV', 'BookingController@index');
 Route::get('/', 'WelcomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
-Route::get('/rooms/{room}', 'RoomController@show');
+Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
 Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
-Route::post('/newroom', 'RoomController@store');
+Route::get('/newroom', 'SidebarController@create');
+
+Route::get('/logout', function() {
+	Auth::logout();
+	return redirect('/');
+	})->name('logout');
+
+//Route::post('/newroom', 'RoomController@store');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');

@@ -1,7 +1,20 @@
 body {
 	font-family: "Lato";
 } 
-
+.roomTable {
+	width: 100%;
+	color: black !important;
+}
+.roomTable, .roomTd, .roomTr {
+	border: 1px solid lightgrey;
+	text-align: center;
+}
+.roomTd {
+	padding: 1% !important;
+}
+#firstTd {
+	width: 20%;
+}
 @media (max-width: 768px){
 	.navbar-fixed-side{
 		margin-left:-15px;margin-right:-15px
@@ -127,27 +140,21 @@ body {
 		color:#777777 !important
 	}
 }
-
 .navbar-default {
 	background-color: #18993f;
 }
-
 .dd_text_header {
 	font-size: 13px;
 }
-
 .dd_text_item {
 	font-size: 12px;
 }
-
 .dd_div {
 	padding-bottom: 2%;
 }
-
 .name_placerholder {
 	margin-top: -5%;
 }
-
 .dd_knappen {
 	font-size: 20px;
 	color: white;
@@ -156,15 +163,12 @@ body {
 	background-color: transparent;
 	padding-left: 15px !important;
 }
-
 .navbar-default .navbar-nav>li>a, .room_list>li>a{
 	color: white;
 }
-
 .room_list>li {
 	margin-bottom: 3% !important;
 }
-
 .navbar-default .navbar-nav .open .dropdown-menu>li>a, .navbar-default .navbar-nav .open .dropdown-menu>li {
 	color: white;
 }
@@ -189,6 +193,28 @@ body {
 }
 .navbar-default .navbar-nav .open .dropdown-menu {
 	border-radius: 0;
+}
+.content_placeholder {
+	width: 100%;
+	height: 100vh;
+}
+.calendar_top {
+	width: 100%;
+	height: 10vh;
+}
+.book_a_room {
+	padding: 20px;
+	padding-top: 0 !important;
+}
+.room_header {
+	height: 15vh;
+	width: 100%;
+}
+.change_day {
+	background-color: #2ecc71;
+}
+.highlighted {
+	background-color: grey;
 }
  /*
 .navbar-nav .open .dropdown-menu {
