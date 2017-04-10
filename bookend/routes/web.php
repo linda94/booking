@@ -33,7 +33,6 @@ Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
 Route::get('/bookingV', 'BookingController@index');
 Route::get('/', 'WelcomeController@index');
-Route::get('/home', 'HomeController@index');
 Route::get('/rooms', 'RoomController@index');
 Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
 Route::get('/newroom', 'RoomController@create');
@@ -45,6 +44,12 @@ Route::get('/logout', function() {
 	Auth::logout();
 	return redirect('/');
 	})->name('logout');
+	
+Route::get('/users/home', 'HomeController@index');
+Route::get('/users/home_edit', 'HomeController@index2');
+Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
+Route::PUT('/users/{users}', 'HomeController@update')->name('update_user');
+Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 
 //Route::post('/newroom', 'RoomController@store');
 
