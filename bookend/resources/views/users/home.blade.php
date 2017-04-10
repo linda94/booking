@@ -40,7 +40,7 @@
 							<p><b>E-post adresse:</b><span> {{ Auth::user()->email }} </span></p>
 							<p><b>Telefon:</b><span> {{ Auth::user()->phone }} </span></p>
 							<label for="comment"><b>Beskrivelse:</b></label>
-							<textarea readonly class="form-control" rows="9" id="comment">Mitt navn er {{ Auth::user()->name }}, og jeg jobber for min egen bedrift som heter {{ Auth::user()->company }}. Vist du vil ha tak i meg kan du kontake meg via mail {{ Auth::user()->email }} eller du kan ringe meg på {{ Auth::user()->phone }}.</textarea>
+							<textarea readonly class="form-control" rows="9" id="comment">Mitt navn er {{ Auth::user()->name }}, og jeg jobber for min egen bedrift som heter {{ Auth::user()->company }}. Hvis du vil ha tak i meg kan du kontake meg via mail {{ Auth::user()->email }} eller du kan ringe meg på {{ Auth::user()->phone }}.</textarea>
 							<br/><br/>
 						</div>
 					</div>
