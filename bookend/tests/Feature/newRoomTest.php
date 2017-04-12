@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use app\http\controllers\SidebarController.php;
+use app\http\controllers\SidebarController;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -17,6 +17,6 @@ class newRoomTest extends TestCase
      */
     public function testExample()
     {
-        SidebarController:create();
+        
     }
 }
