@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\User;
 
 class UserListController extends Controller
@@ -14,9 +13,9 @@ class UserListController extends Controller
      */
     public function index()
     {
-		$Userslists = User::all();
+		$Users = User::all();
 
-        return view('user_list', compact('Userlists'));
+        return view('user_list', compact('Users'));
     }
 
     /**
