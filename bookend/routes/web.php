@@ -23,6 +23,7 @@ Route::get('/rooms', function () {
 }); 
 */
 use App\Room;
+use App\User;
 
 Auth::routes();
 
