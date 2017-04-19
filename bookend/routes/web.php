@@ -48,6 +48,7 @@ Route::get('/logout', function() {
 Route::get('/users/home', 'HomeController@index');
 Route::get('/users/home_edit', 'HomeController@index2');
 Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
+Route::get('/user_list', 'UserListController@index'); // Til Userlist siden
 Route::PUT('/users/{users}', 'HomeController@update')->name('update_user');
 Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 
