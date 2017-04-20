@@ -15,10 +15,7 @@
 </head>
 <body>
 
-<form method="PATCH" action="/rooms">
-
 	{{ csrf_field() }}
-  {!! method_field('patch') !!} 
 
 	<div class="container-fluid">
 		<div class="row">
@@ -80,7 +77,7 @@
 			</div>
 		</div>
 	</div>
-</form>
+
 @include ('layouts.footer')
 </body>
 </html>

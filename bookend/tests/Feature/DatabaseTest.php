@@ -10,7 +10,9 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 class testDatabase extends TestCase
 {
     /**
-     * A basic test example.
+     * Test som sjekker database for en spesifik e-post adresse.
+     * ide for fremtidig feature / test: Når en ny løsning lages legges det automatisk til en admin bruker
+     * skriv en test for å sjekke at en bruker med navn "Administrator" finnes i databasen.
      *
      * @return void
      */
