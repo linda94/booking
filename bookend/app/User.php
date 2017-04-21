@@ -29,4 +29,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // public function scopeSerach($query, $user)
+    // {
+         // return $query->where('name', 'like' '%' .$user. '%');
+    // }
 }

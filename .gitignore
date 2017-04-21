@@ -2,6 +2,5 @@
 # #.bak vil si alle .bak filer
 
 *.bak
-
 .env
 
