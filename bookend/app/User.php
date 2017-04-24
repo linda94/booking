@@ -30,8 +30,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // public function scopeSerach($query, $user)
-    // {
-         // return $query->where('name', 'like' '%' .$user. '%');
-    // }
+   // public function scopeSerach($query, $user)
+   // {
+   //      return $query->where('name', 'like' '%' .$user. '%');
+   // }
 }
