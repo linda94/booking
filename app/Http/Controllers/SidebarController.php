@@ -33,7 +33,7 @@ class SidebarController extends Controller
 
         $newroom->Save();
 
-        return redirect()->route('room_profile', ['newroom' => $newroom]);
+        return redirect()->route('editroom_redirect', ['newroom' => $newroom]);
     }
 
     /**

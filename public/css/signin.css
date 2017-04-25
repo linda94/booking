@@ -280,6 +280,9 @@ box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0
 #adding_text_ny_bruker {
 margin-left: 20px;
 }
+.override_color {
+	color: black !important;
+}
 
 ----------- /* Footer */
 html {
@@ -365,6 +368,15 @@ textarea {
 	margin-top: 3px;
 }
 
+.active:active {
+  color: red;
+}
+.focus:focus {
+  color: red;
+}
+:target {
+  color: red;
+}
 
 /* ------------------- new room ----------- */
 

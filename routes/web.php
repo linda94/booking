@@ -28,7 +28,7 @@ use App\Role;
 
 Auth::routes();
 
-Route::get('/rooms/edit_room/{room}', 'RoomController@index2');
+Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
