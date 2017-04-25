@@ -30,7 +30,7 @@
 			  <li class="name_placeholder"><p>{{ Auth::user()->name }}</p></li>
 			  <li><a href="/bookingV">Booking</a></li>
 			  <li><a href="/users/home">Min profil</a></li>
-			  <li><a> Rom liste </a>
+			  <li><a> Romliste </a>
 			  <ul class="room_list">
 
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->

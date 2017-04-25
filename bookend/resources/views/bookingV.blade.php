@@ -26,21 +26,21 @@
             <div class="row">
               <div class="calendar_top page-header">
                 <div class="row">
-                  <div class="col-xs-2 col-sm-4 col-md-4 text-left">
-                    <a class="btn btn-primary prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
+                  <div class="col-xs-2 col-sm-4 col-md-4 text-right">
+                    <a class="btn_bookingVCalender btn"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
                   </div>
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
                     <div class="form-group">
                       <div class="input-group date" id="date" name="date">
-                            <input class="form-control" type="text"/>
+                            <input class="form-control" type="text" readonly />
                             <div class="input-group-addon"> 
                               <span class="glyphicon glyphicon-calendar"></span> 
                             </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-xs-2 col-sm-4 col-md-4 text-right">
-                    <a class="btn btn-primary next-day"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                  <div class="col-xs-2 col-sm-4 col-md-4 text-left">
+                    <a class="btn_bookingVCalender btn"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
                 </div>
               </div>

@@ -13,11 +13,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-{{ Form::model($users, array('route' => array('update_user', Auth::user()->id), 'method' => 'PUT')) }}
-{{ csrf_field() }}
+
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
+			{{ Form::model($users, array('route' => array('update_user', Auth::user()->id), 'method' => 'PUT')) }}
+			{{ csrf_field() }}
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">

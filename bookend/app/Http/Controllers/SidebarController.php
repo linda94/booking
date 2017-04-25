@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Room;
 use DB;
+use App\Room;
 
 class SidebarController extends Controller
 {
@@ -33,7 +33,7 @@ class SidebarController extends Controller
 
         $newroom->Save();
 
-        return redirect('/bookingV');
+        return redirect()->route('room_profile', ['newroom' => $newroom]);
     }
 
     /**

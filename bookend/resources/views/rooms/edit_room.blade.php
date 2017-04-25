@@ -23,14 +23,12 @@
 </head>
 <body>
 
-{{ Form::model($room, array('route' => array('update', $room->id), 'method' => 'PUT')) }}
-
-	{{ csrf_field() }}
 
 	<div class="container-fluid">
 		<div class="row">
-			@include ('layouts.sidebar')
-			
+			@include ('layouts.sidebar')		
+			{{ Form::model($room, array('route' => array('update', $room->id), 'method' => 'PUT')) }}
+			{{ csrf_field() }}
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">

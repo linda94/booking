@@ -354,6 +354,16 @@ textarea {
 #text-centering {
 	text-align: center;
 }
+.btn_bookingVCalender {
+	width: 50%;
+	font-size: 16px;
+	border: 1px solid #808080;
+	border-radius: 8px;
+	padding: 7px;
+	background-color: #4CAF50;
+	color: #ffffff;
+	margin-top: 3px;
+}
 
 
 /* ------------------- new room ----------- */

@@ -42,10 +42,7 @@ Route::get('/editroom', 'RoomController@editroom');
 
 Route::get('/newroom', 'SidebarController@create');
 
-Route::get('/logout', function() {
-	Auth::logout();
-	return redirect('/');
-	})->name('logout');
+Route::get('/logout', 'UserController@logout')->name('logout');
 	
 Route::get('/users/home', 'HomeController@index');
 Route::get('/users/home_edit', 'HomeController@index2');
