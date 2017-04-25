@@ -356,4 +356,23 @@ textarea {
 }
 
 
+/* ------------------- new room ----------- */
+
+#search {
+position:absolute; 
+margin-left: 750px;
+margin-top: -43px;
+width: 200px;
+padding: 7px;
+border: 1px solid;
+
+}
+
+#Usertb {
+ border-spacing:0;
+ border-collapse: collapse;  
+}
+
+
+
 

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\User;
+
 
 class UserListController extends Controller
 {
@@ -47,7 +50,9 @@ class UserListController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('user_list.show',compact('user'));
     }
 
     /**
