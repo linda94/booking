@@ -24,6 +24,7 @@ Route::get('/rooms', function () {
 */
 use App\Room;
 use App\User;
+use App\Role;
 
 Auth::routes();
 

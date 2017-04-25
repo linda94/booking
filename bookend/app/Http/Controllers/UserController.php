@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use DB;
+use App\Role;
+use App\User;
 
 class UserController extends Controller
 {
@@ -15,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-
+		$roles = DB::table('roles')->get();
         $users = DB::table('users')->get();
         //return $users;
         return view('BookingV', compact('users'));
@@ -84,6 +86,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+		
+	}
+	public function role() {
+
+
     }
 }

@@ -171,6 +171,10 @@ return [
         /*
          * Application Service Providers...
          */
+		 
+		//Brukernivåer 
+		Zizaco\Entrust\EntrustServiceProvider::class,
+		 
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
@@ -230,6 +234,8 @@ return [
 		
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
+		
+		'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
 
     ],
 

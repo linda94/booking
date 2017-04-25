@@ -1,7 +1,18 @@
 <?php
 
 return [
-
+	
+	/* 
+	Dette er får å implementere brukernivåer
+	*/
+	'providers' => [
+    'users' => [
+        'driver' => 'eloquent',
+        'model' => app\User::class,
+        'table' => 'users',
+    ],
+	],
+	
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

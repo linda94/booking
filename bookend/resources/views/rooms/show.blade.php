@@ -45,7 +45,7 @@
 							<p><b>Room for:</b><span> {{ $room->capacity }} people</span></p>
 							<p><b>Equipment:</b><span> {{ $room->equipment }} </span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
-							<div class="btn btn-primary btn_placeholder_room">Some placeholder</div>
+							//
 						</div>
 					</div>
 					<div class="row"><br/></div>
