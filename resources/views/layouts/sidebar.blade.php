@@ -28,8 +28,8 @@
 				</div>
 			  </li>
 			  <li class="name_placeholder"><a href="/users/home" class="override_color">{{ Auth::user()->name }}</a></li>
-			  <li><a class="active, target, focus" href="/bookingV">Booking</a></li>
-			  <li><a href="/users/home">Min profil</a></li>
+			  <li><a class="active" href="/bookingV">Booking</a></li>
+			  <li><a class="active" href="/users/home">Min profil</a></li>
 			  <li><a> Romliste </a>
 			  <ul class="room_list">
 

@@ -27,7 +27,7 @@
               <div class="calendar_top page-header">
                 <div class="row">
                   <div class="col-xs-2 col-sm-4 col-md-4 text-right">
-                    <a class="btn_bookingVCalender btn"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
+                    <a class="btn_bookingVCalender btn prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
                   </div>
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
                     <div class="form-group">
@@ -40,7 +40,7 @@
                     </div>
                   </div>
                   <div class="col-xs-2 col-sm-4 col-md-4 text-left">
-                    <a class="btn_bookingVCalender btn"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn_bookingVCalender btn next-day"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
                 </div>
               </div>

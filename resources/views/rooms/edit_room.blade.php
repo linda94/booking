@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
   <link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/tooltip.js') }}"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,7 +24,6 @@
 </head>
 <body>
 
-
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')		
@@ -32,10 +32,16 @@
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
-						<div class="col-sm-11">
+						<div class="col-sm-10">
 							<h1> 
 								<input class="room_inputs" type="text" name="room_name" value="{{ $room->name }}" required ></input>
 							</h1>
+						</div>
+						<div class="col-sm-2 text-left">
+							<div class="col-sm-12 edit_room_div">
+									<a class="color_edit_button" href="#" data-toggle="tooltip" data-placement="bottom" 
+									title="Avbryt endringene, dette vil ikke slette rommet"> Avbryt </a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -93,7 +99,7 @@
 					</div>
 					<div class="row"><br/></div>
 					<div class="row">
-						<img src="{{ asset('images/maps_place.png')}}" width="100%"/>
+						<input placeholder="Adresse til bygg" />
 					</div>
 					<br/>
 				</div>

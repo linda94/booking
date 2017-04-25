@@ -367,18 +367,19 @@ textarea {
 	color: #ffffff;
 	margin-top: 3px;
 }
-
-.active:active {
-  color: red;
+.edit_room_div {
+	border: 0px;
+	margin-top: 33px;
 }
-.focus:focus {
-  color: red;
+.color_edit_button {
+	font-size: 16px;
+	border: 1px solid #808080;
+	border-radius: 8px;
+	padding: 12px;
+	background-color: #ff0000;
+	color: #ffffff;
 }
-:target {
-  color: red;
-}
-
-/* ------------------- new room ----------- */
+/* ------------------- user list ----------- */
 
 #search {
 position:absolute; 
@@ -394,7 +395,3 @@ border: 1px solid;
  border-spacing:0;
  border-collapse: collapse;  
 }
-
-
-
-
