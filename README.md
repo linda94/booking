@@ -59,9 +59,9 @@ Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du 
 - **Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)**
 	1. Gå inn i composer.json
 	1. Gå til require-dev
-	1. Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
-	1. > 'composer update' 
-		i komandolinjen for mappen
+	1. Sett inn `,"heroku/heroku-buildpack-php": "*"`		(husk å sette komma først)
+	1. > composer update 
+		-i komandolinjen for mappen
 	1. > php artisan config:clear
 	1. > php artisan cache:clear
 - **Følg guide på heroku med å lage Procfile**
