@@ -17,7 +17,7 @@ Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store me
 
 -[Installer din foretrukne databaseløsning, eks: MySQL.](https://www.mysql.com/products/workbench/) Laravel kan konfirureres til å bruke flere populære databseløsninger som: MySQL, PostgreSQL, og SQLite.
 
--clone eller fork https://github.com/linda94/booking.git til din lokale Github mappe
+-Clone eller fork https://github.com/linda94/booking.git til din lokale Github mappe
 
 -Begynn arbeidet!
 
@@ -45,9 +45,9 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 1. 'debug' => env('APP_DEBUG', true), i app.php
 1. 'log' => 'errorlog', under Logging Configuration i app.php
 
-# Hva med heroku php buildpack for å få apache ting i bin mappen?
+### Hva med heroku php buildpack for å få apache ting i bin mappen?
 > "heroku/heroku-buildpack-php": "*"
-	denne inn i composer.json, under require-dev og så ta composer update
+> denne inn i composer.json, under require-dev og så ta composer update
 
 ### Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
 
@@ -81,19 +81,19 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 	heroku addons:create heroku-postgresql:hobby-dev
 - Sett opp Laravel med PostgreSQL, i database filen config/database.php
 	Sett inn disse parameterene øverst (etter <?php)
-		$url = parse_url(getenv("DATABASE_URL"));
-		$host = $url["host"];
-		$username = $url["user"];
-		$password = $url["pass"];
-		$database = substr($url["path"], 1);
+		`<addr>`$url = parse_url(getenv("DATABASE_URL"));
+		`<addr>`$host = $url["host"];
+		`<addr>`$username = $url["user"];
+		`<addr>`$password = $url["pass"];
+		`<addr>`$database = substr($url["path"], 1);
 	Under overskrifte 'Default Database Connection Name' endre til pgsql
-		'default' => env('DB_CONNECTION', 'pgsql'),
+		`<addr>`'default' => env('DB_CONNECTION', 'pgsql'),
 	Endre feltene under 'Database Connections' slik at de viser til feltene øverst:
-		'host' => env('DB_HOST', $host),
-		'port' => env('DB_PORT', '5432'),
-		'database' => env('DB_DATABASE', $database),
-		'username' => env('DB_USERNAME', $username),
-		'password' => env('DB_PASSWORD', $password),
+		`<addr>`'host' => env('DB_HOST', $host),
+		`<addr>`'port' => env('DB_PORT', '5432'),
+		`<addr>`'database' => env('DB_DATABASE', $database),
+		`<addr>`'username' => env('DB_USERNAME', $username),
+		`<addr>`'password' => env('DB_PASSWORD', $password),
 - Git add og commit + git push heroku master
 - Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)
 	heroku run php artisan migrate
