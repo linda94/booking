@@ -1,25 +1,29 @@
 # Book and Meet
 
-Velkommen til Book and Meet! En Spennende ny tjeneste for håndtering og booking av dine møterom og andre lokaler.
-
-Book and Meet er fortsatt under utvikling.
+Velkommen til Book and Meet! En spennende ny tjeneste for håndtering og booking av dine møterom og andre lokaler.
 
 Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store mengder funksjonalitet og tilpassning i både front end og back end.
+
+*Book and Meet er fortsatt under utvikling.*
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 
 ## Hurtig start guide
 
--[Installer Github desktop / Shell](https://desktop.github.com/)
+- [Installer Github desktop / Shell](https://desktop.github.com/)
 
--[Installer Laravel og andre nødvendige tillegg](https://laravel.com/docs/5.4/installation)
+- [Installer Laravel og andre nødvendige tillegg](https://laravel.com/docs/5.4/installation)
 
--[Installer din foretrukne databaseløsning, eks: MySQL.](https://www.mysql.com/products/workbench/) Laravel kan konfirureres til å bruke flere populære databseløsninger som: MySQL, PostgreSQL, og SQLite.
+- [Installer din foretrukne databaseløsning, eks: MySQL.](https://www.mysql.com/products/workbench/) Laravel kan konfigureres til å bruke flere populære databaseløsninger som: MySQL, PostgreSQL, og SQLite.
 
--Clone eller fork https://github.com/linda94/booking.git til din lokale Github mappe
+- Clone eller fork https://github.com/linda94/booking.git til din lokale Github mappe
 
--Begynn arbeidet!
+- **Familiariser deg med Laravel:**
+
+- [Dokumentasjon](https://laravel.com/docs/5.4)
+
+- [Video tutorials for de som lærer bedre visuelt](https://laracasts.com/series/laravel-from-scratch-2017)
 
 ## Heroku
 
@@ -31,14 +35,14 @@ Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du 
 ### Hva når man får den her feilmeldingen?
 *The only supported ciphers are AES-128-CBC and AES-256-CBC*
 <br/><br/>
-Kjør > php artisan key:generate --show
+> php artisan key:generate --show
 - kopier denne, med base64 og alt, lim inn i .env filen (APP_KEY), og kjør 'heroku config:set APP_KEY=…' hvor ... tilsvarer HELE key'en.
 
-- bruk php artisan config:clear
-- bruk php artisan cache:clear
-- git add .
-- git commit -m "something"
-- git push heroku master
+> php artisan config:clear
+> php artisan cache:clear
+> git add .
+> git commit -m "something"
+> git push heroku master
 
 ### Hvordan slå på debug?
 
@@ -56,9 +60,9 @@ Kjør > php artisan key:generate --show
 	1. Gå inn i composer.json
 	1. Gå til require-dev
 	1. Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
-	1. Kjør > 'composer update' i komandolinjen for mappen
-	1. Kjør > php artisan config:clear
-	1. Kjør > php artisan cache:clear
+	1. > 'composer update' i komandolinjen for mappen
+	1. > php artisan config:clear
+	1. > php artisan cache:clear
 - **Følg guide på heroku med å lage Procfile**
 - **Slå på debug for laravel og heroku sånn at laravel gir feilmeldinger i nettleseren**
 	1. Gå inn i config/app.php
@@ -68,8 +72,8 @@ Kjør > php artisan key:generate --show
 	1. Sett inn `'log' => 'errorlog',`
 - **Følg guide på heroku med å lage ny app på heroku (git add. + git commit + heroku create)**
 - **Følg guide på heroku med å sett opp en ny Laravel encryption key (kopier HELE key-en, med base 64 og alt)**
-	1. Kjør > php artisan config:clear
-	1. Kjør > php artisan cache:clear
+	1. > php artisan config:clear
+	1. > php artisan cache:clear
 - **Følg guide på heroku med å pushe/deploye til heroku (git add. + git commit + git push heroku master)**
 - **Åpne med heroku open eller gå til nettsideadressen du fikk av heroku create komandoen
 	Nå skal det vises laravel-forsiden**
@@ -78,7 +82,7 @@ Kjør > php artisan key:generate --show
 ### Hvordan sette opp HEROKU med LARAVEL + PGSQL DATABASE
 
 - **Legg til heroku postgresql addon til laravel-prosjektet, i kommandolinjen:**
-	>heroku addons:create heroku-postgresql:hobby-dev
+	> heroku addons:create heroku-postgresql:hobby-dev
 - **Sett opp Laravel med PostgreSQL, i database filen config/database.php**
 	Sett inn disse parameterene øverst (etter <?php)
    <br/><br/>
