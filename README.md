@@ -82,7 +82,7 @@ Kjør > php artisan key:generate --show
 - **Sett opp Laravel med PostgreSQL, i database filen config/database.php**
 	Sett inn disse parameterene øverst (etter <?php)
 	<br/><br/>
-		> $url = parse_url(getenv("DATABASE_URL"));
+		>$url = parse_url(getenv("DATABASE_URL"));
 		<br/><br/>
 		$host = $url["host"];
 		<br/><br/>
