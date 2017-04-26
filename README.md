@@ -81,11 +81,13 @@ Kjør > php artisan key:generate --show
 	>heroku addons:create heroku-postgresql:hobby-dev
 - **Sett opp Laravel med PostgreSQL, i database filen config/database.php**
 	Sett inn disse parameterene øverst (etter <?php)
-		`$url = parse_url(getenv("DATABASE_URL"));`
-		`$host = $url["host"];`
-		`$username = $url["user"];`
-		`$password = $url["pass"];`
-		`$database = substr($url["path"], 1);`
+		```
+		$url = parse_url(getenv("DATABASE_URL"));
+		$host = $url["host"];
+		$username = $url["user"];
+		$password = $url["pass"];
+		$database = substr($url["path"], 1);
+		```
 	-**Under overskriften 'Default Database Connection Name' endre til pgsql**
 	<br/><br/>
 		'default' => env('DB_CONNECTION', 'pgsql'),
