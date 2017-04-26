@@ -82,15 +82,15 @@ Kjør > php artisan key:generate --show
 - **Sett opp Laravel med PostgreSQL, i database filen config/database.php**
 	Sett inn disse parameterene øverst (etter <?php)
    <br/><br/>
-   ´$url = parse_url(getenv("DATABASE_URL"));´
+   `$url = parse_url(getenv("DATABASE_URL"));`
    <br/><br/>
-   ´$host = $url["host"];´
+   `$host = $url["host"];`
    <br/><br/>
-   ´$username = $url["user"];´
+   `$username = $url["user"];`
    <br/><br/>
-   ´$password = $url["pass"];´
+   `$password = $url["pass"];`
    <br/><br/>
-   ´$database = substr($url["path"], 1);´
+   `$database = substr($url["path"], 1);`
 
 	-**Under overskriften 'Default Database Connection Name' endre til pgsql**
 	<br/><br/>
@@ -98,16 +98,16 @@ Kjør > php artisan key:generate --show
 		<br/><br/>
 	-**Endre feltene under 'Database Connections' slik at de viser til feltene øverst:**
 	<br/><br/>
-		'host' => env('DB_HOST', $host),
+		`host' => env('DB_HOST', $host),`
 		<br/><br/>
-		'port' => env('DB_PORT', '5432'),
+		`port' => env('DB_PORT', '5432'),`
 		<br/><br/>
-		'database' => env('DB_DATABASE', $database),
+		`database' => env('DB_DATABASE', $database),`
 		<br/><br/>
-		'username' => env('DB_USERNAME', $username),
+		`username' => env('DB_USERNAME', $username),`
 		<br/><br/>
-		'password' => env('DB_PASSWORD', $password),
-		<br/><br/>
+		`password' => env('DB_PASSWORD', $password),`
+
 - **Git add og commit + git push heroku master**
 - **Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)**
 	> heroku run php artisan migrate
