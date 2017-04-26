@@ -1,3 +1,32 @@
+# Book and Meet
+
+Velkommen til Book and Meet! En Spennende ny tjeneste for håndtering og booking av dine møterom og andre lokaler.
+
+Book and Meet er fortsatt under utvikling.
+
+Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store mengder funksjonalitet og tilpassning i både front end og back end.
+
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+
+
+## Hurtig start guide
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
