@@ -28,7 +28,7 @@ Dette prosjektet er satt opp for å kunne brukes med [Heroku](https://www.heroku
 [Begynn med heroku's getting started with PHP guide](https://devcenter.heroku.com/articles/getting-started-with-php#introduction)
 Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du sjekke under:
 
-# Hva når man får den her feilmeldingen?
+### Hva når man får den her feilmeldingen?
 The only supported ciphers are AES-128-CBC and AES-256-CBC
 
 - $ php artisan key:generate --show
@@ -40,7 +40,7 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 - git commit -m "something"
 - git push heroku master
 
-# Hvordan slå på debug?
+### Hvordan slå på debug?
 
 1. 'debug' => env('APP_DEBUG', true), i app.php
 1. 'log' => 'errorlog', under Logging Configuration i app.php
@@ -49,7 +49,7 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 > "heroku/heroku-buildpack-php": "*"
 	denne inn i composer.json, under require-dev og så ta composer update
 
-# Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
+### Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
 
 - Følg guide på heroku med sette opp laravel i mappe, initialisere git.
 - Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)
@@ -75,7 +75,7 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 	Nå skal det vises laravel-forsiden
 
 
-#Hvordan sette opp HEROKU med LARAVEL + PGSQL DATABASE
+### Hvordan sette opp HEROKU med LARAVEL + PGSQL DATABASE
 
 - Legg til heroku postgresql addon til laravel-prosjektet, i kommandolinjen
 	heroku addons:create heroku-postgresql:hobby-dev
