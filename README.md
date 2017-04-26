@@ -77,9 +77,9 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 
 ### Hvordan sette opp HEROKU med LARAVEL + PGSQL DATABASE
 
-- Legg til heroku postgresql addon til laravel-prosjektet, i kommandolinjen
-	heroku addons:create heroku-postgresql:hobby-dev
-- Sett opp Laravel med PostgreSQL, i database filen config/database.php
+- **Legg til heroku postgresql addon til laravel-prosjektet, i kommandolinjen:**
+	>heroku addons:create heroku-postgresql:hobby-dev
+- **Sett opp Laravel med PostgreSQL, i database filen config/database.php**
 	Sett inn disse parameterene øverst (etter <?php)
 	<br/><br/>
 		$url = parse_url(getenv("DATABASE_URL"));
@@ -92,11 +92,11 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 		<br/><br/>
 		$database = substr($url["path"], 1);
 		<br/><br/>
-	Under overskrifte 'Default Database Connection Name' endre til pgsql
+	-**Under overskriften 'Default Database Connection Name' endre til pgsql**
 	<br/><br/>
 		'default' => env('DB_CONNECTION', 'pgsql'),
 		<br/><br/>
-	Endre feltene under 'Database Connections' slik at de viser til feltene øverst:
+	-**Endre feltene under 'Database Connections' slik at de viser til feltene øverst:**
 	<br/><br/>
 		'host' => env('DB_HOST', $host),
 		<br/><br/>
@@ -108,14 +108,14 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 		<br/><br/>
 		'password' => env('DB_PASSWORD', $password),
 		<br/><br/>
-- Git add og commit + git push heroku master
-- Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)
-	heroku run php artisan migrate
-		yes	// lager to tabeller som følger med laravel (database/migrations/)
+- **Git add og commit + git push heroku master**
+- **Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)**
+	- heroku run php artisan migrate
+	- yes // lager to tabeller som følger med laravel (database/migrations/)
 
 
-- Git add og commit + git push heroku master
-- Migrate database-tabeller, slik at de blir opprettet på heroku databasen
-	heroku run php artisan migrate
-		yes	// lager den nye task tabellen
-- heroku open
+- **Git add og commit + git push heroku master**
+- **Migrate database-tabeller, slik at de blir opprettet på heroku databasen**
+	- heroku run php artisan migrate
+	- yes // lager den nye task tabellen
+- **heroku open**
