@@ -393,12 +393,14 @@ textarea {
 	width: 70%;
 }
 /* ------------------- user list ----------- */
+#userlist_spacing {
+margin-top: 1px;
+padding-top: 15px;
+}
 
-#search {
-position:absolute; 
-margin-left: 750px;
-margin-top: -43px;
-width: 200px;
+.search { 
+margin-top: 13px;
+width: 100%;
 padding: 7px;
 border: 1px solid;
 

@@ -33,36 +33,36 @@
 
   	<div class="container-fluid">
   		<div class="row">
-        <div class="col-sm-2"></div>
+        @include ('layouts.sidebar')
         <div class="col-sm-10">
-          <div class="page-header room_header_div">
-            <div class="container-fluid">
-              <div class="col-sm-10">
+          <div class="page-header" id="userlist_spacing">
+            <div class="container-fluid row">
+              <div class="col-sm-8">
                 <h2> Userlist </h2>
-              <div class="col-sm-2 input-group"> 
-                <input type="text" class="search form-control" id="search" placeholder="søk" />
-              </form>
-                </div>
+              </div>
+              <div class="col-sm-4"> 
+                  <input type="text" class="search form-control" placeholder="søk" />
               </div>
             </div>
           </div>
-             @foreach ($Users as $user)
-            <div class="book_a_room col-sm-10">
+            <div class="book_a_room col-sm-12">
               <div class="userlist_body text-center">
                 <table class="table table-bordered" id="Usertb">
+                  @foreach ($Users as $user)
                   <tr>
                     <th scope="row" id="userlistname">
                       {{$user->name}} 
                     </th>
                   </tr>
+                  @endforeach
                 </table>
               </div>
             </div>
-            @endforeach
         </div>                 
     		</div>
     	</div>
     </div>
+    @include ('layouts.footer')
   </body>
 </html>
 
