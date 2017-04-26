@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 	<script src="{{ asset('js/nb.js') }}"></script>
 	<script src="{{ asset('js/kalender.js') }}"></script>
+	<script src="{{ asset('js/tooltip.js') }}"></script>
   </head>
   <body>
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
