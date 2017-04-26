@@ -25,10 +25,10 @@ Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store me
 
 Dette prosjektet er satt opp for å kunne brukes med [Heroku](https://www.heroku.com) Her følger en ekstra hjelpeguide for å gjøre Heroku setup noe enklere.
 
--[Begynn med heroku's getting started with PHP guide](https://devcenter.heroku.com/articles/getting-started-with-php#introduction)
--Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du sjekke under:
+[Begynn med heroku's getting started with PHP guide](https://devcenter.heroku.com/articles/getting-started-with-php#introduction)
+Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du sjekke under:
 
-#Hva når man får den her feilmeldingen?
+# Hva når man får den her feilmeldingen?
 The only supported ciphers are AES-128-CBC and AES-256-CBC
 
 - $ php artisan key:generate --show
@@ -40,16 +40,16 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 - git commit -m "something"
 - git push heroku master
 
-#Hvordan slå på debug?
+# Hvordan slå på debug?
 
-'debug' => env('APP_DEBUG', true), i app.php
-OG 'log' => 'errorlog', under Logging Configuration i app.php
+1. 'debug' => env('APP_DEBUG', true), i app.php
+1. 'log' => 'errorlog', under Logging Configuration i app.php
 
-Hva med heroku php buildpack for å få apache ting i bin mappen?
-"heroku/heroku-buildpack-php": "*"
+# Hva med heroku php buildpack for å få apache ting i bin mappen?
+> "heroku/heroku-buildpack-php": "*"
 	denne inn i composer.json, under require-dev og så ta composer update
 
-Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
+# Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
 
 - Følg guide på heroku med sette opp laravel i mappe, initialisere git.
 - Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)
@@ -61,15 +61,15 @@ Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guid
 	1. Kjør php artisan cache:clear
 - Følg guide på heroku med å lage Procfile
 - Slå på debug for laravel og heroku sånn at laravel gir feilmeldinger i nettleseren
-	Gå inn i config/app.php
-		Gå til overskrift "Application Debug Mode"
-			Sett 'debug' => env('APP_DEBUG', true)
-		Gå til overskrift "Logging Configuration"
-			Sett inn 'log' => 'errorlog',
+1. Gå inn i config/app.php
+1. Gå til overskrift "Application Debug Mode"
+1. Sett 'debug' => env('APP_DEBUG', true)
+1. Gå til overskrift "Logging Configuration"
+1. Sett inn 'log' => 'errorlog',
 - Følg guide på heroku med å lage ny app på heroku (git add. + git commit + heroku create)
 - Følg guide på heroku med å sett opp en ny Laravel encryption key (kopier HELE key-en, med base 64 og alt)
-	Kjør php artisan config:clear
-	Kjør php artisan cache:clear
+	1. Kjør php artisan config:clear
+	1. Kjør php artisan cache:clear
 - Følg guide på heroku med å pushe/deploye til heroku (git add. + git commit + git push heroku master)
 - Åpne med heroku open eller gå til nettsideadressen du fikk av heroku create komandoen
 	Nå skal det vises laravel-forsiden
