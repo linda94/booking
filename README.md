@@ -30,9 +30,9 @@ Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du 
 
 ### Hva når man får den her feilmeldingen?
 The only supported ciphers are AES-128-CBC and AES-256-CBC
-
-- $ php artisan key:generate --show
-	kopier denne, med base64 og alt, lim inn i .env filen (APP_KEY), og kjør 'heroku config:set APP_KEY=…' hvor ... tilsvarer HELE key'en.
+<br/><br/>
+Kjør > php artisan key:generate --show
+- kopier denne, med base64 og alt, lim inn i .env filen (APP_KEY), og kjør 'heroku config:set APP_KEY=…' hvor ... tilsvarer HELE key'en.
 
 - bruk php artisan config:clear
 - bruk php artisan cache:clear
@@ -56,9 +56,9 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 	1. Gå inn i composer.json
 	1. Gå til require-dev
 	1. Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
-	1. Kjør komandoen 'composer update' i komandolinjen for mappen
-	1. Kjør php artisan config:clear
-	1. Kjør php artisan cache:clear
+	1. Kjør > 'composer update' i komandolinjen for mappen
+	1. Kjør > php artisan config:clear
+	1. Kjør > php artisan cache:clear
 - **Følg guide på heroku med å lage Procfile**
 - **Slå på debug for laravel og heroku sånn at laravel gir feilmeldinger i nettleseren**
 	1. Gå inn i config/app.php
@@ -68,8 +68,8 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 	1. Sett inn 'log' => 'errorlog',
 - **Følg guide på heroku med å lage ny app på heroku (git add. + git commit + heroku create)**
 - **Følg guide på heroku med å sett opp en ny Laravel encryption key (kopier HELE key-en, med base 64 og alt)**
-	1. Kjør php artisan config:clear
-	1. Kjør php artisan cache:clear
+	1. Kjør > php artisan config:clear
+	1. Kjør > php artisan cache:clear
 - **Følg guide på heroku med å pushe/deploye til heroku (git add. + git commit + git push heroku master)**
 - **Åpne med heroku open eller gå til nettsideadressen du fikk av heroku create komandoen
 	Nå skal det vises laravel-forsiden**
@@ -110,12 +110,7 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 		<br/><br/>
 - **Git add og commit + git push heroku master**
 - **Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)**
-	- heroku run php artisan migrate
+	> heroku run php artisan migrate
 	- yes // lager to tabeller som følger med laravel (database/migrations/)
 
-
-- **Git add og commit + git push heroku master**
-- **Migrate database-tabeller, slik at de blir opprettet på heroku databasen**
-	- heroku run php artisan migrate
-	- yes // lager den nye task tabellen
-- **heroku open**
+> heroku open
