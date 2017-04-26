@@ -54,8 +54,8 @@ Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guid
 - Følg guide på heroku med sette opp laravel i mappe, initialisere git.
 - Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)
 	>Gå inn i composer.json
-		>Gå til require-dev
-			>Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
+	>Gå til require-dev
+	>Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
 	>Kjør komandoen 'composer update' i komandolinjen for mappen
 	>Kjør php artisan config:clear
 	>Kjør php artisan cache:clear
