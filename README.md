@@ -46,33 +46,33 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 1. 'log' => 'errorlog', under Logging Configuration i app.php
 
 ### Hva med heroku php buildpack for å få apache ting i bin mappen?
-> "heroku/heroku-buildpack-php": "*"
-> denne inn i composer.json, under require-dev og så ta composer update
+> "heroku/heroku-buildpack-php": "*" 
+<-- denne inn i composer.json, under require-dev og så ta composer update
 
 ### Hvordan sette opp **Heroku** med **Laravel** (Sammen med heroku sin laravel-guide):
 
-- Følg guide på heroku med sette opp laravel i mappe, initialisere git.
-- Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)
+- **Følg guide på heroku med sette opp laravel i mappe, initialisere git.**
+- **Legg til heroku buildpack for php (må ha med denne for å få apache server satt opp riktig i laravel-mappene)**
 	1. Gå inn i composer.json
 	1. Gå til require-dev
 	1. Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
 	1. Kjør komandoen 'composer update' i komandolinjen for mappen
 	1. Kjør php artisan config:clear
 	1. Kjør php artisan cache:clear
-- Følg guide på heroku med å lage Procfile
-- Slå på debug for laravel og heroku sånn at laravel gir feilmeldinger i nettleseren
-1. Gå inn i config/app.php
-1. Gå til overskrift "Application Debug Mode"
-1. Sett 'debug' => env('APP_DEBUG', true)
-1. Gå til overskrift "Logging Configuration"
-1. Sett inn 'log' => 'errorlog',
-- Følg guide på heroku med å lage ny app på heroku (git add. + git commit + heroku create)
-- Følg guide på heroku med å sett opp en ny Laravel encryption key (kopier HELE key-en, med base 64 og alt)
+- **Følg guide på heroku med å lage Procfile**
+- **Slå på debug for laravel og heroku sånn at laravel gir feilmeldinger i nettleseren**
+	1. Gå inn i config/app.php
+	1. Gå til overskrift "Application Debug Mode"
+	1. Sett 'debug' => env('APP_DEBUG', true)
+	1. Gå til overskrift "Logging Configuration"
+	1. Sett inn 'log' => 'errorlog',
+- **Følg guide på heroku med å lage ny app på heroku (git add. + git commit + heroku create)**
+- **Følg guide på heroku med å sett opp en ny Laravel encryption key (kopier HELE key-en, med base 64 og alt)**
 	1. Kjør php artisan config:clear
 	1. Kjør php artisan cache:clear
-- Følg guide på heroku med å pushe/deploye til heroku (git add. + git commit + git push heroku master)
-- Åpne med heroku open eller gå til nettsideadressen du fikk av heroku create komandoen
-	Nå skal det vises laravel-forsiden
+- **Følg guide på heroku med å pushe/deploye til heroku (git add. + git commit + git push heroku master)**
+- **Åpne med heroku open eller gå til nettsideadressen du fikk av heroku create komandoen
+	Nå skal det vises laravel-forsiden**
 
 
 ### Hvordan sette opp HEROKU med LARAVEL + PGSQL DATABASE
@@ -81,19 +81,33 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC
 	heroku addons:create heroku-postgresql:hobby-dev
 - Sett opp Laravel med PostgreSQL, i database filen config/database.php
 	Sett inn disse parameterene øverst (etter <?php)
-		`<addr>`$url = parse_url(getenv("DATABASE_URL"));
-		`<addr>`$host = $url["host"];
-		`<addr>`$username = $url["user"];
-		`<addr>`$password = $url["pass"];
-		`<addr>`$database = substr($url["path"], 1);
+	<br/><br/>
+		$url = parse_url(getenv("DATABASE_URL"));
+		<br/><br/>
+		$host = $url["host"];
+		<br/><br/>
+		$username = $url["user"];
+		<br/><br/>
+		$password = $url["pass"];
+		<br/><br/>
+		$database = substr($url["path"], 1);
+		<br/><br/>
 	Under overskrifte 'Default Database Connection Name' endre til pgsql
-		`<addr>`'default' => env('DB_CONNECTION', 'pgsql'),
+	<br/><br/>
+		'default' => env('DB_CONNECTION', 'pgsql'),
+		<br/><br/>
 	Endre feltene under 'Database Connections' slik at de viser til feltene øverst:
-		`<addr>`'host' => env('DB_HOST', $host),
-		`<addr>`'port' => env('DB_PORT', '5432'),
-		`<addr>`'database' => env('DB_DATABASE', $database),
-		`<addr>`'username' => env('DB_USERNAME', $username),
-		`<addr>`'password' => env('DB_PASSWORD', $password),
+	<br/><br/>
+		'host' => env('DB_HOST', $host),
+		<br/><br/>
+		'port' => env('DB_PORT', '5432'),
+		<br/><br/>
+		'database' => env('DB_DATABASE', $database),
+		<br/><br/>
+		'username' => env('DB_USERNAME', $username),
+		<br/><br/>
+		'password' => env('DB_PASSWORD', $password),
+		<br/><br/>
 - Git add og commit + git push heroku master
 - Migrate database-tabeller, slik at de blir opprettet på heroku databasen (laravel sine 2 standard tabeller dersom ingen andre har blitt lagt inn)
 	heroku run php artisan migrate
