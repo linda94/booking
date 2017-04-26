@@ -310,7 +310,7 @@ margin: 10px 0;
 text-align: center;
 }
 
-/* ------------------- new room ----------- */
+/* ------------------- room ----------- */
 
 .room_header_div {
 	margin-top:-5px;
@@ -353,6 +353,7 @@ textarea {
 }
 #room_inputs_special {
 	min-width: 550px;
+	margin-left: -25px;
 }
 #text-centering {
 	text-align: center;
@@ -378,6 +379,18 @@ textarea {
 	padding: 12px;
 	background-color: #ff0000;
 	color: #ffffff;
+}
+.home_spacing_div {
+	margin-left: -25px;
+}
+#home_spacing_label {
+	margin-left: 5px;
+}
+.home_margin_spacing {
+	margin-bottom:5px;
+}
+.room_inputs {
+	width: 70%;
 }
 /* ------------------- user list ----------- */
 

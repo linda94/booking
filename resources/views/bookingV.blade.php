@@ -32,7 +32,7 @@
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
                     <div class="form-group">
                       <div class="input-group date" id="date" name="date">
-                            <input class="form-control" type="text" readonly />
+                            <input class="form-control text-center" type="text" readonly />
                             <div class="input-group-addon"> 
                               <span class="glyphicon glyphicon-calendar"></span> 
                             </div>

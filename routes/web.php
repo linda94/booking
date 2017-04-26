@@ -44,7 +44,7 @@ Route::get('/newroom', 'SidebarController@create');
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
-Route::get('/users/home', 'HomeController@index');
+Route::get('/users/home', 'HomeController@index')->name('users_return');
 Route::get('/users/home_edit', 'HomeController@index2');
 Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
 
