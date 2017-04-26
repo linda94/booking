@@ -21,9 +21,9 @@ Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store me
 
 - **Familiariser deg med Laravel:**
 
-- [Dokumentasjon](https://laravel.com/docs/5.4)
+	- [Dokumentasjon](https://laravel.com/docs/5.4)
 
-- [Video tutorials for de som lærer bedre visuelt](https://laracasts.com/series/laravel-from-scratch-2017)
+	- [Video tutorials for de som lærer bedre visuelt](https://laracasts.com/series/laravel-from-scratch-2017)
 
 ## Heroku
 
@@ -60,7 +60,8 @@ Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du 
 	1. Gå inn i composer.json
 	1. Gå til require-dev
 	1. Sett inn ,"heroku/heroku-buildpack-php": "*"		(husk å sette komma først)
-	1. > 'composer update' i komandolinjen for mappen
+	1. > 'composer update' 
+		i komandolinjen for mappen
 	1. > php artisan config:clear
 	1. > php artisan cache:clear
 - **Følg guide på heroku med å lage Procfile**
@@ -95,12 +96,12 @@ Skulle du støte på noen problemer som ikke dekkes i Herokus egen guide kan du 
    `$password = $url["pass"];`
    <br/><br/>
    `$database = substr($url["path"], 1);`
-
-	-**Under overskriften 'Default Database Connection Name' endre til pgsql**
+	<br/><br/>
+	**Under overskriften 'Default Database Connection Name' endre til pgsql**
 	<br/><br/>
 		`'default' => env('DB_CONNECTION', 'pgsql'),`
 		<br/><br/>
-	-**Endre feltene under 'Database Connections' slik at de viser til feltene øverst:**
+	**Endre feltene under 'Database Connections' slik at de viser til feltene øverst:**
 	<br/><br/>
 		`host' => env('DB_HOST', $host),`
 		<br/><br/>
