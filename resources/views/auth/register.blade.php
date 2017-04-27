@@ -59,15 +59,6 @@
 			placeholder="Bekreft passord" name="password_confirmation" required>
 		</div>
 		<div class="text-center">
-			<input type="tel" class="register-input optional_input" placeholder="Telefonnummer, valgfritt felt" name="phone"
-			type="number" maxlength="8" minlength="8" 
-			data-toggle="tooltip" data-placement="right" title="max og minimum 8 tall. Eksempel: '12345678'" value="{{ old('phone') }}">
-		</div>
-		<div class="text-center">
-			<input type="text" class="register-input optional_input" placeholder="Din bedrift, velgfritt felt" name="company"
-			maxlength="25" value="{{ old('company') }}">
-		</div>
-		<div class="text-center">
 			<button type="submit" class="btn_reg"> Registrer deg </button>
 		</div>
 		</form>

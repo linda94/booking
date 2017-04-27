@@ -414,13 +414,6 @@ input[type="number"]::-webkit-inner-spin-button {
 	background-color: #00008c;
 	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
 }
-.required_input {
-	background-color: #e1ebfa;
-	border-color: #a3c2ed;
-}
-.optional_input {
-	background-color: #f8f8f8;
-}
 
 /* ------------------- user list ----------- */
 #userlist_spacing {

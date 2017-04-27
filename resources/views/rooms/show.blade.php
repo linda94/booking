@@ -14,13 +14,10 @@
 
 </head>
 <body>
-
 	{{ csrf_field() }}
-
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-			
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
@@ -45,7 +42,6 @@
 							<p><b>Room for:</b><span> {{ $room->capacity }} people</span></p>
 							<p><b>Equipment:</b><span> {{ $room->equipment }} </span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
-							//
 						</div>
 					</div>
 					<div class="row"><br/></div>

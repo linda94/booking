@@ -48,7 +48,7 @@
             </div>
             <div class="row room_lister">
 			@foreach ($rooms as $room)
-              <div class="book_a_room col-sm-6 col-md-4">
+              <div class="book_a_room col-sm-4 col-md-3">
                 <div class="room_header text-center">
                   <h4 class="room_title"> <a href="/rooms/{{ $room->id }}" style="text-decoration: none;">{{ $room->name }} </a></h4>
                   <p> {{ $room->capacity }} sitteplasser </p>
