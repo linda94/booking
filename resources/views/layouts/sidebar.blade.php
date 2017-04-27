@@ -34,14 +34,18 @@
 			  <ul class="room_list">
 
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
-			   <?php foreach ($rooms as $room) { ?>
-            	<li>
-                	<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
-                	<a href="/rooms/{{ $room->id }}"> 
-               			<?php echo $room->name; ?>
-                	</a>
-            	</li>
-        		<?php } ?>
+			   <ul id="list_limiter">
+				   <?php foreach ($rooms as $room) { ?>
+						<li>
+							<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
+							<a href="/rooms/{{ $room->id }}"> 
+								<?php echo $room->name; ?>
+							</a>
+						</li>
+					<?php } ?>
+				</ul>
+				<li><a class="override_color btn" id="loadMore"
+				type="button" href="#"> Vis flere rom </a></li>
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room"> + Nytt rom </a> </li>

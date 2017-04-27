@@ -40,7 +40,7 @@
 							<p><b class="col-sm-3">Bedriftsnavn:</b><span class="col-sm-9"> {{ Auth::user()->company }} </span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
-							<p><b class="col-sm-3">E-post adresse:</b><span class="col-sm-9"> {{ Auth::user()->email }} </span></p>
+							<p><b class="col-sm-3">E-post:</b><span class="col-sm-9"> {{ Auth::user()->email }} </span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"> {{ Auth::user()->phone }} </span></p>

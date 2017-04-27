@@ -13,7 +13,7 @@ body {
 .frame {
   min-width: 362px;
   max-width: 361px;
-  max-height: 450px;
+  max-height: 550px;
   padding: 2%;
   background-color: #eee;
   border-radius: 15px;
@@ -134,6 +134,7 @@ margin-bottom: 5%;
 	border: 1px solid #808080;
  	border-radius: 8px;
 	padding: 5px;
+	z-index: 200;
 }
 .btn_main:hover {
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
@@ -367,6 +368,7 @@ textarea {
 	background-color: #4CAF50;
 	color: #ffffff;
 	margin-top: 3px;
+	z-index: 200;
 }
 .edit_room_div {
 	border: 0px;
@@ -391,6 +393,24 @@ textarea {
 }
 .room_inputs {
 	width: 70%;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.register_helper_spacing {
+	margin-bottom: 20px;
+	padding: 20px;
+}
+#list_limiter li{ display:none;
 }
 /* ------------------- user list ----------- */
 #userlist_spacing {
