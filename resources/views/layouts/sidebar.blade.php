@@ -21,9 +21,6 @@
 					<li class="dropdown-header dd_text_header"> Dine andre løsninger </li>
 					<!-- Give items in this list class="dd_text_item" -->
 					<li class="dd_text_item"><a href="#"> Google </a></li>
-					<li class="dropdown-header dd_text_header"> Brukerinnstillinger </li>
-					<li class="dd_text_item"> <button class="styling_dd_button" 
-					onclick="location.href='{{ route('logout') }}'"> Logg ut </button> </li>
 				  </ul>
 				</div>
 			  </li>
@@ -32,20 +29,15 @@
 			  <li><a class="active" href="/users/home">Min profil</a></li>
 			  <li><a> Romliste </a>
 			  <ul class="room_list">
-
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
-			   <ul id="list_limiter">
-				   <?php foreach ($rooms as $room) { ?>
-						<li>
-							<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
-							<a href="/rooms/{{ $room->id }}"> 
-								<?php echo $room->name; ?>
-							</a>
-						</li>
-					<?php } ?>
-				</ul>
-				<li><a class="override_color btn" id="loadMore"
-				type="button" href="#"> Vis flere rom </a></li>
+			   <?php foreach ($rooms as $room) { ?>
+					<li>
+						<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
+						<a href="/rooms/{{ $room->id }}"> 
+							<?php echo $room->name; ?>
+						</a>
+					</li>
+        		<?php } ?>
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room"> + Nytt rom </a> </li>
@@ -76,6 +68,7 @@
 			</ul>
 		  </li>
 		  <li class="adm_knapp"><a href="#">Administrative </a> </li>
+		  <li> <a href="{{ route('logout') }}"> Logg ut </a> </li>
 		  <li><a href="#"> <span class="glyphicon glyphicon-th-list glyphicon_style"> </span> Bytt visning </a> </li>
 		</ul>
 		

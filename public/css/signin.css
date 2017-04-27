@@ -410,8 +410,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	margin-bottom: 20px;
 	padding: 20px;
 }
-#list_limiter li{ display:none;
-}
+
 /* ------------------- user list ----------- */
 
 #search {
