@@ -40,31 +40,31 @@
 			@endif
 		</div>
 		<div class="text-center{{ $errors->has('name') ? ' has-error' : '' }}">
-			<input type="text" class="register-name" id="testinging"
-			placeholder="Navn" name="name" maxlength="25" minlength="3"
+			<input type="text" class="register-name required_input" id="testinging"
+			placeholder="Navn" name="name" maxlength="35" minlength="3"
 			value="{{ old('name') }}" required autofocus>
 		</div>
 		<div class="text-center{{ $errors->has('email') ? ' has-error' : '' }}">	
-			<input type="email" class="register-input" placeholder="E-post" 
+			<input type="email" class="register-input required_input" placeholder="E-post" 
 			name="email" data-toggle="tooltip" data-placement="right" title="Eksempel: 'test@test.com'"
 			value="{{ old('email') }}" required>
 		</div>
 		<div class="text-center{{ $errors->has('password') ? ' has-error' : '' }}">
-			<input id="password" type="password" class="register-input" 
+			<input id="password" type="password" class="register-input required_input" 
 			id="confirm_password" placeholder="Passord" name="password" 
 			data-toggle="tooltip" data-placement="right" title="Minimum 6 karakterer" required>
 		</div>
 		<div class="text-center">
-			<input type="password" class="register-input" id="confirm_password" 
+			<input type="password" class="register-input required_input" id="confirm_password" 
 			placeholder="Bekreft passord" name="password_confirmation" required>
 		</div>
 		<div class="text-center">
-			<input type="tel" class="register-input" placeholder="Telefonnummer, valgfritt felt" name="phone"
+			<input type="tel" class="register-input optional_input" placeholder="Telefonnummer, valgfritt felt" name="phone"
 			type="number" maxlength="8" minlength="8" 
 			data-toggle="tooltip" data-placement="right" title="max og minimum 8 tall. Eksempel: '12345678'" value="{{ old('phone') }}">
 		</div>
 		<div class="text-center">
-			<input type="text" class="register-input" placeholder="Din bedrift, velgfritt felt" name="company"
+			<input type="text" class="register-input optional_input" placeholder="Din bedrift, velgfritt felt" name="company"
 			maxlength="25" value="{{ old('company') }}">
 		</div>
 		<div class="text-center">
