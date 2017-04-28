@@ -22,15 +22,27 @@
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
-						<div class="col-sm-11">
+						<div class="col-sm-10">
 							<h1><input id="room_inputs_special" type="text" name="users_name" value="{{ Auth::user()->name }}" required ></input></h1>
+						</div>
+						<div class="col-sm-1">
+						<a href="/users/home" class="btn btn-default btn-lg room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">
+							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						</a>
+						</div>
+						<div class="col-sm-1 text-left">
+							<div class="col-sm-12 edit_room_div">
+								<a class="color_edit_button" href="/users/home" data-toggle="tooltip" data-placement="bottom" 
+								title="Avbryt endringene dine"> Avbryt </a>
+							</div>
 						</div>
 					</div>
 				</div>
 			  <!-- Page content -->
 				<div class="container-fluid col-sm-6">
 					<div class="row">
-						<div class="well well-sm">
+						<div class="well">
 							<br/>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
 							<p><b class="col-sm-3">Bedriftsnavn:</b><span class="col-sm-9"><input class="room_inputs" type="text" 

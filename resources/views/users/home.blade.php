@@ -21,11 +21,18 @@
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
-						<div class="col-sm-11">
+						<div class="col-sm-10">
 							<h1> {{ Auth::user()->name }} </h1>
 						</div>
 						<div class="col-sm-1">
-							<a href="/users/home_edit" class="btn btn-default btn-lg room_button">
+						<a href="/bookingV" class="btn btn-default btn-lg room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til booking">
+							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						</a>
+						</div>
+						<div class="col-sm-1">
+							<a href="/users/home_edit" class="btn btn-default btn-lg room_button"
+							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
 						</div>

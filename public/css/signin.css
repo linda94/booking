@@ -372,7 +372,7 @@ textarea {
 }
 .edit_room_div {
 	border: 0px;
-	margin-top: 33px;
+	margin-top: 27px;
 }
 .color_edit_button {
 	font-size: 16px;
@@ -414,7 +414,22 @@ input[type="number"]::-webkit-inner-spin-button {
 	background-color: #00008c;
 	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
 }
-
+#room_spacing_name {
+	margin-left: -29px;
+	width: 66%;
+}
+.test_spacing {
+	margin-bottom: 10px;
+}
+#drop_this_div {
+	margin-top: 10px;
+}
+#well_spacing {
+	margin-left: 1px;
+}
+#margin_left_button {
+	margin-left: 15px;
+}
 /* ------------------- user list ----------- */
 #userlist_spacing {
 margin-top: 1px;
