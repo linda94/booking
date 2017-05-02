@@ -55,5 +55,7 @@ Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');
 
+Route::get('/room_list', 'RoomListController@index');
+
 Route::get('/user_list', 'UserListController@index'); // Til Userlist siden
 Route::get('/user_list/{user}', 'UserListController@show'); // Til en spesiell user

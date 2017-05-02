@@ -27,8 +27,8 @@
 			  <li class="name_placeholder"><a href="/users/home" class="override_color">{{ Auth::user()->name }}</a></li>
 			  <li><a class="active" href="/bookingV">Booking</a></li>
 			  <li><a class="active" href="/users/home">Min profil</a></li>
-			  <li><a data-toggle="tooltip" data-placement="bottom" title="Trykk på en av rommene nedenfor for å vise rom-profilen"> Romliste </a>
-			  <ul class="room_list">
+			  <li><a href="/room_list" data-toggle="tooltip" data-placement="bottom" title="Trykk på en av rommene nedenfor for å vise rom-profilen"> Romliste </a>
+			  <ul class="room_list" id="limit_elements">
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
 			   <?php foreach ($rooms as $room) { ?>
 					<li>

@@ -59,11 +59,12 @@
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Plass til:</b><span class="col-sm-8">
 								<input class="room_inputs" type="text" name="room_space"
-								value="{{ $room->capacity }}" required > people</input></span></p>
+								value="{{ $room->capacity }}" required > folk</input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Utstyr:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_equipment" 
+								<input class="room_inputs" type="text" name="room_equipment"
+								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'TV, Prosjektor, HDMI'"
 								value="{{ $room->equipment }}" required ></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
@@ -73,7 +74,8 @@
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Adresse til bygg:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_adress"></input></span></p>
+								<input class="room_inputs" type="text" name="room_adress"
+								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'testeveien21, 4518 oslo'" readonly></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing" id="drop_this_div">
 								<button type="submit" class="btn btn-primary btn_placeholder_room col-sm-3" id="margin_left_button">Lagre endringene</button>
