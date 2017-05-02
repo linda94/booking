@@ -21,34 +21,35 @@
         <h1 class="form-signing-heading">Logg inn</h1>
 		<form class="form-signing" role="form" method="POST" action="{{ route('login') }}">
 			{{ csrf_field() }}
+			<div class="error_class text-center">
+				@if ($errors->has('email'))
+						<span class="help-block">
+							<strong>{{ $errors->first('email') }}</strong>
+						</span>
+				@endif
+				@if ($errors->has('password'))
+						<span class="help-block">
+							<strong>{{ $errors->first('password') }}</strong>
+						</span>
+				@endif
+			</div>
 			<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 				<label for="email" class="label_log_in">E-post</label>
-				<input id="email" type="email" class="form-control" id="email" placeholder="E-post" name="email" value="{{ old('email') }}" required autofocus>
-				@if ($errors->has('email'))
-					<span class="help-block">
-						<strong>{{ $errors->first('email') }}</strong>
-					</span>
-				@endif
+				<input id="email" type="email" class="form-control" id="email" placeholder="E-post"
+				data-toggle="tooltip" data-placement="right" title="Må ha følgende format: 'test@test.com'"
+				name="email" value="{{ old('email') }}" required autofocus>
 			</div>
 			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 				<label for="pwd" class="label_log_in">Passord</label>
 				<input type="password" class="form-control" id="pwd" placeholder="Passord" name="password" required>
-					@if ($errors->has('password'))
-						<span class="help-block">
-							<strong>{{ $errors->first('password') }}</strong>
-						</span>
-					@endif
 			</div>           
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Husk meg
 				</label>
 			</div>
-			
-				<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
-				
-				<button class="btn_frontPage" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
-			
+			<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
+			<button class="btn_frontPage" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
 			<a class="btn btn-link" href="{{ route('password.request') }}"> Forgot Your Password? </a>
 		</form>
     </div>

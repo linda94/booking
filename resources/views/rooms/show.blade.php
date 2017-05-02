@@ -14,21 +14,25 @@
 
 </head>
 <body>
-
 	{{ csrf_field() }}
-
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-			
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
-						<div class="col-sm-11">
+						<div class="col-sm-10">
 							<h1> {{ $room->name }} <small> {{ $room->capacity }} plasser</small></h1>
 						</div>
 						<div class="col-sm-1">
-							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button">
+						<a href="/bookingV" class="btn btn-default btn-lg room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til booking">
+							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						</a>
+						</div>
+						<div class="col-sm-1">
+							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button"
+							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
 						</div>
@@ -45,7 +49,6 @@
 							<p><b>Room for:</b><span> {{ $room->capacity }} people</span></p>
 							<p><b>Equipment:</b><span> {{ $room->equipment }} </span></p>
 							<p><b>Floor number:</b><span> 2 </span></p>
-							//
 						</div>
 					</div>
 					<div class="row"><br/></div>
@@ -55,24 +58,165 @@
 					<br/>
 				</div>
 				<div class="container-fluid col-sm-1"></div>
-				<div class="container-fluid col-sm-5">
-					<div class="row">
-						<ul class="list-group">
-						  <li class="list-group-item">Cras justo odio</li>
-						  <li class="list-group-item">Dapibus ac facilisis in</li>
-						  <li class="list-group-item">Morbi leo risus</li>
-						  <li class="list-group-item">Porta ac consectetur ac</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						  <li class="list-group-item">Vestibulum at eros</li>
-						</ul>
-					</div>
+				<div class="row room_lister">
+				  <div class="book_a_room col-sm-5">
+					<table class="roomTable">
+						<tr class="roomTr">
+							<th class="roomTd" id="firstTd">
+								08:00
+							</th>
+							<td class="roomTd tdspacing">
+								
+							</td>
+						</tr>
+					<tr class="roomTr">
+							<th class="roomTd">
+								08:30
+							</th>
+							<td class="roomTd tdspacing">
+								
+							</td>
+						</tr>
+						<tr class="roomTr">
+							<th class="roomTd">
+								09:00
+							</th>
+							<td class="roomTd tdspacing">
+
+							</td>
+						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						09:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						10:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						10:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						11:00
+					  </th>
+					  <td class="roomTd tdspacing">
+
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						11:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						12:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						12:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						13:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						13:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						14:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						14:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						15:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						15:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						16:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+
+					<tr class="roomTr">
+					  <th class="roomTd">
+						16:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					</table>
+				  </div>
 				</div>
 			</div>
 		</div>

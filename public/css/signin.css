@@ -13,7 +13,7 @@ body {
 .frame {
   min-width: 362px;
   max-width: 361px;
-  max-height: 450px;
+  max-height: 550px;
   padding: 2%;
   background-color: #eee;
   border-radius: 15px;
@@ -134,6 +134,7 @@ margin-bottom: 5%;
 	border: 1px solid #808080;
  	border-radius: 8px;
 	padding: 5px;
+	z-index: 200;
 }
 .btn_main:hover {
 box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2), 0px 6px 16px 0px rgba(0, 0, 0, 0.19);
@@ -310,7 +311,7 @@ margin: 10px 0;
 text-align: center;
 }
 
-/* ------------------- new room ----------- */
+/* ------------------- room ----------- */
 
 .room_header_div {
 	margin-top:-5px;
@@ -353,6 +354,7 @@ textarea {
 }
 #room_inputs_special {
 	min-width: 550px;
+	margin-left: -25px;
 }
 #text-centering {
 	text-align: center;
@@ -366,35 +368,83 @@ textarea {
 	background-color: #4CAF50;
 	color: #ffffff;
 	margin-top: 3px;
+	z-index: 200;
 }
-
-.active:active {
-  color: red;
+.edit_room_div {
+	border: 0px;
+	margin-top: 27px;
 }
-.focus:focus {
-  color: red;
+.color_edit_button {
+	font-size: 16px;
+	border: 1px solid #808080;
+	border-radius: 8px;
+	padding: 12px;
+	background-color: #ff0000;
+	color: #ffffff;
 }
-:target {
-  color: red;
+.home_spacing_div {
+	margin-left: -25px;
 }
-
-/* ------------------- new room ----------- */
-
-#search {
-position:absolute; 
-margin-left: 750px;
-margin-top: -43px;
-width: 200px;
+#home_spacing_label {
+	margin-left: 5px;
+}
+.home_margin_spacing {
+	margin-bottom:5px;
+}
+.room_inputs {
+	width: 70%;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.register_helper_spacing {
+	margin-bottom: 20px;
+	padding: 20px;
+}
+.carousel-indicators li {
+	background-color: #00008c;
+	box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+}
+#room_spacing_name {
+	margin-left: -29px;
+	width: 66%;
+}
+.test_spacing {
+	margin-bottom: 10px;
+}
+#drop_this_div {
+	margin-top: 10px;
+}
+#well_spacing {
+	margin-left: 1px;
+}
+#margin_left_button {
+	margin-left: 15px;
+}
+#limit_elements li:nth-of-type(1n+8) {
+	display: none;
+}
+/* ------------------- user list ----------- */
+#userlist_spacing {
+margin-top: 1px;
+padding-top: 15px;
+}
+.search { 
+margin-top: 13px;
+width: 100%;
 padding: 7px;
 border: 1px solid;
-
 }
-
 #Usertb {
  border-spacing:0;
  border-collapse: collapse;  
 }
-
-
-
-

@@ -44,7 +44,7 @@ Route::get('/newroom', 'SidebarController@create');
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
-Route::get('/users/home', 'HomeController@index');
+Route::get('/users/home', 'HomeController@index')->name('users_return');
 Route::get('/users/home_edit', 'HomeController@index2');
 Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
 
@@ -54,6 +54,8 @@ Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 //Route::post('/newroom', 'RoomController@store');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');
+
+Route::get('/room_list', 'RoomListController@index');
 
 Route::get('/user_list', 'UserListController@index'); // Til Userlist siden
 Route::get('/user_list/{user}', 'UserListController@show'); // Til en spesiell user

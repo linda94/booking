@@ -21,30 +21,26 @@
 					<li class="dropdown-header dd_text_header"> Dine andre løsninger </li>
 					<!-- Give items in this list class="dd_text_item" -->
 					<li class="dd_text_item"><a href="#"> Google </a></li>
-					<li class="dropdown-header dd_text_header"> Brukerinnstillinger </li>
-					<li class="dd_text_item"> <button class="styling_dd_button" 
-					onclick="location.href='{{ route('logout') }}'"> Logg ut </button> </li>
 				  </ul>
 				</div>
 			  </li>
 			  <li class="name_placeholder"><a href="/users/home" class="override_color">{{ Auth::user()->name }}</a></li>
-			  <li><a class="active, target, focus" href="/bookingV">Booking</a></li>
-			  <li><a href="/users/home">Min profil</a></li>
-			  <li><a> Romliste </a>
-			  <ul class="room_list">
-
+			  <li><a class="active" href="/bookingV">Booking</a></li>
+			  <li><a class="active" href="/users/home">Min profil</a></li>
+			  <li><a href="/room_list" data-toggle="tooltip" data-placement="bottom" title="Trykk på en av rommene nedenfor for å vise rom-profilen"> Romliste </a>
+			  <ul class="room_list" id="limit_elements">
 				<!-- Give each room <span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"> for calendar icon-->
 			   <?php foreach ($rooms as $room) { ?>
-            	<li>
-                	<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
-                	<a href="/rooms/{{ $room->id }}"> 
-               			<?php echo $room->name; ?>
-                	</a>
-            	</li>
+					<li>
+						<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
+						<a href="/rooms/{{ $room->id }}"> 
+							<?php echo $room->name; ?>
+						</a>
+					</li>
         		<?php } ?>
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"
-					data-toggle="modal" data-target=".new_room"> + Nytt rom </a> </li>
+					data-toggle="modal" data-target=".new_room" title="Legg til ett nytt rom i din løsning"> + Nytt rom </a> </li>
 					<div class="modal new_room" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="mySmallModalLabel2">
 					  <div class="modal-dialog modal-sm" role="document">
 						<div class="modal-content">
@@ -64,15 +60,21 @@
 				  </ul>
 			  </ul>
 			</li>
-			<li><a href="#" class="user_title">Brukere </a>
+			<li><a href="#" class="user_title" data-toggle="tooltip" data-placement="bottom" 
+			title="Se en liste over alle brukere i systemet">Brukere </a>
 			<ul class="user_list_in_location">
 			  <ul>
-				<li class="new_item" id="add_user"> <a href="#" class="add_a_white"> + Ny bruker </a> </li>
+				<li class="new_item" id="add_user"> <a href="#" class="add_a_white" data-toggle="tooltip" 
+				data-placement="bottom" title="Inviter en ny bruker til din løsning"> + Ny bruker </a> </li>
 			  </ul>
 			</ul>
 		  </li>
-		  <li class="adm_knapp"><a href="#">Administrative </a> </li>
-		  <li><a href="#"> <span class="glyphicon glyphicon-th-list glyphicon_style"> </span> Bytt visning </a> </li>
+		  <li class="adm_knapp"><a href="#" data-toggle="tooltip" data-placement="bottom" 
+		  title="Administrer din løsning">Administrative </a> </li>
+		  <li> <a href="{{ route('logout') }}"> Logg ut </a> </li>
+		  <li><a href="#" data-toggle="tooltip" data-placement="bottom" 
+		  title="Bytt vising på booking til horisontal visning"> 
+		  <span class="glyphicon glyphicon-th-list glyphicon_style"> </span> Bytt visning </a> </li>
 		</ul>
 		
 		</div><!-- /.navbar-collapse -->

@@ -3,6 +3,7 @@ $(document).ready(function(){
       format: 'DD dd/mm/yyyy',
       language: 'nb',
       todayHighlight: true,
+	  autoclose: true,
     }).datepicker("setDate", new Date()); 
 
     var date_input=$('div[name="date"]'); //our date input has the name "date"
@@ -11,7 +12,6 @@ $(document).ready(function(){
       format: 'DD DD/MM/YYYY',
       container: container,
       todayHighlight: true,
-      autoclose: true,
       language: 'nb',
       setDate: new Date(),
     });

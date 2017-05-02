@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
 use App\User;
-
+use App\Room;
 
 class UserListController extends Controller
 {
@@ -14,11 +15,12 @@ class UserListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Room $room)
     {
 		$Users = User::all();
+        $rooms = DB::table('room')->get();
 
-        return view('user_list', compact('Users'));
+        return view('user_list', compact('Users', 'room', 'rooms'));
     }
 
     /**

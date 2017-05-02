@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 	<script src="{{ asset('js/nb.js') }}"></script>
 	<script src="{{ asset('js/kalender.js') }}"></script>
+	<script src="{{ asset('js/tooltip.js') }}"></script>
   </head>
   <body>
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
@@ -27,12 +28,12 @@
               <div class="calendar_top page-header">
                 <div class="row">
                   <div class="col-xs-2 col-sm-4 col-md-4 text-right">
-                    <a class="btn_bookingVCalender btn"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
+                    <a class="btn_bookingVCalender btn prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
                   </div>
                   <div class="col-xs-8 col-sm-4 col-md-4 text-center">
                     <div class="form-group">
                       <div class="input-group date" id="date" name="date">
-                            <input class="form-control" type="text" readonly />
+                            <input class="form-control text-center" type="text" readonly />
                             <div class="input-group-addon"> 
                               <span class="glyphicon glyphicon-calendar"></span> 
                             </div>
@@ -40,14 +41,14 @@
                     </div>
                   </div>
                   <div class="col-xs-2 col-sm-4 col-md-4 text-left">
-                    <a class="btn_bookingVCalender btn"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    <a class="btn_bookingVCalender btn next-day"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row room_lister">
 			@foreach ($rooms as $room)
-              <div class="book_a_room col-sm-6 col-md-4">
+              <div class="book_a_room col-sm-4 col-md-3">
                 <div class="room_header text-center">
                   <h4 class="room_title"> <a href="/rooms/{{ $room->id }}" style="text-decoration: none;">{{ $room->name }} </a></h4>
                   <p> {{ $room->capacity }} sitteplasser </p>

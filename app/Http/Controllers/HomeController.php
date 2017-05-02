@@ -59,15 +59,14 @@ class HomeController extends Controller
 		$users = DB::table('users')->find($id);
 		
 		$Users_name = $request->users_name;
-        $Users_email = $request->users_email;
         $Users_phone = $request->users_phone;
 		$Users_company = $request->users_company;
 		
 		DB::table('users')
 			->where('id', $id)
-			->update(array('name' => $Users_name, 'email' => $Users_email, 'phone' => $Users_phone, 'company' => $Users_company));
+			->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company));
 			
-		return redirect()->route('users_profile', ['id' => $id]);
+		return redirect()->route('users_return', ['id' => $id]);
     }
 	
 	public function show(Room $room, User $users, Request $request)
