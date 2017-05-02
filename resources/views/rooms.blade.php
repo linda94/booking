@@ -15,19 +15,5 @@
             </li>
         <?php } ?>
     </ul>
-
-        <h1>Options:</h1>
-    <div>
-        <a href=/newroom>Submit New room</a>
-    </div>
-
-    <div>
-        <a href=/editroom>Edit room</a>
-    </div>
-    <div>
-        <a href=/home>Back</a>
-    </div>
-
-
 </body>
 </html>
