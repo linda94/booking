@@ -19,6 +19,12 @@
 		<div class="row">
 			@include ('layouts.sidebar')
 			<div class="col-sm-10">
+			<!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
+			    @if(session()->has('success'))
+			      <div class="alert alert-success">
+			        {{ session('success') }}
+			      </div>
+			    @endif
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
 						<div class="col-sm-10">

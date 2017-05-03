@@ -115,12 +115,14 @@ class RoomController extends Controller
 		$Room_name = $request->room_name;
         $Room_capacity = $request->room_space;
         $Room_Equipment = $request->room_equipment;
+
+        $success = $Room_name . " lagret";
 		
 		DB::table('room')
 			->where('id', $id)
 			->update(array('name' => $Room_name, 'capacity' => $Room_capacity, 'equipment' => $Room_Equipment));
 			
-		return redirect()->route('room_profile', ['id' => $id]);
+		return redirect()->route('room_profile', ['id' => $id])->with(compact('success'));
     }
 
     /**
@@ -131,7 +133,10 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
+        $roomDel = DB::table('room')->find($id);
+        $success = $roomDel->name . " slettet";
+
         DB::table('room')->where('id', $id)->delete();
-		return redirect('/bookingV');
+		return redirect('/bookingV')->with(compact('success'));
     }
 }

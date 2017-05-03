@@ -37,17 +37,13 @@
 								<input class="room_inputs" id="room_spacing_name" type="text" name="room_name" value="{{ $room->name }}" required ></input>
 							</h1>
 						</div>
-						<div class="col-sm-1">
-							<a href="/rooms/{{ $room->id }}" class="btn btn-default btn-lg room_button"
-							data-toggle="tooltip" data-placement="bottom" title="Tilbake til profil siden">
-								<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						<div class="col-sm-2">
+							<a href="/rooms/{{ $room->id }}" class="btn btn-default room_button"
+							data-toggle="tooltip" data-placement="bottom" title="Tilbake til profil siden">Tilbake
+								<!--<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>-->
 							</a>
-						</div>
-						<div class="col-sm-1 text-left">
-							<div class="col-sm-12 edit_room_div">
-									<a class="color_edit_button" href="/rooms/{{ $room->id }}" data-toggle="tooltip" data-placement="bottom" 
+							<a id="avbryt_knapp" class="btn btn-danger room_button" href="/rooms/{{ $room->id }}" data-toggle="tooltip" data-placement="bottom" 
 									title="Avbryt endringene, dette vil ikke slette rommet"> Avbryt </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -78,7 +74,7 @@
 								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'testeveien21, 4518 oslo'" readonly></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing" id="drop_this_div">
-								<button type="submit" class="btn btn-primary btn_placeholder_room col-sm-3" id="margin_left_button">Lagre endringene</button>
+								<button type="submit" class="btn btn-success  col-sm-3" id="margin_left_button">Lagre endringene</button>
 								<label class="col-sm-1"></label>
 								{{ Form::close() }}
 								{{ Form::model($room, array('route' => array('delete', $room->id), 'method' => 'delete')) }}
