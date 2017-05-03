@@ -57,5 +57,5 @@ Route::patch('/rooms/{room}/', 'RoomController@update');
 
 Route::get('/room_list', 'RoomListController@index');
 
-Route::get('/user_list', 'UserListController@index'); // Til Userlist siden
-Route::get('/user_list/{user}', 'UserListController@show'); // Til en spesiell user
+Route::get('/user_list', 'UserListController@index'); 
+Route::get('/user_list/{users}', 'UserListController@show'); 

@@ -52,9 +52,9 @@ class UserListController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $users = DB::table('users')->get();
 
-        return view('user_list.show',compact('user'));
+        return view('users.home', compact('users'));
     }
 
     /**

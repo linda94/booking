@@ -54,6 +54,7 @@
 					<div class="row"><br/></div>
 					<div class="row">
 						<img src="{{ asset('images/maps_place.png')}}" width="100%"/>
+						
 					</div>
 					<br/>
 				</div>

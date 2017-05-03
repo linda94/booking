@@ -23,28 +23,52 @@
 
 </head>
 <body>
+ <script>
+  $(document).ready(function(){
+  	$('.searchh').on('keyup',function(){
+     var search = $(this).val().toLowerCase();
+      $('#Roomtb tr th').each(function(){
+       var lineStr = $(this).text().toLowerCase();
+        if(lineStr.indexOf(search) === -1){
+          $(this).hide();
+           }else {
+          $(this).show();
+        }
+      });
+    });
+   });
+  </script>
+
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-			<div class="col-sm-10">
-				<div class="page-header room_header_div">
-					<div class="container-fluid">
-						<div class="col-sm-12">
-							<h1> Rom liste </h1>
-						</div>
-					</div>
-				</div>
-				<div class="">
-					<?php foreach ($rooms as $room) { ?>
-						<li>
-							<span class="glyphicon glyphicon-calendar glyphicon_style calendar_glyp"></span> 
-							<a href="/rooms/{{ $room->id }}"> 
-								<?php echo $room->name; ?>
-							</a>
-						</li>
-					<?php } ?>
-				</div>
-			</div>
+        		<div class="col-sm-10">
+          			<div class="page-header" id="roomlist_spacing">
+            			<div class="container-fluid row">
+              				<div class="col-sm-8">
+                			<h2> Roomliste </h2>
+              				</div>
+              					<div class="col-sm-4"> 
+                  				<input type="text" class="searchh form-control" placeholder="søk" />
+              					</div>
+            			</div>
+          			</div>
+            			<div class="see_a_room col-sm-12">
+              				<div class="roomlist_body text-center">
+                				<table class="table table-bordered" id="Roomtb">
+                  				@foreach ($rooms as $room)
+                  					<tr>
+                    					<th scope="row" id="roomlistname">
+                                <a href="/rooms/{{ $room->id }}">
+                      						{{$room->name}} 
+                                </a>
+                    					</th>
+                  					</tr>
+                  				@endforeach
+                				</table>
+              				</div>
+            			</div>
+        			</div>
 		</div>
-	</div
+	</div>
 </body>

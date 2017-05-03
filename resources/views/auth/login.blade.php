@@ -12,8 +12,13 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<script type="text/javascript">
+		var cookie = document.cookie
+
+
+	</script>
   </head>
 <body>
 <div class="container-fluid">

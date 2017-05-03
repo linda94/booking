@@ -60,7 +60,7 @@
 				  </ul>
 			  </ul>
 			</li>
-			<li><a href="#" class="user_title" data-toggle="tooltip" data-placement="bottom" 
+			<li><a href="/user_list" class="user_title" data-toggle="tooltip" data-placement="bottom" 
 			title="Se en liste over alle brukere i systemet">Brukere </a>
 			<ul class="user_list_in_location">
 			  <ul>

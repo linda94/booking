@@ -38,7 +38,7 @@
           <div class="page-header" id="userlist_spacing">
             <div class="container-fluid row">
               <div class="col-sm-8">
-                <h2> Userlist </h2>
+                <h2> Brukerliste </h2>
               </div>
               <div class="col-sm-4"> 
                   <input type="text" class="search form-control" placeholder="søk" />
@@ -51,7 +51,9 @@
                   @foreach ($Users as $user)
                   <tr>
                     <th scope="row" id="userlistname">
-                      {{$user->name}} 
+                      <a href="/users/{{$user->id}}">
+                        {{$user->name}} 
+                      </a>
                     </th>
                   </tr>
                   @endforeach

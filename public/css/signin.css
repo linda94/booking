@@ -448,3 +448,19 @@ border: 1px solid;
  border-spacing:0;
  border-collapse: collapse;  
 }
+
+/* ------------------- room list ----------- */
+#roomlist_spacing {
+margin-top: 1px;
+padding-top: 15px;
+}
+.searchh { 
+margin-top: 13px;
+width: 100%;
+padding: 7px;
+border: 1px solid;
+}
+#Roomtb {
+ border-spacing:0;
+ border-collapse: collapse;  
+}
