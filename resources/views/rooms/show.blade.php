@@ -61,173 +61,166 @@
 				<div class="container-fluid col-sm-1"></div>
 				<div class="row room_lister">
 				  <div class="book_a_room col-sm-5">
-					<div class="room_header text-center">
-					  <h4 class="room_title"> <a style="text-decoration: none;"> placeholder </a></h4>
-					  <p> her kommer booking </p>
-					  <p> for dette rommet </p>
-					</div>
-						<table class="roomTable">
-							<tr class="roomTr">
-								<th class="roomTd" id="firstTd">
-									08:00
-								</th>
-								<td class="roomTd tdspacing">
-									
-								</td>
-							</tr>
+					<table class="roomTable">
 						<tr class="roomTr">
-								<th class="roomTd">
-									08:30
-								</th>
-								<td class="roomTd tdspacing">
-									
-								</td>
-							</tr>
-							<tr class="roomTr">
-								<th class="roomTd">
-									09:00
-								</th>
-								<td class="roomTd tdspacing">
+							<th class="roomTd" id="firstTd">
+								08:00
+							</th>
+							<td class="roomTd tdspacing">
+								
+							</td>
+						</tr>
+					<tr class="roomTr">
+							<th class="roomTd">
+								08:30
+							</th>
+							<td class="roomTd tdspacing">
+								
+							</td>
+						</tr>
+						<tr class="roomTr">
+							<th class="roomTd">
+								09:00
+							</th>
+							<td class="roomTd tdspacing">
 
-								</td>
-							</tr>
-						<tr class="roomTr">
-						  <th class="roomTd">
-							09:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
+							</td>
 						</tr>
-						<tr class="roomTr">
-						  <th class="roomTd">
-							10:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
-						<tr class="roomTr">
-						  <th class="roomTd">
-							10:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
-						<tr class="roomTr">
-						  <th class="roomTd">
-							11:00
-						  </th>
-						  <td class="roomTd tdspacing">
+					<tr class="roomTr">
+					  <th class="roomTd">
+						09:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						10:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						10:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						11:00
+					  </th>
+					  <td class="roomTd tdspacing">
 
-						  </td>
-						</tr>
-						<tr class="roomTr">
-						  <th class="roomTd">
-							11:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					  </td>
+					</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						11:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							12:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						12:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							12:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						12:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							13:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						13:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							13:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						13:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							14:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						14:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							14:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						14:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							15:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						15:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							15:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						15:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							16:00
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						16:00
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
 
-						<tr class="roomTr">
-						  <th class="roomTd">
-							16:30
-						  </th>
-						  <td class="roomTd tdspacing">
-							
-						  </td>
-						</tr>
-						</table>
+					<tr class="roomTr">
+					  <th class="roomTd">
+						16:30
+					  </th>
+					  <td class="roomTd tdspacing">
+						
+					  </td>
+					</tr>
+					</table>
 				  </div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-@include ('layouts.footer')
 </body>
 </html>

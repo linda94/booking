@@ -55,6 +55,67 @@ class EntrustSetupTables extends Migration
 
             $table->primary(['permission_id', 'role_id']);
         });
+
+//----------- Roller ---------------------------------
+
+        //Lager Administrator rollen
+        $Administrator = new App\Role();
+        $Administrator->name         = 'Administrator';
+        $Administrator->display_name = 'Administrator'; // optional
+        $Administrator->description  = 'Administrator av en losning'; // optional
+        $Administrator->save();
+
+        //Lager super bruker rollen
+        $SuperBruker = new App\Role();
+        $SuperBruker->name         = 'SuperBruker';
+        $SuperBruker->display_name = 'Super bruker'; // optional
+        $SuperBruker->description  = ''; // optional
+        $SuperBruker->save();
+
+        //Lager bruker rollen
+        $Bruker = new App\Role();
+        $Bruker->name         = 'Bruker';
+        $Bruker->display_name = 'Bruker'; // optional
+        $Bruker->description  = 'Standard bruker'; // optional
+        $Bruker->save();
+
+//------------Permissions / tillatelser ---------------
+
+        //Bruker: Tilgang til løsning
+        $tilgangTilLosning = new App\Permission();
+        $tilgangTilLosning->name         = 'tilgangTilLosning';
+        $tilgangTilLosning->display_name = 'Tilgang til løsning'; // optional
+        // Lar en bruker...
+        $tilgangTilLosning->description  = 'Gir brukere tilgang til løsning'; // optional
+        $tilgangTilLosning->save();
+
+        //Bruker: Lar en bruker endre egne profil instillinger
+        $profilInstillinger = new App\Permission();
+        $profilInstillinger->name         = 'profilInstillinger';
+        $profilInstillinger->display_name = 'Profil instillinger'; // optional
+        // Lar en bruker...
+        $profilInstillinger->description  = 'Lar en bruker endre egne profil instillinger'; // optional
+        $profilInstillinger->save();
+
+        //Bruker: Lar en bruker gjøre en booking
+        $booke = new App\Permission();
+        $booke->name         = 'booke';
+        $booke->display_name = 'Booke'; // optional
+        // Lar en bruker...
+        $booke->description  = 'Lar en bruker gjøre en booking'; // optional
+        $booke->save();
+
+        //Bruker: Lar en bruker endre egne bruker instillinger
+        $brukerInstillinger = new App\Permission();
+        $brukerInstillinger->name         = 'brukerInstillinger';
+        $brukerInstillinger->display_name = 'Bruker instillinger'; // optional
+        // Lar en bruker...
+        $brukerInstillinger->description  = 'Lar en bruker endre egne bruker instillinger'; // optional
+        $brukerInstillinger->save();
+
+        //Legger tillatelser til bruker rollen
+        $Bruker->attachPermissions(array($brukerInstillinger, $booke, $profilInstillinger, $tilgangTilLosning));
+
     }
 
 	
