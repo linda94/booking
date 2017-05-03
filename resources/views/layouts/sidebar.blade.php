@@ -25,6 +25,7 @@
 				</div>
 			  </li>
 			  <li class="name_placeholder"><a href="/users/home" class="override_color">{{ Auth::user()->name }}</a></li>
+			  
 			  <li><a class="active" href="/bookingV">Booking</a></li>
 			  <li><a class="active" href="/users/home">Min profil</a></li>
 			  <li><a href="/room_list" data-toggle="tooltip" data-placement="bottom" title="Trykk på en av rommene nedenfor for å vise rom-profilen"> Romliste </a>
@@ -39,6 +40,7 @@
 					</li>
         		<?php } ?>
 				  <ul>
+				
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room" title="Legg til ett nytt rom i din løsning"> + Nytt rom </a> </li>
 					<div class="modal new_room" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="mySmallModalLabel2">
