@@ -24,6 +24,12 @@
 			<div class="col-sm-9 col-md-10 col-lg-10">
           <!-- your page content -->
           <div class="container-fluid content_placeholder">
+          <!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
+            @if(session()->has('success'))
+              <div class="alert alert-danger">
+                {{ session('success') }}
+              </div>
+            @endif
             <div class="row">
               <div class="calendar_top page-header">
                 <div class="row">
