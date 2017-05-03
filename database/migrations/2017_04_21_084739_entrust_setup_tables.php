@@ -116,6 +116,76 @@ class EntrustSetupTables extends Migration
         //Legger tillatelser til bruker rollen
         $Bruker->attachPermissions(array($brukerInstillinger, $booke, $profilInstillinger, $tilgangTilLosning));
 
+		
+		//Administrator: Kan invitere nye brukere til sin løsning
+		$invitere = new App\Permission();
+		$invitere->name         = 'invitere';
+        $invitere->display_name = 'InvitereNyBrukere'; // optional
+        // Lar en admin / superbruker...
+        $invitere->description  = 'Lar noen med rettigheter til det invitere nye brukere til løsning'; // optional
+        $invitere->save();
+		
+		//Administrator: Kan aksesere administrator side
+		$adminSide = new App\Permission();
+		$adminSide->name         = 'adminSide';
+        $adminSide->display_name = 'akseserAdminSide'; // optional
+        // Lar en admin / superbruker...
+        $adminSide->description  = 'Lar noen med rettigheter til det aksesere administrator side'; // optional
+        $adminSide->save();
+		
+		//Administrator: Kan endre andres brukerinfo
+		$andresBruker = new App\Permission();
+		$andresBruker->name         = 'andresBruker';
+        $andresBruker->display_name = 'EndreAndresBruker'; // optional
+        // Lar en admin / superbruker...
+        $andresBruker->description  = 'Lar noen med rettigheter til det endre andres brukerinformasjon'; // optional
+        $andresBruker->save();
+		
+		//Administrator: Kan administrere andres brukere
+		$administrereBrukere = new App\Permission();
+		$administrereBrukere->name         = 'administrereBrukere';
+        $administrereBrukere->display_name = 'AdministrereAndresBrukere'; // optional
+        // Lar en admin / superbruker...
+        $administrereBrukere->description  = 'Lar noen med rettigheter til det administrere andres brukere'; // optional
+        $administrereBrukere->save();
+		
+		//Administrator: Kan resende eller tvangsendre passord til andre brukere
+		$tvangsendrePassord = new App\Permission();
+		$tvangsendrePassord->name         = 'tvangsendrePassord';
+        $tvangsendrePassord->display_name = 'TvnagsendrePassorder'; // optional
+        // Lar en admin / superbruker...
+        $tvangsendrePassord->description  = 'Lar noen med rettigheter til det tvangsendre passord til andre brukere i sin løsning'; // optional
+        $tvangsendrePassord->save();
+		
+		//Administrator: Endre andres brukernivåer
+		$endreBrukernivaer = new App\Permission();
+		$endreBrukernivaer->name         = 'endreBrukernivaer';
+        $endreBrukernivaer->display_name = 'endreAndresBrukernivåer'; // optional
+        // Lar en admin / superbruker...
+        $endreBrukernivaer->description  = 'Lar noen med rettigheter til det endre brukernivå til brukere i sitt egen løsning'; // optional
+        $endreBrukernivaer->save();
+		
+		//Administrator: Skal kunne administrere bookinger
+		$administrereBookinger = new App\Permission();
+		$administrereBookinger->name         = 'administrereBookinger';
+        $administrereBookinger->display_name = 'SkalKunneAdministrereBookinger'; // optional
+        // Lar en admin / superbruker...
+        $administrereBookinger->description  = 'Lar noen med rettigheter til det administrere bookinger'; // optional
+        $administrereBookinger->save();
+		
+		//Administrator: Skal kunne lage ny rom
+		$nyttRom = new App\Permission();
+		$nyttRom->name         = 'nyttRom';
+        $nyttRom->display_name = 'LageNyeRom'; // optional
+        // Lar en admin...
+        $nyttRom->description  = 'Lar noen med rettigheter til det lage nye rom i en løsning'; // optional
+        $nyttRom->save();
+		
+		//Legger tillatelser til administrator rollen
+		$Administrator->attachPermissions(array($invitere, $adminSide, $andresBruker, $administrereBrukere, $tvangsendrePassord, $endreBrukernivaer, $administrereBookinger, $nyttRom));
+
+		//Legger tillatelser til superbruker rollen
+		$SuperBruker->attachPermissions(array($invitere, $adminSide, $andresBruker, $administrereBrukere, $tvangsendrePassord, $endreBrukernivaer, $administrereBookinger));
     }
 
 	
