@@ -51,7 +51,7 @@
                   @foreach ($Users as $user)
                   <tr>
                     <th scope="row" id="userlistname">
-                      <a href="/users/{{$user->id}}">
+                      <a href="/user_list/{{$user->id}}">
                         {{$user->name}} 
                       </a>
                     </th>

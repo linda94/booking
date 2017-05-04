@@ -51,11 +51,13 @@ Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
 Route::PUT('/users/{users}', 'HomeController@update')->name('update_user');
 Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 
-//Route::post('/newroom', 'RoomController@store');
-
 Route::patch('/rooms/{room}/', 'RoomController@update');
 
 Route::get('/room_list', 'RoomListController@index');
 
 Route::get('/user_list', 'UserListController@index'); 
-Route::get('/user_list/{users}', 'UserListController@show'); 
+Route::get('/users/user_home_edit', 'UserListController@index2');
+Route::get('/user_list/{users}', 'UserListController@show');
+//Route::PUT('/user_list/{users}', 'UserListController@update')->name('update_user');
+//Route::delete('/user_list/{users}', 'UserListController@destroy')->name('delete_user');
+

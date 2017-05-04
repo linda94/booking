@@ -23,6 +23,22 @@ class UserListController extends Controller
         return view('user_list', compact('Users', 'room', 'rooms'));
     }
 
+
+    public function index2(Room $room, User $users, Request $request)
+    {
+        $users = DB::table('users');
+        
+        $users -> name = $request->name;
+        $users -> email = $request->email;
+        $users -> phone = $request->phone;
+        $users -> company = $request->company;
+        
+        $rooms = DB::table('room')->get();
+        $users = DB::table('users')->get();
+        
+        return view('/users/user_home_edit', compact('room', 'rooms', 'user', 'users'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -52,9 +68,10 @@ class UserListController extends Controller
      */
     public function show($id)
     {
-        $users = DB::table('users')->get();
+        $user = DB::table('users')->find($id);
+        $rooms = DB::table('room')->get();
 
-        return view('users.home', compact('users'));
+        return view('users.user_home', compact('user','rooms'));
     }
 
     /**
@@ -65,7 +82,7 @@ class UserListController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -77,7 +94,17 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = DB::table('users')->find($id);
+        
+        $Users_name = $request->users_name;
+        $Users_phone = $request->users_phone;
+        $Users_company = $request->users_company;
+        
+        DB::table('users')
+            ->where('id', $id)
+            ->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company));
+            
+        return redirect()->route('users_return', ['id' => $id]);
     }
 
     /**
@@ -88,6 +115,7 @@ class UserListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('users')->where('id', $id)->delete();
+        return redirect('/');
     }
 }

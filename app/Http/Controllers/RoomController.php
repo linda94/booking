@@ -23,7 +23,8 @@ class RoomController extends Controller
         return view('rooms', compact('rooms', 'users'));
     }
 	
-	public function index2(Room $room){
+	public function index2(Room $room)
+    {
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
 		return view('/rooms/edit_room', compact('room', 'rooms', 'users'));
