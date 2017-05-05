@@ -21,7 +21,12 @@ class RoomController extends Controller
         //return $rooms;
         return view('rooms', compact('rooms', 'users'));
     }
-	
+	/**
+	* public function __construct() 
+	* {
+	* 	$this->middleware('role:Administrator');
+	* }
+	*/
 	public function index2(Room $room)
     {
 		$rooms = DB::table('room')->get();
