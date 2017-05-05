@@ -16,7 +16,6 @@ class RoomController extends Controller
      */
     public function index()
     {
-		$roles = DB::table('roles')->get();
         $rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
         //return $rooms;

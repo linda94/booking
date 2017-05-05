@@ -39,8 +39,8 @@
 						</a>
 					</li>
         		<?php } ?>
+				  @role(('Administrator'))
 				  <ul>
-				
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room" title="Legg til ett nytt rom i din løsning"> + Nytt rom </a> </li>
 					<div class="modal new_room" tabindex="-1" role="dialog" data-backdrop="false" aria-labelledby="mySmallModalLabel2">
@@ -60,19 +60,24 @@
 					  </div>
 					</div>
 				  </ul>
+				  @endrole
 			  </ul>
 			</li>
 			<li><a href="/user_list" class="user_title" data-toggle="tooltip" data-placement="bottom" 
 			title="Se en liste over alle brukere i systemet">Brukere </a>
+			@role(('Administrator'))
 			<ul class="user_list_in_location">
 			  <ul>
 				<li class="new_item" id="add_user"> <a href="#" class="add_a_white" data-toggle="tooltip" 
 				data-placement="bottom" title="Inviter en ny bruker til din løsning"> + Ny bruker </a> </li>
 			  </ul>
 			</ul>
+			@endrole
 		  </li>
+		  @role(('Administrator'))
 		  <li class="adm_knapp"><a href="#" data-toggle="tooltip" data-placement="bottom" 
 		  title="Administrer din løsning">Administrative </a> </li>
+		  @endrole
 		  <li> <a href="{{ route('logout') }}"> Logg ut </a> </li>
 		  <li><a href="#" data-toggle="tooltip" data-placement="bottom" 
 		  title="Bytt vising på booking til horisontal visning"> 
