@@ -23,7 +23,7 @@
 
 </head>
 <body>
-
+@role(('Administrator'))
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')		
@@ -279,5 +279,6 @@
 			</div>
 		</div>
 	</div>
+@endrole
 </body>
 </html>

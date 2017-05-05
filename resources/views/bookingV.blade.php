@@ -17,6 +17,7 @@
 	<script src="{{ asset('js/tooltip.js') }}"></script>
   </head>
   <body>
+  @role((['Administrator','SuperBruker','Bruker']))
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
     <div class="container-fluid">
 		<div class="row">
@@ -223,5 +224,6 @@
         </div>
 		</div>
 	</div>
+@endrole
 </body>
 </html>

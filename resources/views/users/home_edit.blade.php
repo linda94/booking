@@ -13,7 +13,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+@role((['Administrator','SuperBruker','Bruker']))
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
@@ -88,5 +88,6 @@
 			</div>
 		</div>
 	</div>
+@endrole
 </body>
 </html>

@@ -14,6 +14,7 @@
 
 </head>
 <body>
+@role((['Administrator','SuperBruker','Bruker']))
 	{{ csrf_field() }}
 	<div class="container-fluid">
 		<div class="row">
@@ -230,5 +231,6 @@
 			</div>
 		</div>
 	</div>
+@endrole
 </body>
 </html>

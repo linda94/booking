@@ -38,7 +38,7 @@
     });
    });
   </script>
-
+@role((['Administrator','SuperBruker','Bruker']))
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
@@ -71,4 +71,6 @@
         	</div>
 		</div>
 	</div>
+@endrole
 </body>
+</html>
