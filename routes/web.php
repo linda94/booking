@@ -42,6 +42,9 @@ Route::get('/editroom', 'RoomController@editroom');
 
 Route::get('/newroom', 'SidebarController@create');
 
+Route::get('/invite_user', 'InviteUserController@index')->name('invite_user_index');
+Route::post('/emails/send', 'InviteUserController@send')->name('invite_mail'); 
+
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
 Route::get('/users/home', 'HomeController@index')->name('users_return');
