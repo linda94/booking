@@ -196,6 +196,7 @@ class EntrustSetupTables extends Migration
         $defaultAdmin->password = bcrypt('bob123');
         $defaultAdmin->save();
         $defaultAdmin->attachRole(1);
+
     }
 
 	
