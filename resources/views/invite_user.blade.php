@@ -14,7 +14,7 @@
 
 </head>
 <body>
-@role((['Administrator','SuperBruker','Bruker']))
+@role(('Administrator'))
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
