@@ -448,3 +448,29 @@ border: 1px solid;
  border-spacing:0;
  border-collapse: collapse;  
 }
+.invite_user_spacer {
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+#invite_user_title_spacer {
+	margin-left: -15px;
+}
+.invite_user_height {
+	height: 35px;
+}
+
+/* ------------------- room list ----------- */
+#roomlist_spacing {
+margin-top: 1px;
+padding-top: 15px;
+}
+.searchh { 
+margin-top: 13px;
+width: 100%;
+padding: 7px;
+border: 1px solid;
+}
+#Roomtb {
+ border-spacing:0;
+ border-collapse: collapse;  
+}

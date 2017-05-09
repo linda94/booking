@@ -13,8 +13,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-@role((['Administrator','SuperBruker','Bruker']))
-{{ csrf_field() }}
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
@@ -22,7 +20,7 @@
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
 						<div class="col-sm-10">
-							<h1> {{ Auth::user()->name }} </h1>
+							<h1> {{ $user->name }} </h1>
 						</div>
 						<div class="col-sm-1">
 						<a href="/bookingV" class="btn btn-default btn-lg room_button"
@@ -31,7 +29,7 @@
 						</a>
 						</div>
 						<div class="col-sm-1">
-							<a href="/users/home_edit" class="btn btn-default btn-lg room_button"
+							<a href="/users/user_home_edit" class="btn btn-default btn-lg room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
@@ -44,13 +42,13 @@
 						<div class="well well-sm">
 							<br/>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
-							<p><b class="col-sm-3">Bedriftsnavn:</b><span class="col-sm-9"> {{ Auth::user()->company }} </span></p>
+							<p><b class="col-sm-3">Bedriftsnavn:</b><span class="col-sm-9"> {{$user->company }} </span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
-							<p><b class="col-sm-3">E-post:</b><span class="col-sm-9"> {{ Auth::user()->email }} </span></p>
+							<p><b class="col-sm-3">E-post:</b><span class="col-sm-9"> {{$user->email}} </span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
-							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"> {{ Auth::user()->phone }} </span></p>
+							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"> {{$user->phone }} </span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
 							<textarea readonly class="form-control" rows="9" id="comment">Ikke implementert enda</textarea>
@@ -68,6 +66,5 @@
 			</div>
 		</div>
 	</div>
-@endrole
 </body>
 </html>

@@ -33,7 +33,12 @@ Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
+// BookingController
 Route::get('/bookingV', 'BookingController@index');
+Route::post('/bookingV', 'BookingController@store');
+Route::DELETE('/bookingV/{booking}', 'BookingController@destroy')->name('delete_booking'); //Fikk ikke slettet rom når denne var samme som roomControllers name('delete')
+Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking');
+
 Route::get('/', 'WelcomeController@index');
 Route::get('/rooms', 'RoomController@index');
 Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
@@ -41,6 +46,9 @@ Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
 Route::get('/newroom', 'SidebarController@create');
+
+Route::get('/invite_user', 'InviteUserController@index')->name('invite_user_index');
+Route::post('/emails/send', 'InviteUserController@send')->name('invite_mail'); 
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
@@ -51,11 +59,13 @@ Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
 Route::PUT('/users/{users}', 'HomeController@update')->name('update_user');
 Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
 
-//Route::post('/newroom', 'RoomController@store');
-
 Route::patch('/rooms/{room}/', 'RoomController@update');
 
 Route::get('/room_list', 'RoomListController@index');
 
-Route::get('/user_list', 'UserListController@index'); // Til Userlist siden
-Route::get('/user_list/{user}', 'UserListController@show'); // Til en spesiell user
+Route::get('/user_list', 'UserListController@index'); 
+Route::get('/users/user_home_edit', 'UserListController@index2');
+Route::get('/user_list/{users}', 'UserListController@show');
+//Route::PUT('/user_list/{users}', 'UserListController@update')->name('update_user');
+//Route::delete('/user_list/{users}', 'UserListController@destroy')->name('delete_user');
+

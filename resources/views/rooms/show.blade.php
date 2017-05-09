@@ -14,11 +14,18 @@
 
 </head>
 <body>
+@role((['Administrator','SuperBruker','Bruker']))
 	{{ csrf_field() }}
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
 			<div class="col-sm-10">
+			<!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
+			    @if(session()->has('success'))
+			      <div class="alert alert-success">
+			        {{ session('success') }}
+			      </div>
+			    @endif
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
 						<div class="col-sm-10">
@@ -30,12 +37,14 @@
 							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
 						</a>
 						</div>
+						@role(('Administrator'))
 						<div class="col-sm-1">
 							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
 						</div>
+						@endrole
 					</div>
 				</div>
 			  <!-- your page content -->
@@ -54,6 +63,7 @@
 					<div class="row"><br/></div>
 					<div class="row">
 						<img src="{{ asset('images/maps_place.png')}}" width="100%"/>
+						
 					</div>
 					<br/>
 				</div>
@@ -221,7 +231,6 @@
 			</div>
 		</div>
 	</div>
-
-@include ('layouts.footer')
+@endrole
 </body>
 </html>

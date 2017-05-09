@@ -2,6 +2,11 @@
 
 namespace App\Providers;
 
+use App\User;
+use DB;
+use App\Observers\userObserver;
+
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -14,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+		User::observe(userObserver::class);
     }
 
     /**

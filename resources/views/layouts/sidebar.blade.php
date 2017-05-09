@@ -25,6 +25,7 @@
 				</div>
 			  </li>
 			  <li class="name_placeholder"><a href="/users/home" class="override_color">{{ Auth::user()->name }}</a></li>
+			  
 			  <li><a class="active" href="/bookingV">Booking</a></li>
 			  <li><a class="active" href="/users/home">Min profil</a></li>
 			  <li><a href="/room_list" data-toggle="tooltip" data-placement="bottom" title="Trykk på en av rommene nedenfor for å vise rom-profilen"> Romliste </a>
@@ -38,6 +39,7 @@
 						</a>
 					</li>
         		<?php } ?>
+				  @role(('Administrator'))
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room" title="Legg til ett nytt rom i din løsning"> + Nytt rom </a> </li>
@@ -58,19 +60,24 @@
 					  </div>
 					</div>
 				  </ul>
+				  @endrole
 			  </ul>
 			</li>
-			<li><a href="#" class="user_title" data-toggle="tooltip" data-placement="bottom" 
+			<li><a href="/user_list" class="user_title" data-toggle="tooltip" data-placement="bottom" 
 			title="Se en liste over alle brukere i systemet">Brukere </a>
+			@role((['Administrator','SuperBruker']))
 			<ul class="user_list_in_location">
 			  <ul>
-				<li class="new_item" id="add_user"> <a href="#" class="add_a_white" data-toggle="tooltip" 
+				<li class="new_item" id="add_user"> <a href="/invite_user" class="add_a_white" data-toggle="tooltip" 
 				data-placement="bottom" title="Inviter en ny bruker til din løsning"> + Ny bruker </a> </li>
 			  </ul>
 			</ul>
+			@endrole
 		  </li>
+		  @role((['Administrator','SuperBruker']))
 		  <li class="adm_knapp"><a href="#" data-toggle="tooltip" data-placement="bottom" 
 		  title="Administrer din løsning">Administrative </a> </li>
+		  @endrole
 		  <li> <a href="{{ route('logout') }}"> Logg ut </a> </li>
 		  <li><a href="#" data-toggle="tooltip" data-placement="bottom" 
 		  title="Bytt vising på booking til horisontal visning"> 

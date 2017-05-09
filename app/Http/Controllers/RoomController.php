@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Room;
 use App\User;
+use App\Booking;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -16,14 +17,19 @@ class RoomController extends Controller
      */
     public function index()
     {
-		$roles = DB::table('roles')->get();
         $rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
         //return $rooms;
         return view('rooms', compact('rooms', 'users'));
     }
-	
-	public function index2(Room $room){
+	/**
+	* public function __construct() 
+	* {
+	* 	$this->middleware('role:Administrator');
+	* }
+	*/
+	public function index2(Room $room)
+    {
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
 		return view('/rooms/edit_room', compact('room', 'rooms', 'users'));
@@ -115,12 +121,14 @@ class RoomController extends Controller
 		$Room_name = $request->room_name;
         $Room_capacity = $request->room_space;
         $Room_Equipment = $request->room_equipment;
+
+        $success = $Room_name . " lagret";
 		
 		DB::table('room')
 			->where('id', $id)
 			->update(array('name' => $Room_name, 'capacity' => $Room_capacity, 'equipment' => $Room_Equipment));
 			
-		return redirect()->route('room_profile', ['id' => $id]);
+		return redirect()->route('room_profile', ['id' => $id])->with(compact('success'));
     }
 
     /**
@@ -131,7 +139,11 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
+        $roomDel = DB::table('room')->find($id);
+        $success = $roomDel->name . " slettet";
+
+        DB::table('bookings')->where('room_id', $id)->delete();
         DB::table('room')->where('id', $id)->delete();
-		return redirect('/bookingV');
+		return redirect('/bookingV')->with(compact('success'));
     }
 }

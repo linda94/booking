@@ -3,40 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use User;
+use Room;
 use DB;
-use App\User;
-use App\Room;
+use Mail;
 
-class UserListController extends Controller
+class InviteUserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Room $room)
+    public function index()
     {
-		$Users = User::all();
         $rooms = DB::table('room')->get();
-
-        return view('user_list', compact('Users', 'room', 'rooms'));
-    }
-
-
-    public function index2(Room $room, User $users, Request $request)
-    {
-        $users = DB::table('users');
-        
-        $users -> name = $request->name;
-        $users -> email = $request->email;
-        $users -> phone = $request->phone;
-        $users -> company = $request->company;
-        
-        $rooms = DB::table('room')->get();
-        $users = DB::table('users')->get();
-        
-        return view('/users/user_home_edit', compact('room', 'rooms', 'user', 'users'));
+		$users = DB::table('users')->get();
+        //return $rooms;
+        return view('/invite_user', compact('rooms', 'users'));
     }
 
     /**
@@ -68,10 +52,7 @@ class UserListController extends Controller
      */
     public function show($id)
     {
-        $user = DB::table('users')->find($id);
-        $rooms = DB::table('room')->get();
-
-        return view('users.user_home', compact('user','rooms'));
+        //
     }
 
     /**
@@ -82,7 +63,7 @@ class UserListController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -94,17 +75,7 @@ class UserListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = DB::table('users')->find($id);
-        
-        $Users_name = $request->users_name;
-        $Users_phone = $request->users_phone;
-        $Users_company = $request->users_company;
-        
-        DB::table('users')
-            ->where('id', $id)
-            ->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company));
-            
-        return redirect()->route('users_return', ['id' => $id]);
+        //
     }
 
     /**
@@ -115,7 +86,22 @@ class UserListController extends Controller
      */
     public function destroy($id)
     {
-        DB::table('users')->where('id', $id)->delete();
-        return redirect('/');
+        //
     }
+	
+	public function send(Request $request)
+	{
+		$email = $request->get('email');
+
+		Mail::send('emails.send', ['email' => $email], function ($message) use ($email)
+		{
+			$message->from('kevad95@gmail.com', 'BAM - Book And Meet');
+			$message->to($email);
+			$message->subject('Test');
+		});
+
+		$success = "Du har invitert " . $email . " til din l&oslash;sning";
+		
+		return redirect()->route('invite_user_index')->with(compact('success'));
+	}
 }
