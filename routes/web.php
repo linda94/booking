@@ -33,7 +33,12 @@ Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
+// BookingController
 Route::get('/bookingV', 'BookingController@index');
+Route::post('/bookingV', 'BookingController@store');
+Route::DELETE('/bookingV/{booking}', 'BookingController@destroy')->name('delete_booking'); //Fikk ikke slettet rom når denne var samme som roomControllers name('delete')
+Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking');
+
 Route::get('/', 'WelcomeController@index');
 Route::get('/rooms', 'RoomController@index');
 Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');

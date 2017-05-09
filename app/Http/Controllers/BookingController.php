@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use App\Room;
+use App\Booking;
 class BookingController extends Controller
 {
     /**
@@ -15,11 +16,14 @@ class BookingController extends Controller
      */
     public function index(Room $room)
     {
-
+            // OBS: bookings, ikke booking (flertall)
+        $bookings = DB::table('bookings')->get();
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
 
-        return view('bookingV', compact('room', 'rooms', 'users'));
+        //return response()->json(compact('bookings', 'rooms', 'users'))->view('bookingV', compact('rooms', 'users'));
+
+        return view('bookingV', compact('bookings', 'rooms', 'users'));
     }
 
     /**
@@ -40,7 +44,17 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $booking = new Booking;
+
+        $booking -> from = $request->from;
+        $booking -> to = $request->to;
+        $booking -> room_id = $request->room_id; //skifte til room_id
+        $dateStr = $request->dateString;
+        $booking -> dateString = $dateStr;
+
+        $booking->save();
+
+        return redirect()->back()->with(compact('dateStr'));
     }
 
     /**
@@ -51,7 +65,10 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        //
+        $booking = DB::table('bookings')->find($id);
+
+        return view('bookings.show', compact('booking'));
+
     }
 
     /**
@@ -85,6 +102,15 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('bookings')->where('id', $id)->delete();
+
+        //return redirect('bookingV');
+        $bookings = DB::table('bookings')->get();
+        $rooms = DB::table('room')->get();
+        $users = DB::table('users')->get();
+
+        //return response()->json(compact('bookings', 'rooms', 'users'))->view('bookingV', compact('rooms', 'users'));
+
+        return view('bookingV', compact('bookings', 'rooms', 'users'));
     }
 }

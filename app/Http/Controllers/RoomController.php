@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Room;
 use App\User;
+use App\Booking;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
@@ -141,6 +142,7 @@ class RoomController extends Controller
         $roomDel = DB::table('room')->find($id);
         $success = $roomDel->name . " slettet";
 
+        DB::table('bookings')->where('room_id', $id)->delete();
         DB::table('room')->where('id', $id)->delete();
 		return redirect('/bookingV')->with(compact('success'));
     }

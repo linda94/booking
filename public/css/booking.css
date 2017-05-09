@@ -1,0 +1,24 @@
+.roomTable {
+  width: 100%;
+  color: black !important;
+}
+.roomTd {
+  border: 1px solid lightgrey;
+  text-align: center;
+}
+.roomTdNoBorder {
+  border: 0px !important;
+}
+.roomTd {
+  padding: 1% !important;
+}
+#firstTd {
+  width: 20%;
+}
+.form-horizontal {
+  margin-left: 15px !important;
+  margin-right: 15px !important;
+}
+.colorMe {
+  background-color: green;
+}
