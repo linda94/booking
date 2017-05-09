@@ -104,13 +104,13 @@ class BookingController extends Controller
     {
         DB::table('bookings')->where('id', $id)->delete();
 
-        //return redirect('bookingV');
-        $bookings = DB::table('bookings')->get();
-        $rooms = DB::table('room')->get();
-        $users = DB::table('users')->get();
+        return redirect('/bookingV');
+        //$bookings = DB::table('bookings')->get();
+        //$rooms = DB::table('room')->get();
+        //$users = DB::table('users')->get();
 
         //return response()->json(compact('bookings', 'rooms', 'users'))->view('bookingV', compact('rooms', 'users'));
 
-        return view('bookingV', compact('bookings', 'rooms', 'users'));
+        //return view('bookingV', compact('bookings', 'rooms', 'users'));
     }
 }
