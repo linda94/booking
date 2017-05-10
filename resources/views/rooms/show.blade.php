@@ -39,7 +39,7 @@
 						</div>
 						@role(('Administrator'))
 						<div class="col-sm-1">
-							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button"
+							<a href="/rooms/edit_room/{{$room->id}}" class="btn btn-default btn-lg room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
@@ -61,9 +61,19 @@
 						</div>
 					</div>
 					<div class="row"><br/></div>
-					<div class="row">
-						<img src="{{ asset('images/maps_place.png')}}" width="100%"/>
-						
+					<div class="row"></div><br>
+            			<div id="map" style="width:300px;height:300px"> </div>
+            				<script>
+		              			function myMap() {
+		                		var mapOptions = {
+		                 		center: new google.maps.LatLng(58.14671, 7.9956),
+		                  		zoom: 14,
+		                  		mapTypeId: google.maps.MapTypeId.HYBRID
+		                		}
+		                		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+							} </script>
+
+						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6EU0EW7dQdi6SLpvgriMcTvI2RI6ZYJs&callback=myMap"></script> </br>
 					</div>
 					<br/>
 				</div>

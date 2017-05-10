@@ -50,10 +50,10 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-        public function editroom()
-    {
-		return view('editroom');
-    }
+        //public function editroom()
+    //{
+		//return view('editroom');
+    //}
 
     /**
      * Store a new room in the database. This method is used primarilly as a test method for creating rooms.
@@ -99,6 +99,8 @@ class RoomController extends Controller
      * @param  \App\Room  $room
      * @return \Illuminate\Http\Response
      */
+
+    
     public function edit($id)
     {
         $room = DB::table('room')->find($id);

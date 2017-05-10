@@ -17,7 +17,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			@include ('layouts.sidebar')
-			{{ Form::model($users, array('route' => array('update_user', user->id), 'method' => 'PUT')) }}
+			{{ Form::model($users, array('route' => array('user_list_update', $user->id), 'method' => 'PUT')) }}
 			{{ csrf_field() }}
 			<div class="col-sm-10">
 				<div class="page-header room_header_div">
@@ -26,14 +26,14 @@
 							<h1><input id="room_inputs_special" type="text" name="users_name" value="{{ $user->name }}" required ></input></h1>
 						</div>
 						<div class="col-sm-1">
-						<a href="/users/user_home" class="btn btn-default btn-lg room_button"
+						<a href="/user_list/{{$user->id}}" class="btn btn-default btn-lg room_button"
 						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">
 							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
 						</a>
 						</div>
 						<div class="col-sm-1 text-left">
 							<div class="col-sm-12 edit_room_div">
-								<a class="color_edit_button" href="/users/user_home" data-toggle="tooltip" data-placement="bottom" 
+								<a class="color_edit_button" href="/user_list/{{$user->id}}" data-toggle="tooltip" data-placement="bottom" 
 								title="Avbryt endringene dine"> Avbryt </a>
 							</div>
 						</div>
@@ -62,7 +62,7 @@
 					</div>
 				</div>
 				{{ Form::close() }}
-				{{ Form::model($users, array('route' => array('delete_user', $user->id), 'method' => 'delete')) }}
+				{{ Form::model($users, array('route' => array('user_list_delete', $user->id), 'method' => 'delete')) }}
 				<div class="container-fluid col-sm-1">
 				</div>
 				<div class="container-fluid col-sm-5">
