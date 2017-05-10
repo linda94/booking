@@ -55,9 +55,9 @@
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"><input class="room_inputs no-spin" type="number" 
-							name="users_phone" maxlength="8" minlength="8"
+							name="users_phone"
 							data-toggle="tooltip" data-placement="right" title="max og minimum 8 tall. Eksempel: '12345678'"
-							value="{{ $user->phone }}" required ></input></span></p>
+							value="{{ $user->phone }}"></input></span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
 							<textarea class="form-control" rows="9" id="comment" name="desciption">Ikke implementert enda</textarea>
