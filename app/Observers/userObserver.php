@@ -3,6 +3,7 @@
 namespace App\Observers;
 
 use App\User;
+use App\Mail\Welcome;
 use Illuminate\Support\ServiceProvider;
 
 class userObserver
@@ -17,6 +18,7 @@ class userObserver
     public function created(User $user)
     {
         $user->attachRole(3);
+		\Mail::to($user)->send(new Welcome);
     }
 
     /**

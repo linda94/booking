@@ -39,7 +39,7 @@
 						</a>
 					</li>
         		<?php } ?>
-				  @role((['Administrator','SuperBruker']))
+				  @role(('Administrator'))
 				  <ul>
 					<li class="new_item"> <a href="#" class="add_a_white"
 					data-toggle="modal" data-target=".new_room" title="Legg til ett nytt rom i din løsning"> + Nytt rom </a> </li>
@@ -68,7 +68,7 @@
 			@role((['Administrator','SuperBruker']))
 			<ul class="user_list_in_location">
 			  <ul>
-				<li class="new_item" id="add_user"> <a href="#" class="add_a_white" data-toggle="tooltip" 
+				<li class="new_item" id="add_user"> <a href="/invite_user" class="add_a_white" data-toggle="tooltip" 
 				data-placement="bottom" title="Inviter en ny bruker til din løsning"> + Ny bruker </a> </li>
 			  </ul>
 			</ul>

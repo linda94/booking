@@ -54,14 +54,14 @@
 							<br/>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Plass til:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_space"
-								value="{{ $room->capacity }}" required > folk</input></span></p>
+								<input class="room_inputs" type="number" name="room_space"
+								value="{{ $room->capacity }}"> personer</input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Utstyr:</b><span class="col-sm-8">
 								<input class="room_inputs" type="text" name="room_equipment"
 								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'TV, Prosjektor, HDMI'"
-								value="{{ $room->equipment }}" required ></input></span></p>
+								value="{{ $room->equipment }}"></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Etasje:</b><span class="col-sm-8">
@@ -100,7 +100,9 @@
 								{{ Form::close() }}
 								<div class="dropdown dd_div col-sm-3">
 									<button class="btn dropdown-toggle" href="#" data-toggle="dropdown" 
-									aria-haspopup="true" aria-expanded="false"> Brukerrettigheter <span class="caret"></span></button>
+									aria-haspopup="true" aria-expanded="false"
+									data-placement="bottom" title="Dette er ikke implementert enda!"
+									> Brukerrettigheter <span class="caret"></span></button>
 									<ul class="dropdown-menu">
 										<li class="dropdown-header dd_text_header"> Hvilke brukernivaer kan booke rommet? </li>
 										<!-- Give items in this list class="dd_text_item" -->

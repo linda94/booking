@@ -1,5 +1,6 @@
 <?php
 use App\Role;
+use App\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -186,6 +187,16 @@ class EntrustSetupTables extends Migration
 
 		//Legger tillatelser til superbruker rollen
 		$SuperBruker->attachPermissions(array($invitere, $adminSide, $andresBruker, $administrereBrukere, $tvangsendrePassord, $endreBrukernivaer, $administrereBookinger));
+
+        //---------Legger til standard Admin bruker til en hver ny løsning --------
+
+        $defaultAdmin = new App\User();
+        $defaultAdmin->name = 'Admin';
+        $defaultAdmin->email ='admin@bookandmeet.com';
+        $defaultAdmin->password = bcrypt('bob123');
+        $defaultAdmin->save();
+        $defaultAdmin->attachRole(1);
+
     }
 
 	

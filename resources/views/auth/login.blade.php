@@ -55,7 +55,7 @@
 			</div>
 			<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
 			<button class="btn_frontPage" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
-			<a class="btn btn-link" href="{{ route('password.request') }}"> Forgot Your Password? </a>
+			<a class="btn btn-link" href="{{ route('password.request') }}"> Glemt ditt passord? </a>
 		</form>
     </div>
 </div>

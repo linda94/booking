@@ -28,12 +28,28 @@ use App\Role;
 
 Auth::routes();
 
+<<<<<<< HEAD
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect'); 
 //Route::get('rooms/{room}/edit', 'RoomController@edit'); 
+=======
+Route::get('/auth/passwords/email', function () {
+	Auth::logout();
+	Session::flush();
+	return view('/auth/passwords/email');
+});
+
+Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
+Route::get('rooms/{room}/edit', 'RoomController@edit');
+>>>>>>> 585f1731a04dfeb3661a470f504ea3c81d66e40b
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
+// BookingController
 Route::get('/bookingV', 'BookingController@index');
+Route::post('/bookingV', 'BookingController@store');
+Route::DELETE('/bookingV/{booking}', 'BookingController@destroy')->name('delete_booking'); //Fikk ikke slettet rom når denne var samme som roomControllers name('delete')
+Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking');
+
 Route::get('/', 'WelcomeController@index');
 
 Route::get('/rooms', 'RoomController@index'); 
@@ -43,6 +59,9 @@ Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
 Route::get('/newroom', 'SidebarController@create');
+
+Route::get('/invite_user', 'InviteUserController@index')->name('invite_user_index');
+Route::post('/emails/send', 'InviteUserController@send')->name('invite_mail'); 
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
