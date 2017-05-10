@@ -28,6 +28,12 @@ use App\Role;
 
 Auth::routes();
 
+Route::get('/auth/passwords/email', function () {
+	Auth::logout();
+	Session::flush();
+	return view('/auth/passwords/email');
+});
+
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');

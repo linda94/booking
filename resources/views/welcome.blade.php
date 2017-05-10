@@ -19,17 +19,22 @@
 <body>
 	<div class="mid">
 		<div class="container col-xs-8 slideshow" id="carousel">
+		</br></br></br>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="null"> 
 				<ol class="carousel-indicators">
 					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
 				 </ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active"> 
-						<img src="{{ asset('images/Alternate booking.png')}}" width="600" height="600">
+						<img src="{{ asset('images/Slideshow1.JPG')}}" width="600" height="800">
 					</div>
 					<div class="item"> 
-						<img src="{{ asset('images/Booking.png')}}" width="600" height="600">
+						<img src="{{ asset('images/Slideshow2.JPG')}}" width="600" height="800">
+					</div>
+					<div class="item"> 
+						<img src="{{ asset('images/Slideshow3.JPG')}}" width="600" height="800">
 					</div>
 				</div>
 

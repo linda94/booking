@@ -50,7 +50,7 @@
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing">
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"><input class="room_inputs no-spin" type="number" 
-							name="users_phone" maxlength="8" minlength="8"
+							id="myInput" name="users_phone"
 							data-toggle="tooltip" data-placement="right" title="max og minimum 8 tall. Eksempel: '12345678'"
 							value="{{ Auth::user()->phone }}" required ></input></span></p>
 							</div>
@@ -79,8 +79,7 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<!-- Dette gjøres senere, når mail server er oppe -->
-						<button class="btn_frontPage"> Endre passord </button>
+						<a class="btn btn_frontPage" href="/auth/passwords/email" width="100%">Endre passord </a>
 						<br/></br>
 					</div>
 				</div>
