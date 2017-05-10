@@ -125,17 +125,47 @@ class UserListController extends Controller
         return redirect('user_list');
     }
 	
-	public function test($id, User $users)
+	public function bruker($id, User $users)
 	{
-		$SuperBruker = DB::table('roles')
-		->where('name', 'SuperBruker')->get()->first();
+		$bruker = DB::table('roles')
+		->where('name', 'bruker')->get()->first();
 		
 		DB::table('role_user')
 		->where('user_id', $id)
 		->delete();
 		
-		$user = User::find(3);
+		$users = User::find($id);
+		$users->attachRole(3);
+		
+		$success = "Brukernivået har blitt endret";
+		
+		return redirect()->route('user_home_edit_redirect', ['id' => $id])->with(compact('success'));
+	}
+	public function superBruker($id, User $users)
+	{
+		$superBruker = DB::table('roles')
+		->where('name', 'superBruker')->get()->first();
+		
+		DB::table('role_user')
+		->where('user_id', $id)
+		->delete();
+		
+		$users = User::find($id);
 		$users->attachRole(2);
+		
+		return redirect()->route('user_home_edit_redirect', ['id' => $id]);
+	}
+	public function administrator($id, User $users)
+	{
+		$administrator = DB::table('roles')
+		->where('name', 'administrator')->get()->first();
+		
+		DB::table('role_user')
+		->where('user_id', $id)
+		->delete();
+		
+		$users = User::find($id);
+		$users->attachRole(1);
 		
 		return redirect()->route('user_home_edit_redirect', ['id' => $id]);
 	}

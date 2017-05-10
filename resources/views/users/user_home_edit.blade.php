@@ -20,6 +20,11 @@
 			{{ Form::model($users, array('route' => array('user_list_update', $user->id), 'method' => 'PUT')) }}
 			{{ csrf_field() }}
 			<div class="col-sm-10">
+			@if(session()->has('success'))
+			  <div class="alert alert-success">
+				{{ session('success') }}
+			  </div>
+			@endif
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
 						<div class="col-sm-10">
@@ -85,10 +90,12 @@
 							aria-haspopup="true" aria-expanded="false"> Brukerrettigheter <span class="caret"></span></button>
 							<ul class="dropdown-menu" id="home_dd_styling">
 								<li class="dropdown-header dd_text_header"> Brukerrettigheter </li>
-
-								
-								<li class="dd_text_item"><a href="/users/{{$user->id}}/user_home_edit/assign_user" 
+								<li class="dd_text_item"><a href="/users/{{$user->id}}/user_home_edit/assign_bruker" 
 								type="submit"> Bruker </a></li>
+								<li class="dd_text_item"><a href="/users/{{$user->id}}/user_home_edit/assign_superbruker" 
+								type="submit"> Super Bruker </a></li>								
+								<li class="dd_text_item"><a href="/users/{{$user->id}}/user_home_edit/assign_administrator" 
+								type="submit"> Administrator </a></li>
 							</ul>
 						</div>
 					</div>

@@ -81,10 +81,9 @@ Route::PUT('/users/{users}','UserListController@update')->name('user_list_update
 Route::delete('/users/{users}', 'UserListController@destroy')->name('user_list_delete'); // nr 6
 
 // Brukernivå assigning
-
-
-Route::get('/users/{user}/user_home_edit/assign_user','UserListController@test')->name('test');
-
+Route::get('/users/{user}/user_home_edit/assign_bruker','UserListController@bruker');
+Route::get('/users/{user}/user_home_edit/assign_superbruker','UserListController@superBruker');
+Route::get('/users/{user}/user_home_edit/assign_administrator','UserListController@administrator');
 
 
 
