@@ -153,7 +153,9 @@ class UserListController extends Controller
 		$users = User::find($id);
 		$users->attachRole(2);
 		
-		return redirect()->route('user_home_edit_redirect', ['id' => $id]);
+        $success = "Brukernivået har blitt endret"; 
+
+		return redirect()->route('user_home_edit_redirect', ['id' => $id])->with(compact('success'));
 	}
 	public function administrator($id, User $users)
 	{
@@ -167,6 +169,8 @@ class UserListController extends Controller
 		$users = User::find($id);
 		$users->attachRole(1);
 		
-		return redirect()->route('user_home_edit_redirect', ['id' => $id]);
+        $success = "Brukernivået har blitt endret";
+
+		return redirect()->route('user_home_edit_redirect', ['id' => $id])->with(compact('success'));
 	}
 }
