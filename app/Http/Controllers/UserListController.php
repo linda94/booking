@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Room;
+use App\Role;
+use EntrustUserTrait;
 
 class UserListController extends Controller
 {
+	
     /**
      * Display a listing of the resource.
      *
@@ -82,8 +85,9 @@ class UserListController extends Controller
 
         $rooms = DB::table('room')->get();
         $users = DB::table('users')->get();
+		$role_user = DB::table('role_user')->get();
 
-        return view('users/user_home_edit', compact('user','rooms', 'users'));
+        return view('users/user_home_edit', compact('user','rooms', 'users', 'role_user'));
     }
     
 
@@ -120,4 +124,19 @@ class UserListController extends Controller
         DB::table('users')->where('id', $id)->delete();
         return redirect('user_list');
     }
+	
+	public function test($id, User $users)
+	{
+		$SuperBruker = DB::table('roles')
+		->where('name', 'SuperBruker')->get()->first();
+		
+		DB::table('role_user')
+		->where('user_id', $id)
+		->delete();
+		
+		$user = User::find(3);
+		$users->attachRole(2);
+		
+		return redirect()->route('user_home_edit_redirect', ['id' => $id]);
+	}
 }

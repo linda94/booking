@@ -78,18 +78,17 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<!-- Dette gjøres senere, når mail server er oppe -->
-						<button class="btn_frontPage"> Endre passord </button>
+						<button class="btn_frontPage" href="/auth/passwords/email"> Endre passord </button>
 						<br/></br>
 						<div class="dropdown">
 							<button class="btn dropdown-toggle" id="home_dd_styling" href="#" data-toggle="dropdown" 
 							aria-haspopup="true" aria-expanded="false"> Brukerrettigheter <span class="caret"></span></button>
 							<ul class="dropdown-menu" id="home_dd_styling">
 								<li class="dropdown-header dd_text_header"> Brukerrettigheter </li>
-								<!-- Give items in this list class="dd_text_item" -->
-								<li class="dd_text_item"><a href="#"> Bruker </a></li>
-								<li class="dd_text_item"> <a href="#"> Superbruker </a> </li>
-								<li class="dd_text_item"><a href="#"> Administrator </a></li>
+
+								
+								<li class="dd_text_item"><a href="/users/{{$user->id}}/user_home_edit/assign_user" 
+								type="submit"> Bruker </a></li>
 							</ul>
 						</div>
 					</div>

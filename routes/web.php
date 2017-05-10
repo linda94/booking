@@ -28,10 +28,8 @@ use App\Role;
 
 Auth::routes();
 
-<<<<<<< HEAD
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect'); 
-//Route::get('rooms/{room}/edit', 'RoomController@edit'); 
-=======
+//Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::get('/auth/passwords/email', function () {
 	Auth::logout();
 	Session::flush();
@@ -40,7 +38,6 @@ Route::get('/auth/passwords/email', function () {
 
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
->>>>>>> 585f1731a04dfeb3661a470f504ea3c81d66e40b
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
 Route::delete('/rooms/{room}', 'RoomController@destroy')->name('delete');
 
@@ -76,13 +73,17 @@ Route::patch('/rooms/{room}/', 'RoomController@update');
 
 Route::get('/room_list', 'RoomListController@index');
 
-
 Route::get('/user_list', 'UserListController@index'); // nr 1 
 Route::get('/user_list/{users}', 'UserListController@show')->name('users_profiles'); // nr 2
 Route::get('/users/user_home_edit/{users}','UserListController@index2'); // nr 3
-Route::get('users/{user}/user_home_edit', 'UserListController@edit'); // nr 4
+Route::get('users/{user}/user_home_edit', 'UserListController@edit')->name('user_home_edit_redirect'); // nr 4
 Route::PUT('/users/{users}','UserListController@update')->name('user_list_update'); // nr 5
 Route::delete('/users/{users}', 'UserListController@destroy')->name('user_list_delete'); // nr 6
+
+// Brukernivå assigning
+
+
+Route::get('/users/{user}/user_home_edit/assign_user','UserListController@test')->name('test');
 
 
 
