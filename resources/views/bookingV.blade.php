@@ -68,7 +68,7 @@
         $input.datetimepicker({
           format: 'HH:mm',
           stepping: 30,
-          disabledHours: [0,1,2,3,4,5,6,7,17,18,19,20,21,22,23]
+          disabledHours: [0,1,2,3,4,5,6,7,22,23]
         });
       $(v).find('span.input-group-addon').click(function(e) {
         $input.focus();
@@ -100,7 +100,7 @@
       return times;
     }
 
-    var times = makeTimeHalfHour(8, 17);
+    var times = makeTimeHalfHour(8, 22);
 
 
     var makeRoomTables = function(rooms, times) {
@@ -407,6 +407,31 @@ $('table#'+ 1 +' td').filter(function(){
     });
 
 
+    $("td").click(function () {
+          var getTimeFromTd = this.getAttribute("name");
+          var removeSecondsFromTime = getTimeFromTd.substring(0, 5);
+          $("input[name='from']").val(removeSecondsFromTime);
+          //console.log(removeSecondsFromTime);
+
+          var getHour = getTimeFromTd.substring(0, 2);
+          var hourStrToInt = parseInt(getHour) + 1;
+          if (hourStrToInt < 10) {
+            hourStrToInt = "0" + hourStrToInt;
+          }
+          var addHourIncr = hourStrToInt + ":" + getTimeFromTd.substring(3, 5);
+
+
+          //console.log("getHour: " + getHour);
+          //console.log("hourStrToInt: " + hourStrToInt);
+          //console.log("addHourIncr: " + addHourIncr);
+
+          $("input[name='to']").val(addHourIncr);
+
+
+
+        });
+
+
 
 });
 
@@ -461,17 +486,16 @@ $('table#'+ 1 +' td').filter(function(){
 
 
           
-          <div class="modal" id="booking_modal" tabindex="-1" role="dialog" aria-labelledby="showBookingModalLabel" aria-hidden="true">
+          <div class="modal" id="booking_modal" tabindex="-1" role="dialog" aria-labelledby="showBookingModal" aria-hidden="true">
           {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="showBookingModalLabel">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
+                  <h4 class="modal-title" id="showBookingModal">Booking</h5>
                 </div>
                 <div class="modal-body">
+                  <h4 id="showBookingModalLabel"></h4>
                   <p>Fra:  <span class="booking_from"></span></p>
                   <p>Til: <span class="booking_to"></span></p>
                 </div>

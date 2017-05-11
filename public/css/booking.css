@@ -20,5 +20,15 @@
   margin-right: 15px !important;
 }
 .colorMe {
-  background-color: green;
+  background-color: #4CAF50;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+#bookEnd {
+  border-bottom: 1px solid lightgrey !important;
+}
+
+#bookStart {
+  border-top: 1px solid lightgrey !important;
 }
