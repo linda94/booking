@@ -46,6 +46,7 @@ Route::get('/bookingV', 'BookingController@index');
 Route::post('/bookingV', 'BookingController@store');
 Route::DELETE('/bookingV/{booking}', 'BookingController@destroy')->name('delete_booking'); //Fikk ikke slettet rom når denne var samme som roomControllers name('delete')
 Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking');
+Route::PUT('/bookingV/{booking}', 'BookingController@update');
 
 Route::get('/', 'WelcomeController@index');
 

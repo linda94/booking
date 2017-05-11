@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
   <head>
     <title></title>
     <meta charset="utf-8">
@@ -22,14 +20,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	<!--<script src="{{ asset('js/nb.js') }}"></script>-->
+	<script src="{{ asset('js/nb.js') }}"></script>
 	<!--<script src="{{ asset('js/kalender.js') }}"></script>-->
 	<script src="{{ asset('js/tooltip.js') }}"></script>
   <!--<script src="{{ asset('js/booking.js') }}"></script>-->
   <script>
         $(document).ready(function(){
       $("#date").datepicker({
-        format: 'dd/mm/yyyy',
+        format: 'DD dd/mm/yyyy',
         language: 'nb',
         todayHighlight: true,
         //calendarWeeks: true,
@@ -63,8 +61,8 @@
       $('#date').datepicker("setDate", mydate);
     }
 
-    $('.datetimepicker3').each(function(k, v) {
-      var $input = $(v).find('.datetimepicker3');
+    $('.datetimepicker3, .datetimepicker4').each(function(k, v) {
+      var $input = $(v).find('.datetimepicker3, .datetimepicker4');
         $input.datetimepicker({
           format: 'HH:mm',
           stepping: 30,
@@ -262,8 +260,19 @@
       }*/
 
       $('#delete_booking').hide();
+      $('.form_change_booking, .upd_booking').hide();
+      $('.div_booking_from, .div_booking_to').show();
       if(bookUser_id == user_idAuth) {
         $('#delete_booking').show();
+        $('.form_change_booking, .upd_booking').show();
+        $('.div_booking_from, .div_booking_to').hide();
+
+        var momentFrom = moment(actualBookingObject['from'], "HHmmss").format("HH:mm");
+        $("input[name='upd_from']").val(momentFrom);
+
+        var momentTo = moment(actualBookingObject['to'], "HHmmss").format("HH:mm");
+        $("input[name='upd_to']").val(momentTo);
+
       }
 
       var url = window.location.href + "/" + nyBookingID;
@@ -433,6 +442,10 @@ $('table#'+ 1 +' td').filter(function(){
       }
     });
 
+    $('.upd_booking').click(function(e) {
+      
+    });
+
 
     $("td").click(function () {
       var getTimeFromTd = this.getAttribute("name");
@@ -531,16 +544,50 @@ $('table#'+ 1 +' td').filter(function(){
                           <span id="showBookingModalCompanyName"> </span>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row div_booking_from">
                       <p class="col-sm-12">Fra:  <span class="booking_from"></span></p>
                     </div>
-                    <div class="row">
+                    <div class="row div_booking_to">
                       <p class="col-sm-12">Til: <span class="booking_to"></span></p>
                     </div>
+
+                    {{Form::open(['url' => 'foo/bar', 'method' => 'PUT', 'class' => 'form-horizontal form_change_booking'])}}
+                    <div class="row">
+                      
+                    
+                      <div class="form-group">
+                          <label for="message-text" class="control-label">Fra</label>
+                            <div class='input-group date datetimepicker4'>
+                              <input type='text' class="form-control datetimepicker4" data-format="HH:mm:ss" name="upd_from"/>
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                              </span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                      
+
+                      <div class="form-group">
+                          <label for="message-text" class="control-label">Til</label>
+                            <div class='input-group date datetimepicker4'>
+                              <input type='text' class="form-control datetimepicker4" data-format="HH:mm:ss" name="upd_to"/>
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                              </span>
+                            </div>
+                        </div>
+
+                    </div>
+
                   </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
+
+                  <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
+                  {{ Form::close() }}
                   {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
                   <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
                   {{ Form::close() }}
@@ -619,199 +666,6 @@ $('table#'+ 1 +' td').filter(function(){
                 </div>
               </div>
             </div>
-
-            <!--
-            <div class="row">
-              <div class="calendar_top page-header">
-                <div class="row">
-                  <div class="col-xs-2 col-sm-4 col-md-4 text-right">
-                    <a class="btn_bookingVCalender btn prev-day"><span class="glyphicon glyphicon-chevron-left"></span><span class="hidden-xs"> Forrige dag</span></a>
-                  </div>
-                  <div class="col-xs-8 col-sm-4 col-md-4 text-center">
-                    <div class="form-group">
-                      <div class="input-group date" id="date" name="date">
-                            <input class="form-control text-center" type="text" readonly />
-                            <div class="input-group-addon"> 
-                              <span class="glyphicon glyphicon-calendar"></span> 
-                            </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xs-2 col-sm-4 col-md-4 text-left">
-                    <a class="btn_bookingVCalender btn next-day"><span class="hidden-xs">Neste dag </span><span class="glyphicon glyphicon-chevron-right"></span></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row room_lister">
-			@foreach ($rooms as $room)
-              <div class="book_a_room col-sm-4 col-md-3">
-                <div class="room_header text-center">
-                  <h4 class="room_title"> <a href="/rooms/{{ $room->id }}" style="text-decoration: none;">{{ $room->name }} </a></h4>
-                  <p> {{ $room->capacity }} sitteplasser </p>
-                  <p> {{ $room->equipment }} </p>
-                </div>
-                	<table class="roomTable">
-                		<tr class="roomTr">
-                			<th class="roomTd" id="firstTd">
-                				08:00
-                			</th>
-                			<td class="roomTd tdspacing">
-                				
-                			</td>
-                		</tr>
-                    <tr class="roomTr">
-                			<th class="roomTd">
-                				08:30
-                			</th>
-                			<td class="roomTd tdspacing">
-                				
-                			</td>
-                		</tr>
-                		<tr class="roomTr">
-                			<th class="roomTd">
-                				09:00
-                			</th>
-                			<td class="roomTd tdspacing">
-
-                			</td>
-                		</tr>
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        09:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        10:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        10:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        11:00
-                      </th>
-                      <td class="roomTd tdspacing">
-
-                      </td>
-                    </tr>
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        11:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        12:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        12:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        13:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        13:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        14:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        14:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        15:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        15:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        16:00
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-
-                    <tr class="roomTr">
-                      <th class="roomTd">
-                        16:30
-                      </th>
-                      <td class="roomTd tdspacing">
-                        
-                      </td>
-                    </tr>
-                	</table>
-                  
-              </div>
-			@endforeach
-            </div>
-            -->
           </div>
         </div>
 		</div>
