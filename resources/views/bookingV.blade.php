@@ -255,10 +255,15 @@
       //console.log("bookUser_id: " + bookUser_id);
       var nyBookingID = tdClickedOn.getAttribute('holdID');
       var actualBookingObject = findBookingInList(bookings, nyBookingID);
-
+      /*
       $('#delete_booking').show();
       if(bookUser_id != user_idAuth) {
         $('#delete_booking').hide();
+      }*/
+
+      $('#delete_booking').hide();
+      if(bookUser_id == user_idAuth) {
+        $('#delete_booking').show();
       }
 
       var url = window.location.href + "/" + nyBookingID;
@@ -462,7 +467,7 @@ $('table#'+ 1 +' td').filter(function(){
 			<div class="col-sm-10 col-md-10 col-lg-10">
           <!-- your page content -->
           <div class="container-fluid content_placeholder">
-          <!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
+          <!-- Setter inn en "bar" øverst dersom nytt rom ble slettet -->
             @if(session()->has('success'))
               <div class="alert alert-danger">
                 {{ session('success') }}
@@ -503,7 +508,6 @@ $('table#'+ 1 +' td').filter(function(){
 
           
           <div class="modal" id="booking_modal" tabindex="-1" role="dialog" aria-labelledby="showBookingModal" aria-hidden="true">
-          {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -537,11 +541,12 @@ $('table#'+ 1 +' td').filter(function(){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
+                  {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
                   <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
+                  {{ Form::close() }}
                   <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
               </div>
-              {{ Form::close() }}
             </div>
 
           </div>
