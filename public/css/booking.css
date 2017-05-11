@@ -32,3 +32,11 @@
 #bookStart {
   border-top: 1px solid lightgrey !important;
 }
+
+.control-label {
+  margin-bottom: 1% !important;
+}
+
+.save_booking {
+  margin-bottom: -15px;
+}

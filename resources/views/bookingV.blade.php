@@ -557,21 +557,22 @@ $('table#'+ 1 +' td').filter(function(){
                               </span>
                             </div>
                         </div>
-                        <div class="form-group">
-                          <label for="message-text" class="control-label"></label>
+                        <!--<div class="form-group">
+                          <label for="message-text" class="control-label"></label>-->
                             <div class='input-group date datetimepicker3'>
                               <input type='hidden' class="form-control datetimepicker3 room_id" data-format="HH:mm:ss" name="room_id"/>
                             </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="message-text" class="control-label"></label>
+                        <!--</div>-->
+                        <!--<div class="form-group">
+                          <label for="message-text" class="control-label"></label>-->
                             <div class='input-group date datetimepicker3'>
                               <input type='hidden' class="form-control datetimepicker3 user_id" name="user_id"/>
                             </div>
-                        </div>
+                        <!--</div>-->
 
-
-                        <button type="submit button" class="btn btn-default save_booking"> Lagre </button>
+                        <div class="form-group">
+                          <button type="submit button" class="btn btn-default save_booking"> Lagre </button>
+                        </div class="form-group">
                       </form>
                   </div>
                   <div class="modal-footer">
