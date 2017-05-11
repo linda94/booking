@@ -15,6 +15,14 @@
   text-overflow: ellipsis;
 }
 
+.info_user_booking {
+  margin-bottom: 2%;
+}
+
+.remove_padding {
+  padding: 0 !important;
+}
+
 .roomTdNoBorder {
   border: 0px !important;
 }
