@@ -39,6 +39,9 @@
 
     //var dateStr = "";
     var dateStr = {!! json_encode(session('dateStr')) !!}
+
+    var user_idAuth = {!! Auth::user()->id !!}
+
     //alert(dateStr);
 
     /* Vise tabeller for riktig dato, og sørge for at det er i riktig dato-format */
@@ -76,6 +79,8 @@
     var rooms = {!! str_replace("'", "\'", json_encode($rooms)) !!};
 
     var bookings = {!! str_replace("'", "\'", json_encode($bookings)) !!};
+
+    var users = {!! str_replace("'", "\'", json_encode($users)) !!};
 
     $('#calender-table').empty();
 
@@ -132,6 +137,16 @@
       $(".colorMe").attr("data-toggle", "modal");
     }
 
+    // Find the user that is linked to the booking
+    var findUserWithBooking = function(user_id) {
+      for(var i = 0; i<users.length; i++) {
+        if(users[i]['id'] == user_id) {
+          return users[i];
+        }
+      }
+      return null;
+    };
+
     var displayBookings = function(bookings, strDateTime) {
 
       for(var i = 0; i<bookings.length; i++) {
@@ -144,11 +159,14 @@
           for(var j = 0; j <tdsInTable.length; j++) {
 
             if (bookings[i]['from'] == tdsInTable[j].id) {
-              $(tdsInTable[j]).append(bookings[i]['from']).attr('id', 'bookStart').addClass('colorMe booked').attr('holdID', bookings[i]['id']);
-              $(tdsInTable[j]).append('<a href="/bookingV/'+bookings[i]['id']+'" id="'+ bookings[i]['id'] +'">vis booking</a>');
+              $(tdsInTable[j])/*.append(bookings[i]['from'])*/.attr('id', 'bookStart').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
+              /*$(tdsInTable[j]).append('<a href="/bookingV/'+bookings[i]['id']+'" id="'+ bookings[i]['id'] +'">vis booking</a>');*/
+              var userWithBooking = findUserWithBooking(bookings[i]['user_id']);
+              $(tdsInTable[j]).append('<p style="color:white;margin-bottom:-2px">'+ userWithBooking['name'] + '</p>');
+
             } 
             else if (bookings[i]['to'] == tdsInTable[j].id) {
-              $(tdsInTable[j-1]).append(bookings[i]['to']).attr('id', 'bookEnd').addClass('colorMe booked').attr('holdID', bookings[i]['id']);
+              $(tdsInTable[j-1])/*.append(bookings[i]['to'])*/.attr('id', 'bookEnd').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
             }
           }
         }
@@ -162,10 +180,12 @@
     var colorBookings = function() {
       var start = false;
       var bookingID = "";
+      var bookUser_id = "";
           $("table td").filter(function(){
             // Hente ID til booking gjennom atributtet holdID
             if(this.id == "bookStart") {
               bookingID = this.getAttribute('holdID');
+              bookUser_id = this.getAttribute('bookUser_id');
             }
             if(this.id == "bookStart" || start) {
               if(this.id == "bookEnd"){
@@ -174,6 +194,7 @@
               }
               start = true;
               $(this).attr('holdID', bookingID);
+              $(this).attr('bookUser_id', bookUser_id);
           }
         return start;
 
@@ -195,16 +216,21 @@
     };
 
 
-
+/*
     var getBookingInfo = function() {
-    /* Henter ut info fra booking som er trykket på, legger inn i modal-felt */
-      $('.colorMe').click({bookings}, function (e) {
+    /* Henter ut info fra booking som er trykket på, legger inn i modal-felt *//*
+      $('.colorMe').click({bookings, user_idAuth}, function (e) {
         // delete funksjonalitet
+        var bookUser_id = this.getAttribute('bookUser_id');
         var nyBookingID = this.getAttribute('holdID');
         var actualBookingObject = findBookingInList(bookings, nyBookingID);
         //alert("nyBookingID: " + nyBookingID);
         //alert("holdID attribute: " + this.getAttribute('holdID'));
         //alert("Actual booking object id: " + actualBookingObject['id']);
+        $('#delete_booking').show();
+        if(bookUser_id != user_idAuth) {
+          $('#delete_booking').hide();
+        }
         var url = window.location.href + "/" + nyBookingID;
         //alert('url: ' + url);
         $('#booking_modal form').attr('action', url);
@@ -217,14 +243,35 @@
         //$('.booking_to').empty();
         $('.booking_to').html(actualBookingObject['to']);
       });
-    }
+    }*/
 
-    $('.colorMe').click(getBookingInfo());
+    //$('.colorMe').click(getBookingInfo());
 
     $('#booking_modal').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget);
-      
-      console.log();
+      var relTarEvent = $(event.relatedTarget); // Sender en liste, ikke objektet selv
+      var tdClickedOn = relTarEvent[0];
+      //console.log(tdClickedOn);
+      var bookUser_id = tdClickedOn.getAttribute('bookUser_id');
+      //console.log("bookUser_id: " + bookUser_id);
+      var nyBookingID = tdClickedOn.getAttribute('holdID');
+      var actualBookingObject = findBookingInList(bookings, nyBookingID);
+
+      $('#delete_booking').show();
+      if(bookUser_id != user_idAuth) {
+        $('#delete_booking').hide();
+      }
+
+      var url = window.location.href + "/" + nyBookingID;
+      $('#booking_modal form').attr('action', url);
+
+      //var userBooking = findUserWithBooking(bookUser_id);
+
+      //$('#showBookingModalLabel').html(userBooking['name']);
+      $('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+users[bookUser_id-1]['name']+'</a>');
+      $('.booking_from').html(actualBookingObject['from']);
+      $('.booking_to').html(actualBookingObject['to']);
+
+      //console.log("actualBookingObject from: " + actualBookingObject['from']);
     });
 
 
@@ -239,7 +286,7 @@
         var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
         //alert(strDateTime2);
         /* Går gjennom bookings og setter inn de som skal inn på den dagen det er trykket på */
-        $('.colorMe').click(getBookingInfo());
+        //$('.colorMe').click(getBookingInfo());
         displayBookings(bookings, strDateTime2);
         colorBookings();
         makeBookingClickable();
@@ -283,6 +330,9 @@ $('table#'+ 1 +' td').filter(function(){
     $('.roomTable').click(function(e) {
       var tableID = this.getAttribute("id");
       $('.room_id').val(tableID);
+      // Add user_id to new-booking form
+      $('.user_id').val(user_idAuth);
+
 
       var currDate = new Date($('#date').datepicker('getDate'));
       var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
@@ -411,12 +461,12 @@ $('table#'+ 1 +' td').filter(function(){
 
 
           
-          <div class="modal fade" id="booking_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal" id="booking_modal" tabindex="-1" role="dialog" aria-labelledby="showBookingModalLabel" aria-hidden="true">
           {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                  <h5 class="modal-title" id="showBookingModalLabel">Modal title</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -427,8 +477,8 @@ $('table#'+ 1 +' td').filter(function(){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-danger">Slett booking</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
+                  <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
               </div>
               {{ Form::close() }}
@@ -486,6 +536,14 @@ $('table#'+ 1 +' td').filter(function(){
                               <input type='hidden' class="form-control datetimepicker3 room_id" data-format="HH:mm:ss" name="room_id"/>
                             </div>
                         </div>
+                        <div class="form-group">
+                          <label for="message-text" class="control-label"></label>
+                            <div class='input-group date datetimepicker3'>
+                              <input type='hidden' class="form-control datetimepicker3 user_id" name="user_id"/>
+                            </div>
+                        </div>
+
+
                         <button type="submit button" class="btn btn-default save_booking"> Lagre </button>
                       </form>
                   </div>

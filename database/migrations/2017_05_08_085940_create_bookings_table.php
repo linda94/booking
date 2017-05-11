@@ -21,6 +21,8 @@ class CreateBookingsTable extends Migration
 
             $table->integer('room_id')->unsigned();
             $table->foreign('room_id')->references('id')->on('room')->onDelete('cascade');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
