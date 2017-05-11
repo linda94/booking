@@ -266,9 +266,22 @@
 
       //var userBooking = findUserWithBooking(bookUser_id);
 
-      //$('#showBookingModalLabel').html(userBooking['name']);
-      //$('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+users[bookUser_id-1]['name']+'</a>');
-      $('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+findUserWithBooking(bookUser_id)['name']+'</a>');
+      //$('#showBookingModalName').html(userBooking['name']);
+      //$('#showBookingModalName').html('<a href="/user_list/'+ bookUser_id +'">'+users[bookUser_id-1]['name']+'</a>');
+      $('#showBookingModalName').html('<a href="/user_list/'+ bookUser_id +'">'+findUserWithBooking(bookUser_id)['name']+'</a>');
+
+      if (findUserWithBooking(bookUser_id)['phone'] == null) {
+        $('#showBookingModalNumber').html("Ikke registrert").css("font-style", "italic");
+      } else {
+        $('#showBookingModalNumber').html(findUserWithBooking(bookUser_id)['phone']);
+      }
+
+      if (findUserWithBooking(bookUser_id)['company'] == null) {
+        $('#showBookingModalCompanyName').html("Ikke registrert").css("font-style", "italic");
+      } else {
+        $('#showBookingModalCompanyName').html(findUserWithBooking(bookUser_id)['company']); 
+      }
+      
       $('.booking_from').html(actualBookingObject['from']);
       $('.booking_to').html(actualBookingObject['to']);
 
@@ -495,15 +508,35 @@ $('table#'+ 1 +' td').filter(function(){
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
-                  <h4 class="modal-title" id="showBookingModal">Booking</h5>
+                  <h4 class="modal-title" id="showBookingModal">Booking</h4>
                 </div>
                 <div class="modal-body">
-                  <h4 id="showBookingModalLabel"></h4>
-                  <p>Fra:  <span class="booking_from"></span></p>
-                  <p>Til: <span class="booking_to"></span></p>
+                  <div class="container-fluid remove_padding">
+                    <div class="row info_user_booking">
+                      <div class="col-sm-12">
+                        <h4 id="showBookingModalName"> </h4>
+                      </div>
+                    </div>
+                    <div class="row info_user_booking">
+                      <div class="col-sm-6">
+                        <label> Tlf: </label>
+                        <span id="showBookingModalNumber"> </span>
+                      </div>
+                      <div class="col-sm-6">
+                          <label> Bedriftsnavn: </label>
+                          <span id="showBookingModalCompanyName"> </span>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <p class="col-sm-12">Fra:  <span class="booking_from"></span></p>
+                    </div>
+                    <div class="row">
+                      <p class="col-sm-12">Til: <span class="booking_to"></span></p>
+                    </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
                   <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
                   <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
@@ -576,7 +609,7 @@ $('table#'+ 1 +' td').filter(function(){
                       </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" class="close">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" class="close">Lukk</button>
                   </div>
                 </div>
               </div>
