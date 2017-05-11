@@ -54,14 +54,14 @@
 							<br/>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Plass til:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_space"
-								value="{{ $room->capacity }}" required > personer</input></span></p>
+								<input class="room_inputs" type="number" name="room_space"
+								value="{{ $room->capacity }}"> personer</input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Utstyr:</b><span class="col-sm-8">
 								<input class="room_inputs" type="text" name="room_equipment"
 								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'TV, Prosjektor, HDMI'"
-								value="{{ $room->equipment }}" required ></input></span></p>
+								value="{{ $room->equipment }}"></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Etasje:</b><span class="col-sm-8">

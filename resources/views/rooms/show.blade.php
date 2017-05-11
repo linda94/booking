@@ -22,9 +22,9 @@
 			<div class="col-sm-10">
 			<!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
 			    @if(session()->has('success'))
-			      <div class="alert alert-success">
-			        {{ session('success') }}
-			      </div>
+				<div class="alert alert-success">
+					{{ session('success') }}
+				</div>
 			    @endif
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
@@ -39,7 +39,7 @@
 						</div>
 						@role(('Administrator'))
 						<div class="col-sm-1">
-							<a href="/rooms/edit_room/{{ $room->id }}" class="btn btn-default btn-lg room_button"
+							<a href="/rooms/edit_room/{{$room->id}}" class="btn btn-default btn-lg room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
@@ -60,19 +60,26 @@
 							<p><b>Floor number:</b><span> 2 </span></p>
 						</div>
 					</div>
-					<div class="row"><br/></div>
-					<div class="row">
-						<img src="{{ asset('images/maps_place.png')}}" width="100%"/>
-						
-					</div>
-					<br/>
 				</div>
+					<br/>
 				<div class="container-fluid col-sm-1"></div>
 				<div class="row room_lister">
 				  <div class="book_a_room col-sm-5">
-					<table class="roomTable">
-						<tr class="roomTr">
-							<th class="roomTd" id="firstTd">
+					<table class="roomTableRoomShow">
+						<?php $range=range(strtotime("08:00"),strtotime("22:00"),30*60) ?>
+					  @foreach($range as $time)
+					    <tr class="roomTrRoomShow">
+					      <th class="roomTdRoomShow" id="firstTd">
+					        <?php $date = date("H:i",$time); 
+					        echo $date;?>
+					      </th>
+					      <td class="roomTdRoomShow tdspacing" data-format="HH:mm" role="button"> 
+					      </td>
+					    </tr>
+					    @endforeach
+					    <!--
+						<tr class="roomTrRoomShow">
+							<th class="roomTdRoomShow" id="firstTd">
 								08:00
 							</th>
 							<td class="roomTd tdspacing">
@@ -225,8 +232,9 @@
 						
 					  </td>
 					</tr>
+					-->
 					</table>
-				  </div>
+					</div>
 				</div>
 			</div>
 		</div>

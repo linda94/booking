@@ -46,7 +46,7 @@
 				<div class="page-header" id="roomlist_spacing">
 					<div class="container-fluid row">
 						<div class="col-sm-8">
-						<h2> Roomliste </h2>
+						<h2> Romliste </h2>
 						</div>
 						<div class="col-sm-4"> 
 							<input type="text" class="searchh form-control" placeholder="søk" />

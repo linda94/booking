@@ -197,6 +197,31 @@ class EntrustSetupTables extends Migration
         $defaultAdmin->save();
         $defaultAdmin->attachRole(1);
 
+		//---------Legger til 4 default rom til en ny løsning --------
+		
+		$newroom = new App\Room();
+		$newroom->name = 'Nytt rom';
+		$newroom->equipment = "Default";
+        $newroom->capacity = 0;
+        $newroom->Save();
+		
+		$newroom = new App\Room();
+		$newroom->name = 'Nytt rom';
+		$newroom->equipment = 'Default';
+        $newroom->capacity = 0;
+        $newroom->Save();
+		
+		$newroom = new App\Room();
+		$newroom->name = 'Nytt rom';
+		$newroom->equipment = 'Default';
+        $newroom->capacity = 0;
+        $newroom->Save();
+		
+		$newroom = new App\Room();
+		$newroom->name = 'Nytt rom';
+		$newroom->equipment = 'Default';
+        $newroom->capacity = 0;
+        $newroom->Save();
     }
 
 	

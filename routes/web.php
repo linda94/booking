@@ -28,6 +28,14 @@ use App\Role;
 
 Auth::routes();
 
+Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect'); 
+//Route::get('rooms/{room}/edit', 'RoomController@edit');
+Route::get('/auth/passwords/email', function () {
+	Auth::logout();
+	Session::flush();
+	return view('/auth/passwords/email');
+});
+
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
 Route::PUT('/rooms/{room}', 'RoomController@update')->name('update');
@@ -40,8 +48,10 @@ Route::DELETE('/bookingV/{booking}', 'BookingController@destroy')->name('delete_
 Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking');
 
 Route::get('/', 'WelcomeController@index');
-Route::get('/rooms', 'RoomController@index');
-Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile');
+
+Route::get('/rooms', 'RoomController@index'); 
+Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile'); 
+
 Route::get('/newroom', 'RoomController@create');
 Route::get('/editroom', 'RoomController@editroom');
 
@@ -52,20 +62,29 @@ Route::post('/emails/send', 'InviteUserController@send')->name('invite_mail');
 
 Route::get('/logout', 'UserController@logout')->name('logout');
 	
-Route::get('/users/home', 'HomeController@index')->name('users_return');
-Route::get('/users/home_edit', 'HomeController@index2');
+Route::get('/users/home', 'HomeController@index')->name('users_return'); 
+Route::get('/users/home_edit', 'HomeController@index2'); 
 Route::get('/users/{users}', 'HomeController@show')->name('users_profile');
 
-Route::PUT('/users/{users}', 'HomeController@update')->name('update_user');
-Route::delete('/users/{users}', 'HomeController@destroy')->name('delete_user');
+Route::PUT('/users/home/{users}', 'HomeController@update')->name('update_user');
+Route::delete('/users/home/{users}', 'HomeController@destroy')->name('delete_user');
 
 Route::patch('/rooms/{room}/', 'RoomController@update');
 
 Route::get('/room_list', 'RoomListController@index');
 
-Route::get('/user_list', 'UserListController@index'); 
-Route::get('/users/user_home_edit', 'UserListController@index2');
-Route::get('/user_list/{users}', 'UserListController@show');
-//Route::PUT('/user_list/{users}', 'UserListController@update')->name('update_user');
-//Route::delete('/user_list/{users}', 'UserListController@destroy')->name('delete_user');
+Route::get('/user_list', 'UserListController@index'); // nr 1 
+Route::get('/user_list/{users}', 'UserListController@show')->name('users_profiles'); // nr 2
+Route::get('/users/user_home_edit/{users}','UserListController@index2'); // nr 3
+Route::get('users/{user}/user_home_edit', 'UserListController@edit')->name('user_home_edit_redirect'); // nr 4
+Route::PUT('/users/{users}','UserListController@update')->name('user_list_update'); // nr 5
+Route::delete('/users/{users}', 'UserListController@destroy')->name('user_list_delete'); // nr 6
+
+// Brukernivå assigning
+Route::get('/users/{user}/user_home_edit/assign_bruker','UserListController@bruker');
+Route::get('/users/{user}/user_home_edit/assign_superbruker','UserListController@superBruker');
+Route::get('/users/{user}/user_home_edit/assign_administrator','UserListController@administrator');
+
+
+
 

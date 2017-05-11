@@ -5,10 +5,25 @@ body {
 	width: 100%;
 	color: black !important;
 }
-.roomTable, .roomTd, .roomTr {
+/*.roomTable, .roomTd, .roomTr {
+	border: 1px solid lightgrey;
+	text-align: center;
+}*/
+
+.roomTableRoomShow {
+	width: 100%;
+	color: black !important;
+}
+
+.roomTableRoomShow, .roomTdRoomShow, .roomTrRoomShow {
 	border: 1px solid lightgrey;
 	text-align: center;
 }
+
+.roomTdRoomShow {
+	padding: 1% !important;
+}
+
 .roomTd {
 	padding: 1% !important;
 }

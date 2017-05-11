@@ -28,12 +28,14 @@
 							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
 						</a>
 						</div>
+						@role(('Administrator'))
 						<div class="col-sm-1">
-							<a href="/users/user_home_edit" class="btn btn-default btn-lg room_button"
+							<a href="/users/{{ $user->id }}/user_home_edit" class="btn btn-default btn-lg room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Instillinger">
 								<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 							</a>
 						</div>
+						@endrole
 					</div>
 				</div>
 			  <!-- Page content -->

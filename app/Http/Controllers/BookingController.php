@@ -51,6 +51,7 @@ class BookingController extends Controller
         $booking -> room_id = $request->room_id; //skifte til room_id
         $dateStr = $request->dateString;
         $booking -> dateString = $dateStr;
+        $booking-> user_id = $request->user_id;
 
         $booking->save();
 
@@ -102,15 +103,13 @@ class BookingController extends Controller
      */
     public function destroy($id)
     {
+        $booking = DB::table('bookings')->find($id);
+        $dateStr = $booking->dateString;
         DB::table('bookings')->where('id', $id)->delete();
 
-        return redirect('/bookingV');
-        //$bookings = DB::table('bookings')->get();
-        //$rooms = DB::table('room')->get();
-        //$users = DB::table('users')->get();
+        //return redirect('/bookingV');
+        return redirect()->back()->with(compact('dateStr'));
 
         //return response()->json(compact('bookings', 'rooms', 'users'))->view('bookingV', compact('rooms', 'users'));
-
-        //return view('bookingV', compact('bookings', 'rooms', 'users'));
     }
 }
