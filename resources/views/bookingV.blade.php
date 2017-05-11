@@ -267,7 +267,8 @@
       //var userBooking = findUserWithBooking(bookUser_id);
 
       //$('#showBookingModalLabel').html(userBooking['name']);
-      $('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+users[bookUser_id-1]['name']+'</a>');
+      //$('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+users[bookUser_id-1]['name']+'</a>');
+      $('#showBookingModalLabel').html('<a href="/user_list/'+ bookUser_id +'">'+findUserWithBooking(bookUser_id)['name']+'</a>');
       $('.booking_from').html(actualBookingObject['from']);
       $('.booking_to').html(actualBookingObject['to']);
 
