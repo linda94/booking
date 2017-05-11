@@ -385,51 +385,53 @@ $('table#'+ 1 +' td').filter(function(){
       //alert("booked from: " + bookedFrom);
       // bookedTo = 14:00:00
       var bookedTo = $(".datetimepicker3").find("input[name='to']").val() + ":00";
+
+      var bookedFromTime = moment(bookedFrom, "HHmmss").format("HH:mm");
+      var bookedToTime = moment(bookedTo, "HHmmss").format("HH:mm");
+
+      if (bookedFromTime >= bookedToTime) {
+        alert("Du kan ikke booke på grunn av valgt tid");
+        $('.save_booking').attr('type', "button");
+      } 
+      else {
       //alert("booked to: " + bookedTo);
       // room_id = 2
-      var room_id = $(".datetimepicker3").find("input[name='room_id']").val();
-      //alert("room_id: " + room_id);
+        var room_id = $(".datetimepicker3").find("input[name='room_id']").val();
+        //alert("room_id: " + room_id);
 
-      var bookCheck = checkIfBooked(bookedFrom, bookedTo, room_id);
-      //alert("bookable = " + bookCheck);
+        var bookCheck = checkIfBooked(bookedFrom, bookedTo, room_id);
+        //alert("bookable = " + bookCheck);
 
-      if(bookCheck == false) {
-        alert("Can't book: the room is already booked at the given times");
-        //$('.form-horizontal').attr('method', "GET");
-        //$('.form-horizontal').val();
-        $('.save_booking').attr('type', "button");
-        $('#myModal').modal('hide');
+        if(bookCheck == false) {
+          alert("Reservasjonen kan ikke fullføres. Rommet er opptatt ved gitt tidspunkt");
+          //$('.form-horizontal').attr('method', "GET");
+          //$('.form-horizontal').val();
+          $('.save_booking').attr('type', "button");
+        }
+        else {
+          $('.save_booking').attr('type', "sumbit button");
+        }
       }
-      else {
-        $('.save_booking').attr('type', "sumbit button");
-      }
-
     });
 
 
     $("td").click(function () {
-          var getTimeFromTd = this.getAttribute("name");
-          var removeSecondsFromTime = getTimeFromTd.substring(0, 5);
-          $("input[name='from']").val(removeSecondsFromTime);
+      var getTimeFromTd = this.getAttribute("name");
+      var removeSecondsFromTime = getTimeFromTd.substring(0, 5);
+        $("input[name='from']").val(removeSecondsFromTime);
           //console.log(removeSecondsFromTime);
-
-          var getHour = getTimeFromTd.substring(0, 2);
-          var hourStrToInt = parseInt(getHour) + 1;
-          if (hourStrToInt < 10) {
-            hourStrToInt = "0" + hourStrToInt;
-          }
-          var addHourIncr = hourStrToInt + ":" + getTimeFromTd.substring(3, 5);
-
-
-          //console.log("getHour: " + getHour);
-          //console.log("hourStrToInt: " + hourStrToInt);
-          //console.log("addHourIncr: " + addHourIncr);
+      var getHour = getTimeFromTd.substring(0, 2);
+      var hourStrToInt = parseInt(getHour) + 1;
+        if (hourStrToInt < 10) {
+          hourStrToInt = "0" + hourStrToInt;
+        }
+      var addHourIncr = hourStrToInt + ":" + getTimeFromTd.substring(3, 5);
+      //console.log("getHour: " + getHour);
+      //console.log("hourStrToInt: " + hourStrToInt);
+      //console.log("addHourIncr: " + addHourIncr);
 
           $("input[name='to']").val(addHourIncr);
-
-
-
-        });
+    });
 
 
 
