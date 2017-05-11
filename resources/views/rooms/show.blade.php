@@ -65,9 +65,21 @@
 				<div class="container-fluid col-sm-1"></div>
 				<div class="row room_lister">
 				  <div class="book_a_room col-sm-5">
-					<table class="roomTable">
-						<tr class="roomTr">
-							<th class="roomTd" id="firstTd">
+					<table class="roomTableRoomShow">
+						<?php $range=range(strtotime("08:00"),strtotime("22:00"),30*60) ?>
+					  @foreach($range as $time)
+					    <tr class="roomTrRoomShow">
+					      <th class="roomTdRoomShow" id="firstTd">
+					        <?php $date = date("H:i",$time); 
+					        echo $date;?>
+					      </th>
+					      <td class="roomTdRoomShow tdspacing" data-format="HH:mm" role="button"> 
+					      </td>
+					    </tr>
+					    @endforeach
+					    <!--
+						<tr class="roomTrRoomShow">
+							<th class="roomTdRoomShow" id="firstTd">
 								08:00
 							</th>
 							<td class="roomTd tdspacing">
@@ -220,6 +232,7 @@
 						
 					  </td>
 					</tr>
+					-->
 					</table>
 					</div>
 				</div>
