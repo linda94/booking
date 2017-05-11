@@ -22,9 +22,9 @@
 			<div class="col-sm-10">
 			<!-- Setter inn en "bar" øverst dersom nytt rom ble opprettet -->
 			    @if(session()->has('success'))
-			      <div class="alert alert-success">
-			        {{ session('success') }}
-			      </div>
+				<div class="alert alert-success">
+					{{ session('success') }}
+				</div>
 			    @endif
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
@@ -60,23 +60,8 @@
 							<p><b>Floor number:</b><span> 2 </span></p>
 						</div>
 					</div>
-					<div class="row"><br/></div>
-					<div class="row"></div><br>
-            			<div id="map" style="width:300px;height:300px"> </div>
-            				<script>
-		              			function myMap() {
-		                		var mapOptions = {
-		                 		center: new google.maps.LatLng(58.14671, 7.9956),
-		                  		zoom: 14,
-		                  		mapTypeId: google.maps.MapTypeId.HYBRID
-		                		}
-		                		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-							} </script>
-
-						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6EU0EW7dQdi6SLpvgriMcTvI2RI6ZYJs&callback=myMap"></script> </br>
-					</div>
-					<br/>
 				</div>
+					<br/>
 				<div class="container-fluid col-sm-1"></div>
 				<div class="row room_lister">
 				  <div class="book_a_room col-sm-5">
@@ -236,7 +221,7 @@
 					  </td>
 					</tr>
 					</table>
-				  </div>
+					</div>
 				</div>
 			</div>
 		</div>
