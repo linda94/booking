@@ -273,13 +273,13 @@
       if (findUserWithBooking(bookUser_id)['phone'] == null) {
         $('#showBookingModalNumber').html("Ikke registrert").css("font-style", "italic");
       } else {
-        $('#showBookingModalNumber').html(findUserWithBooking(bookUser_id)['phone']);
+        $('#showBookingModalNumber').html(findUserWithBooking(bookUser_id)['phone']).css("font-style", "normal");
       }
 
       if (findUserWithBooking(bookUser_id)['company'] == null) {
         $('#showBookingModalCompanyName').html("Ikke registrert").css("font-style", "italic");
       } else {
-        $('#showBookingModalCompanyName').html(findUserWithBooking(bookUser_id)['company']); 
+        $('#showBookingModalCompanyName').html(findUserWithBooking(bookUser_id)['company']).css("font-style", "normal"); 
       }
       
       $('.booking_from').html(actualBookingObject['from']);
