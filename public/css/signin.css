@@ -458,6 +458,14 @@ border: 1px solid;
 .invite_user_height {
 	height: 35px;
 }
+.highlight_inputfields {
+	border: 3px solid #97badc !important;
+	border-radius: 5px !important;
+}
+#flytt_deg {
+	margin-left: -13px;
+	margin-top: 2px;
+}
 
 /* ------------------- room list ----------- */
 #roomlist_spacing {

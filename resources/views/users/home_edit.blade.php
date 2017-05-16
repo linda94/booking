@@ -23,7 +23,8 @@
 				<div class="page-header room_header_div">
 					<div class="container-fluid">
 						<div class="col-sm-10">
-							<h1><input id="room_inputs_special" type="text" name="users_name" value="{{ Auth::user()->name }}" required ></input></h1>
+							<h1><input id="room_inputs_special" type="text" name="users_name" class="highlight_inputfields"
+							value="{{ Auth::user()->name }}" required ></input></h1>
 						</div>
 						<div class="col-sm-1">
 						<a href="/users/home" class="btn btn-default btn-lg room_button"

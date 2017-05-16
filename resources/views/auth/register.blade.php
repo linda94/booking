@@ -51,7 +51,7 @@
 		</div>
 		<div class="text-center{{ $errors->has('password') ? ' has-error' : '' }}">
 			<input id="password" type="password" class="register-input required_input" 
-			id="confirm_password" placeholder="Passord" name="password" 
+			id="confirm_password" placeholder="Velg et passord" name="password" 
 			data-toggle="tooltip" data-placement="right" title="Minimum 6 karakterer" required>
 		</div>
 		<div class="text-center">

@@ -61,6 +61,9 @@
 								<button type="submit" class="btn_emailPage">Endre passordet</button>
 							</div>
 						</form>
+						<div class="row">
+							<button class="btn_emailPage" onclick="location.href='{{action('WelcomeController@index')}}'">Tilbake til hovedsiden</button>
+						</div>
 					</div>
 				</div>
 			</div>

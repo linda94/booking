@@ -25,7 +25,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/auth/login';
 
     /**
      * Create a new controller instance.
@@ -36,4 +36,9 @@ class ResetPasswordController extends Controller
     {
         $this->middleware('guest');
     }
+	
+	public function reset () {
+		$success = "Passordet har blitt endret";
+		return redirect('/auth/login')->with(compact('success'));
+	}
 }

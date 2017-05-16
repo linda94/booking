@@ -35,6 +35,12 @@ Route::get('/auth/passwords/email', function () {
 	Session::flush();
 	return view('/auth/passwords/email');
 });
+/*  -- Ikke lagt inn --
+Route::get('/auth/passwords/reset', function () {
+	$success = "Passordet har blitt endret";
+	return view('/')->with(compact('success'));
+});
+*/
 
 Route::get('/rooms/edit_room/{room}', 'RoomController@index2')->name('editroom_redirect');
 Route::get('rooms/{room}/edit', 'RoomController@edit');
@@ -49,6 +55,7 @@ Route::get('/bookingV/{booking}', 'BookingController@show')->name('show_booking'
 Route::PUT('/bookingV/{booking}', 'BookingController@update');
 
 Route::get('/', 'WelcomeController@index');
+Route::get('/auth/login', 'WelcomeController@loginIndex');
 
 Route::get('/rooms', 'RoomController@index'); 
 Route::get('/rooms/{room}', 'RoomController@show')->name('room_profile'); 

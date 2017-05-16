@@ -34,7 +34,7 @@
 					<div class="container-fluid">
 						<div class="col-sm-10">
 							<h1> 
-								<input class="room_inputs" id="room_spacing_name" type="text" name="room_name" value="{{ $room->name }}" required ></input>
+								<input class="room_inputs highlight_inputfields" id="room_spacing_name" type="text" name="room_name" value="{{ $room->name }}" required ></input>
 							</h1>
 						</div>
 						<div class="col-sm-2">
@@ -53,7 +53,7 @@
 						<div class="well well-sm row" id="well_spacing">
 							<br/>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
-								<p><b class="col-sm-4">Plass til:</b><span class="col-sm-8">
+								<p><b class="col-sm-4">Kapasitet:</b><span class="col-sm-8">
 								<input class="room_inputs" type="number" name="room_space"
 								value="{{ $room->capacity }}"> personer</input></span></p>
 							</div>
@@ -66,20 +66,20 @@
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Etasje:</b><span class="col-sm-8">
 								<input class="room_inputs" type="text" name="room_floor" 
-								value="2" readonly></input></span></p>
+								value="Ikke implementert" readonly></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Adresse til bygg:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_adress"
+								<input class="room_inputs" type="text" name="room_adress" value="Ikke implementert"
 								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'testeveien21, 4518 oslo'" readonly></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing" id="drop_this_div">
-								<button type="submit" class="btn btn-success  col-sm-3" id="margin_left_button">Lagre endringene</button>
+								<button type="submit" class="btn btn-success  col-sm-5" id="margin_left_button">Lagre endringene</button>
 								<label class="col-sm-1"></label>
 								{{ Form::close() }}
 								{{ Form::model($room, array('route' => array('delete', $room->id), 'method' => 'delete')) }}
 								<!-- Small modal -->
-								<button type="button" class="btn btn-danger col-sm-3" data-toggle="modal" data-target=".bs-example-modal-sm">Slett rom</button>
+								<button type="button" class="btn btn-danger col-sm-5" data-toggle="modal" data-target=".bs-example-modal-sm">Slett rom</button>
 								<div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 								  <div class="modal-dialog modal-sm" role="document">
 									<div class="modal-content">
@@ -96,22 +96,7 @@
 									</div>
 								  </div>
 								</div>
-								<label class="col-sm-1"></label>
 								{{ Form::close() }}
-								<div class="dropdown dd_div col-sm-3">
-									<button class="btn dropdown-toggle" href="#" data-toggle="dropdown" 
-									aria-haspopup="true" aria-expanded="false"
-									data-placement="bottom" title="Dette er ikke implementert enda!"
-									> Brukerrettigheter <span class="caret"></span></button>
-									<ul class="dropdown-menu">
-										<li class="dropdown-header dd_text_header"> Hvilke brukernivaer kan booke rommet? </li>
-										<!-- Give items in this list class="dd_text_item" -->
-										<li class="dd_text_item"><a href="#"> Brukere </a></li>
-										<li class="dd_text_item"> <a href="#"> Super brukere </a> </li>
-										<li class="dd_text_item"><a href="#"> Administrator </a></li>
-									</ul>
-								</div>
-								<label class="class-sm-1"></label>
 							</div>
 						</div>
 					</div>
