@@ -95,8 +95,8 @@ class BookingController extends Controller
         $booking = DB::table('bookings')->find($id);
         $dateStr = $booking->dateString;
 
-        $from = $request->from;
-        $to = $request->to;
+        $from = $request->upd_from;
+        $to = $request->upd_to;
 
         $success = "Endringene er lagret";
         
