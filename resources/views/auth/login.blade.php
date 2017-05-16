@@ -10,8 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 	<script type="text/javascript">

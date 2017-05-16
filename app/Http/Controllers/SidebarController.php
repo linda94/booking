@@ -27,7 +27,7 @@ class SidebarController extends Controller
     {
         $newroom = new Room;
 
-        $newroom->name = "Nytt Rom";
+        $newroom->name = "Nytt rom";
         $newroom->equipment = "Ikke oppgitt";
         $newroom->capacity = 0;
 
