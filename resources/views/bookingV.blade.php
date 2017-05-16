@@ -1,4 +1,4 @@
-  <head>
+    <head>
     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" />
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-	<script src="{{ asset('js/nb.js') }}"></script>
-	<!--<script src="{{ asset('js/kalender.js') }}"></script>-->
-	<!--<script src="{{ asset('js/booking.js') }}"></script>-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <script src="{{ asset('js/nb.js') }}"></script>
+  <!--<script src="{{ asset('js/kalender.js') }}"></script>-->
+  <!--<script src="{{ asset('js/booking.js') }}"></script>-->
   <script>
         $(document).ready(function(){
       $("#date").datepicker({
@@ -211,6 +211,52 @@
       return null;
     };
 
+    var checkIfBooked = function(bookedFrom, bookedTo, room_id) {
+      var start = false;
+      //var returnStr = "booking proceed";
+      var bookable = true;
+      $('table#'+ room_id +' td').filter(function(){
+        //feks 08:30:00
+        var thisName = $(this).attr("name");
+        //alert("thisName: " + thisName);
+        var thisClass = $(this).attr("class");
+        //alert("thisClass: " + thisClass);
+
+        //alert("returnStr: " + returnStr);
+        if(thisName == bookedFrom || start) {
+          //alert(thisName + " = " + bookedFrom);
+          if(thisName == bookedTo) {
+            //alert(thisName + " = " + bookedTo);
+            start = false;
+            if(thisClass == 'roomTd tdspacing colorMe booked') {
+              //returnStr = "can't book: the room is already booked at the given times";
+              //bookable = false;
+              return false;
+            }
+            return false; // Tilsvarende break;
+          }
+          start = true;
+          if(thisClass == 'roomTd tdspacing colorMe booked') {
+            //returnStr = "can't book: the room is already booked at the given times";
+            bookable = false;
+            return false;
+        }
+      }
+    });
+    //return returnStr;
+    return bookable;
+  };
+
+// Legger inn bookings i tabellen for den datoen som er satt
+var dispBookingForDate = function() {
+  var currDate = new Date($('#date').datepicker('getDate'));
+  var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
+  displayBookings(bookings, strDateTime2);
+  colorBookings();
+  makeBookingClickable();
+};
+
+
 
 /*
     var getBookingInfo = function() {
@@ -271,6 +317,45 @@
         var momentTo = moment(actualBookingObject['to'], "HHmmss").format("HH:mm");
         $("input[name='upd_to']").val(momentTo);
 
+        $('.upd_booking').attr('type', "button");
+
+
+        $('.upd_booking').click(function(e) {
+          console.log("actual booking ID: " + actualBookingObject['id']);
+          $('table#'+ actualBookingObject['room_id'] +' td').filter(function(){
+            if(actualBookingObject['id'] == this.getAttribute('holdID')) {
+              // "Resette" tabellrad
+              $(this).attr('class', 'roomTd tdSpacing').attr('id', $(this).attr("name")).html("").attr('data-target', "#myModal").removeAttr('holdID').removeAttr('bookUser_id');
+            }
+
+
+          });
+
+          var bookedFrom = $(".datetimepicker4").find("input[name='upd_from']").val() + ":00";
+          var bookedTo = $(".datetimepicker4").find("input[name='upd_to']").val() + ":00";
+
+          var bookedFromTime = moment(bookedFrom, "HHmmss").format("HH:mm");
+          var bookedToTime = moment(bookedTo, "HHmmss").format("HH:mm");
+
+          if (bookedFromTime >= bookedToTime) {
+            alert("Du kan ikke booke på grunn av valgt tid");
+            $('.upd_booking').attr('type', "button");
+          } 
+          else {
+            var room_id = actualBookingObject['room_id'];
+            var bookCheck = checkIfBooked(bookedFrom, bookedTo, room_id);
+            if(bookCheck == false) {
+              alert("Reservasjonen kan ikke fullføres. Rommet er opptatt ved gitt tidspunkt");
+              $('.upd_booking').attr('type', "button");
+              dispBookingForDate();
+              //$('.upd_booking').on("click");
+            }
+            else {
+              $('.upd_booking').attr('type', "sumbit button");
+              $('.upd_booking').off("click");
+            }
+          }
+        });
       }
 
       var url = window.location.href + "/" + nyBookingID;
@@ -306,16 +391,9 @@
     var dateSetTables = function() {
         /* Sletter bookings som er satt på tabellene, dvs fjerner "booked" og "bookedFrom" attributter */
          $('.roomTable td').filter(function() {
-          $(this).attr('class', 'roomTd tdspacing').attr('id', $(this).attr("name")).html("").attr('data-target', "#myModal").attr('holdID', "");
+          $(this).attr('class', 'roomTd tdspacing').attr('id', $(this).attr("name")).html("").attr('data-target', "#myModal").removeAttr('holdID').removeAttr('bookUser_id');
         });
-        var currDate = new Date($('#date').datepicker('getDate'));
-        var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
-        //alert(strDateTime2);
-        /* Går gjennom bookings og setter inn de som skal inn på den dagen det er trykket på */
-        //$('.colorMe').click(getBookingInfo());
-        displayBookings(bookings, strDateTime2);
-        colorBookings();
-        makeBookingClickable();
+        dispBookingForDate();
     }
 
     $('.next-day').on("click", function () {
@@ -341,17 +419,6 @@
 
 
 
-/*
-$('table#'+ 1 +' td').filter(function(){
-
-            var thisName = $(this).attr("name");
-            console.log(thisName);
-            var thisClass = $(this).attr("class");
-            console.log(thisClass);
-          });
-*/
-
-
 /* Funksjon som blir trigget når du vil lage en ny booking ved å trykke et sted i tabellen */
     $('.roomTable').click(function(e) {
       var tableID = this.getAttribute("id");
@@ -364,44 +431,6 @@ $('table#'+ 1 +' td').filter(function(){
       var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
       $('.dateString').val(strDateTime2);
     });
-
-
-
-    var checkIfBooked = function(bookedFrom, bookedTo, room_id) {
-      var start = false;
-      //var returnStr = "booking proceed";
-      var bookable = true;
-      $('table#'+ room_id +' td').filter(function(){
-        //feks 08:30:00
-        var thisName = $(this).attr("name");
-        //alert("thisName: " + thisName);
-        var thisClass = $(this).attr("class");
-        //alert("thisClass: " + thisClass);
-
-        //alert("returnStr: " + returnStr);
-        if(thisName == bookedFrom || start) {
-          //alert(thisName + " = " + bookedFrom);
-          if(thisName == bookedTo) {
-            //alert(thisName + " = " + bookedTo);
-            start = false;
-            if(thisClass == 'roomTd tdspacing colorMe booked') {
-              //returnStr = "can't book: the room is already booked at the given times";
-              //bookable = false;
-              return false;
-            }
-            return false; // Tilsvarende break;
-          }
-          start = true;
-          if(thisClass == 'roomTd tdspacing colorMe booked') {
-            //returnStr = "can't book: the room is already booked at the given times";
-            bookable = false;
-            return false;
-        }
-      }
-    });
-    //return returnStr;
-    return bookable;
-  };
 
 
 
@@ -441,7 +470,7 @@ $('table#'+ 1 +' td').filter(function(){
     });
 
     $('.upd_booking').click(function(e) {
-      
+      console.log();
     });
 
 
@@ -473,9 +502,9 @@ $('table#'+ 1 +' td').filter(function(){
   @role((['Administrator','SuperBruker','Bruker']))
     <!-- css hentet fra http://www.samrayner.com/bootstrap-side-navbar/ -->
     <div class="container-fluid">
-		<div class="row">
-			@include ('layouts.sidebar')
-			<div class="col-sm-10 col-md-10 col-lg-10">
+    <div class="row">
+      @include ('layouts.sidebar')
+      <div class="col-sm-10 col-md-10 col-lg-10">
           <!-- your page content -->
           <div class="container-fluid content_placeholder">
           <!-- Setter inn en "bar" øverst dersom nytt rom ble slettet -->
@@ -550,6 +579,7 @@ $('table#'+ 1 +' td').filter(function(){
                     </div>
 
                     {{Form::open(['url' => 'foo/bar', 'method' => 'PUT', 'class' => 'form-horizontal form_change_booking'])}}
+                    {{ csrf_field() }}
                     <div class="row">
                       
                     
@@ -587,6 +617,7 @@ $('table#'+ 1 +' td').filter(function(){
                   <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
                   {{ Form::close() }}
                   {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
+                  {{ csrf_field() }}
                   <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
                   {{ Form::close() }}
                   <!--<button type="button" class="btn btn-primary">Save changes</button>-->
@@ -666,7 +697,7 @@ $('table#'+ 1 +' td').filter(function(){
             </div>
           </div>
         </div>
-		</div>
+    </div>
 @endrole
 </body>
 </html>
