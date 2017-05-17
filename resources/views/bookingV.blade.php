@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Ikke sikkert vi trenger denne -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <!-- Ikke sikkert vi trenger denne -->
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
@@ -23,64 +22,62 @@
   <!--<script src="{{ asset('js/kalender.js') }}"></script>-->
   <!--<script src="{{ asset('js/booking.js') }}"></script>-->
   <script>
-        $(document).ready(function(){
+  $(document).ready(function(){
+
+    /* Data fra database-tabeller som hentes inn når siden lastes inn */
+    var rooms = {!! str_replace("'", "\'", json_encode($rooms)) !!};
+    var bookings = {!! str_replace("'", "\'", json_encode($bookings)) !!};
+    var users = {!! str_replace("'", "\'", json_encode($users)) !!};
+    var user_idAuth = {!! Auth::user()->id !!};
+    var dateStr = {!! json_encode(session('dateStr')) !!};
+
+    /* Initialiserer datofeltet og velgeren, med dagens dato */
+    var initializeDate = function() {
       $("#date").datepicker({
         format: 'DD dd/mm/yyyy',
         language: 'nb',
         todayHighlight: true,
-        //calendarWeeks: true,
         autoclose: true,
         weekStart: 1,
       }).datepicker("setDate", new Date());
+    };
 
-    //var dateStr = "";
-    var dateStr = {!! json_encode(session('dateStr')) !!}
+    /* Hent dato i string-format, enten dagens dato, valgt dato, eller dato via redirect */
+    var getSelectedDateString = function(dateStr) {
+      var strDateTime = "";
+      if(dateStr == null) {
+        /* Hente ut dagens dato */
+        var currDate = new Date($('#date').datepicker('getDate'));
+        strDateTime =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
+      }
+      else {
+        /* Tar dato som sendes via session etter en redirect */
+        strDateTime = dateStr;
+        var parts = dateStr.split('/');
+        /* Please put attention to the month (parts[1]), Javascript counts months from 0:
+           January - 0, February - 1, etc.. parts[2] = year, parts[1]-1 = month, parts[0] = day */
+        var mydate = new Date(parts[2],parts[1]-1, parts[0]);
+        $('#date').datepicker("setDate", mydate);
+      }
+      return strDateTime;
+    };
 
-    var user_idAuth = {!! Auth::user()->id !!}
-
-    //alert(dateStr);
-
-    /* Vise tabeller for riktig dato, og sørge for at det er i riktig dato-format */
-    var strDateTime = "";
-    if(dateStr == null) {
-      var currDate = new Date($('#date').datepicker('getDate'));
-      strDateTime =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
-      /* Hente ut dagens dato */
-    }
-    else {
-      strDateTime = dateStr;  
-      var parts = dateStr.split('/');
-      //please put attention to the month (parts[1]), Javascript counts months from 0:
-      // January - 0, February - 1, etc
-        //parts[2] = year, parts[1]-1 = month, parts[0] = day
-      var mydate = new Date(parts[2],parts[1]-1, parts[0]);
-      //alert("strDateTime: " + strDateTime);
-      //alert(mydate.toDateString()); 
-      $('#date').datepicker("setDate", mydate);
-    }
-
-    $('.datetimepicker3, .datetimepicker4').each(function(k, v) {
-      var $input = $(v).find('.datetimepicker3, .datetimepicker4');
+    /* Datetimepickers for input felter i ny-booking-modal, og rediger-booking-modal */
+    var setDatetimepickers = function() {
+      $('.datetimepicker3, .datetimepicker4').each(function(k, v) {
+        var $input = $(v).find('.datetimepicker3, .datetimepicker4');
         $input.datetimepicker({
           format: 'HH:mm',
           stepping: 30,
           disabledHours: [0,1,2,3,4,5,6,7,22,23]
         });
-      $(v).find('span.input-group-addon').click(function(e) {
-        $input.focus();
+        $(v).find('span.input-group-addon').click(function(e) {
+          $input.focus();
+        });
       });
+    };
 
-    });
-
-    var rooms = {!! str_replace("'", "\'", json_encode($rooms)) !!};
-
-    var bookings = {!! str_replace("'", "\'", json_encode($bookings)) !!};
-
-    var users = {!! str_replace("'", "\'", json_encode($users)) !!};
-
-    $('#calender-table').empty();
-
-    // Takes starttime and endtime, return list with the times in half hour format
+    /* Takes starttime and endtime, return list with the times in half hour format */
     var makeTimeHalfHour = function(start_tid, slutt_tid) {
       var x = 30; //minutes interval
       var times = []; // time array
@@ -90,50 +87,40 @@
       for (var i=0;tt<slutt_tid*60; i++) {
         var hh = Math.floor(tt/60); // getting hours of day in 0-24 format
         var mm = (tt%60); // getting minutes of the hour in 0-55 format
-        times[i] = ("0" + (hh)).slice(-2) + ':' + ("0" + mm).slice(-2); // pushing data in array in [00:00 - 12:00 AM/PM format]
+        times[i] = ("0" + (hh)).slice(-2) + ':' + ("0" + mm).slice(-2); // pushing data in array in [00:00 - 24:00 format]
         tt = tt + x;
       }
       return times;
     }
 
-    var times = makeTimeHalfHour(8, 22);
-
-
+    /* Opprett rom-tabellene i bookingV-siden */
     var makeRoomTables = function(rooms, times) {
       for (var i = 0; i < rooms.length; i++) {
-          var roomId = rooms[i]['id'];
-          //var table = '<div class="col-sm-3 col-md-3"><table class="roomTable" id=' + roomId + '>'+ rooms[i]['name'] +'</table></div>';
-          var table = '<div class="col-sm-4 col-md-3"><table class="roomTable" id=' + roomId + '>'
-            + '<div class="room_header text-center"><h4 class="room_title">'
-              + '<a href="/rooms/'+ rooms[i]['id'] +'" style="text-decoration: none;">'+ rooms[i]['name'] +'</a></h4>'
-              + '<p>'+ rooms[i]['capacity'] +'</p><p>'+ rooms[i]['equipment'] +'</p>'
-            + '</div>'
-          +'</table></div>';
-          $(table).appendTo('#calender-table');
+        var roomId = rooms[i]['id'];
+        var table = '<div class="col-sm-4 col-md-3"><table class="roomTable" id=' + roomId + '>'
+          + '<div class="room_header text-center"><h4 class="room_title">'
+            + '<a href="/rooms/'+ rooms[i]['id'] +'" style="text-decoration: none;">'+ rooms[i]['name'] +'</a></h4>'
+            + '<p>'+ rooms[i]['capacity'] +'</p><p>'+ rooms[i]['equipment'] +'</p>'
+          + '</div>'
+        +'</table></div>';
+        $(table).appendTo('#calender-table');
 
-          for(var j = 0; j < times.length; j++) {
-            $('<tr class="roomTr"><th class="roomTd" id="firstTd">'+ times[j] +'</th><td role="button" class="roomTd tdspacing" data-toggle="modal" data-target="#myModal" id=' + (times[j]+':00') + ' name='+ (times[j]+':00') +'></td></tr>').appendTo('table#'+ roomId +'');
-          }
-        } 
-      
+        for(var j = 0; j < times.length; j++) {
+          var td = '<tr class="roomTr"><th class="roomTd" id="firstTd">' + times[j] + '</th>'
+            + '<td role="button" class="roomTd tdspacing" data-toggle="modal" data-target="#myModal" id=' + (times[j]+':00') + ' name='+ (times[j]+':00') +'>'
+            + '</td></tr>';
+          $(td).appendTo('table#'+ roomId +'');
+        }
+      }
     };
 
-    makeRoomTables(rooms, times);
-
-    //bookings[i]['room_id']
-
-    // bookings[0]['room_id'] = 1
-    // bookings[1]['room_id'] = 2
-    // bookings[2]['room_id'] = 1
-
-    //var tdsInTable = $('table#'+ '1' +'').find('td');
-
+    /* Make a <td> with booking open the view/edit-booking modal when clicked on */
     var makeBookingClickable = function () {
       $(".colorMe").attr("data-target", "#booking_modal");
       $(".colorMe").attr("data-toggle", "modal");
     }
 
-    // Find the user that is linked to the booking
+    /* Find the user that is linked to the booking */
     var findUserWithBooking = function(user_id) {
       for(var i = 0; i<users.length; i++) {
         if(users[i]['id'] == user_id) {
@@ -143,65 +130,54 @@
       return null;
     };
 
+    /* Go through each booking, and where the date matches chosen date:
+       go through all <td>'s in the room where the booking is registered */ 
     var displayBookings = function(bookings, strDateTime) {
-
       for(var i = 0; i<bookings.length; i++) {
-
-        //alert(bookings[i]['dateString']);
         if(bookings[i]['dateString'] == strDateTime) {
-
           var tdsInTable = $('table#'+ bookings[i]['room_id'] +'').find('td');
 
           for(var j = 0; j <tdsInTable.length; j++) {
-
             if (bookings[i]['from'] == tdsInTable[j].id) {
-              $(tdsInTable[j])/*.append(bookings[i]['from'])*/.attr('id', 'bookStart').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
-              /*$(tdsInTable[j]).append('<a href="/bookingV/'+bookings[i]['id']+'" id="'+ bookings[i]['id'] +'">vis booking</a>');*/
+
+              $(tdsInTable[j]).attr('id', 'bookStart').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
               var userWithBooking = findUserWithBooking(bookings[i]['user_id']);
               $(tdsInTable[j]).append('<p style="color:white;margin-bottom:-2px">'+ userWithBooking['name'] + '</p>');
-
             } 
             else if (bookings[i]['to'] == tdsInTable[j].id) {
-              $(tdsInTable[j-1])/*.append(bookings[i]['to'])*/.attr('id', 'bookEnd').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
+              $(tdsInTable[j-1]).attr('id', 'bookEnd').addClass('colorMe booked').attr('holdID', bookings[i]['id']).attr('bookUser_id', bookings[i]['user_id']);
             }
           }
         }
       }
     };
 
-    displayBookings(bookings, strDateTime);
-
-    // Fargelegge alle celler/td fra og med bookstart til og med bookend, for alle celler i tabell
-    // + setter inn booking ID for tabellrader som ikke har id bookStart eller bookEnd
+    /* Fargelegge alle celler/td fra og med bookstart til og med bookend, for alle celler i tabell
+     + setter inn booking ID for tabellrader som ikke har id bookStart eller bookEnd */
     var colorBookings = function() {
       var start = false;
       var bookingID = "";
       var bookUser_id = "";
-          $("table td").filter(function(){
-            // Hente ID til booking gjennom atributtet holdID
-            if(this.id == "bookStart") {
-              bookingID = this.getAttribute('holdID');
-              bookUser_id = this.getAttribute('bookUser_id');
+        $("table td").filter(function(){
+          // Hente ID til booking gjennom atributtet holdID
+          if(this.id == "bookStart") {
+            bookingID = this.getAttribute('holdID');
+            bookUser_id = this.getAttribute('bookUser_id');
+          }
+          if(this.id == "bookStart" || start) {
+            if(this.id == "bookEnd"){
+                start = false;
+                return true;
             }
-            if(this.id == "bookStart" || start) {
-              if(this.id == "bookEnd"){
-                  start = false;
-                  return true;
-              }
-              start = true;
-              $(this).attr('holdID', bookingID);
-              $(this).attr('bookUser_id', bookUser_id);
+            start = true;
+            $(this).attr('holdID', bookingID);
+            $(this).attr('bookUser_id', bookUser_id);
           }
         return start;
-
       }).addClass('colorMe booked');
     };
 
-    colorBookings();
-    makeBookingClickable();
-
-
-
+    /* Finn en spesifik booking i listen, med booking id */
     var findBookingInList = function(bookings, id) {
       for(var i = 0; i<bookings.length; i++) {
         if(id == bookings[i]['id']) {
@@ -211,97 +187,59 @@
       return null;
     };
 
-    var checkIfBooked = function(bookedFrom, bookedTo, room_id) {
+    /* Sjekker om en det allerede er en booking registrert på den <td>-tiden den nye
+    bookingen skal registreres på. If not booked: return true. If allready booked: return false */
+    var canBook = function(bookedFrom, bookedTo, room_id) {
       var start = false;
-      //var returnStr = "booking proceed";
       var bookable = true;
-      $('table#'+ room_id +' td').filter(function(){
-        //feks 08:30:00
+      $('table#'+ room_id +' td').filter(function(){  //feks 08:30:00
         var thisName = $(this).attr("name");
-        //alert("thisName: " + thisName);
         var thisClass = $(this).attr("class");
-        //alert("thisClass: " + thisClass);
 
-        //alert("returnStr: " + returnStr);
         if(thisName == bookedFrom || start) {
-          //alert(thisName + " = " + bookedFrom);
           if(thisName == bookedTo) {
-            //alert(thisName + " = " + bookedTo);
             start = false;
             if(thisClass == 'roomTd tdspacing colorMe booked') {
-              //returnStr = "can't book: the room is already booked at the given times";
-              //bookable = false;
               return false;
             }
             return false; // Tilsvarende break;
           }
           start = true;
           if(thisClass == 'roomTd tdspacing colorMe booked') {
-            //returnStr = "can't book: the room is already booked at the given times";
             bookable = false;
             return false;
+          }
         }
-      }
-    });
-    //return returnStr;
-    return bookable;
-  };
-
-// Legger inn bookings i tabellen for den datoen som er satt
-var dispBookingForDate = function() {
-  var currDate = new Date($('#date').datepicker('getDate'));
-  var strDateTime2 =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
-  displayBookings(bookings, strDateTime2);
-  colorBookings();
-  makeBookingClickable();
-};
-
-
-
-/*
-    var getBookingInfo = function() {
-    /* Henter ut info fra booking som er trykket på, legger inn i modal-felt *//*
-      $('.colorMe').click({bookings, user_idAuth}, function (e) {
-        // delete funksjonalitet
-        var bookUser_id = this.getAttribute('bookUser_id');
-        var nyBookingID = this.getAttribute('holdID');
-        var actualBookingObject = findBookingInList(bookings, nyBookingID);
-        //alert("nyBookingID: " + nyBookingID);
-        //alert("holdID attribute: " + this.getAttribute('holdID'));
-        //alert("Actual booking object id: " + actualBookingObject['id']);
-        $('#delete_booking').show();
-        if(bookUser_id != user_idAuth) {
-          $('#delete_booking').hide();
-        }
-        var url = window.location.href + "/" + nyBookingID;
-        //alert('url: ' + url);
-        $('#booking_modal form').attr('action', url);
-        // vis fra og til
-        //var bookingID = this.getAttribute('holdID') - 1;
-        //alert("bookingID: " + bookingID);
-
-        //$('.booking_from').empty();
-        $('.booking_from').html(actualBookingObject['from']);
-        //$('.booking_to').empty();
-        $('.booking_to').html(actualBookingObject['to']);
       });
-    }*/
+      return bookable;
+    };
 
-    //$('.colorMe').click(getBookingInfo());
+    /* Legger bookings inn i tabellen, for den datoen som er satt/valgt */
+    var dispBookingForDate = function() {
+      var currDate = new Date($('#date').datepicker('getDate'));
+      var bookingsStrDateTime =  currDate.getDate() + "/" + (currDate.getMonth()+1) + "/" + currDate.getFullYear();
+
+      displayBookings(bookings, bookingsStrDateTime);
+      colorBookings();
+      makeBookingClickable();
+    };
+
+    initializeDate();
+    var strDateTime = getSelectedDateString(dateStr);
+    setDatetimepickers();
+    $('#calender-table').empty();
+    var times = makeTimeHalfHour(8, 22);
+    makeRoomTables(rooms, times);
+    displayBookings(bookings, strDateTime);
+    colorBookings();
+    makeBookingClickable();
 
     $('#booking_modal').on('show.bs.modal', function (event) {
       var relTarEvent = $(event.relatedTarget); // Sender en liste, ikke objektet selv
       var tdClickedOn = relTarEvent[0];
-      //console.log(tdClickedOn);
       var bookUser_id = tdClickedOn.getAttribute('bookUser_id');
-      //console.log("bookUser_id: " + bookUser_id);
       var nyBookingID = tdClickedOn.getAttribute('holdID');
       var actualBookingObject = findBookingInList(bookings, nyBookingID);
-      /*
-      $('#delete_booking').show();
-      if(bookUser_id != user_idAuth) {
-        $('#delete_booking').hide();
-      }*/
 
       $('#delete_booking').hide();
       $('.form_change_booking, .upd_booking').hide();
@@ -322,6 +260,7 @@ var dispBookingForDate = function() {
 
         $('.upd_booking').click(function(e) {
           console.log("actual booking ID: " + actualBookingObject['id']);
+
           $('table#'+ actualBookingObject['room_id'] +' td').filter(function(){
             if(actualBookingObject['id'] == this.getAttribute('holdID')) {
               // "Resette" tabellrad
@@ -343,16 +282,15 @@ var dispBookingForDate = function() {
           } 
           else {
             var room_id = actualBookingObject['room_id'];
-            var bookCheck = checkIfBooked(bookedFrom, bookedTo, room_id);
-            if(bookCheck == false) {
+            var bookable = canBook(bookedFrom, bookedTo, room_id);
+            if(bookable) {
+              $('.upd_booking').attr('type', "sumbit button");
+              $('.upd_booking').off("click");
+            }
+            else {
               alert("Reservasjonen kan ikke fullføres. Rommet er opptatt ved gitt tidspunkt");
               $('.upd_booking').attr('type', "button");
               dispBookingForDate();
-              //$('.upd_booking').on("click");
-            }
-            else {
-              $('.upd_booking').attr('type', "sumbit button");
-              $('.upd_booking').off("click");
             }
           }
         });
@@ -454,10 +392,10 @@ var dispBookingForDate = function() {
         var room_id = $(".datetimepicker3").find("input[name='room_id']").val();
         //alert("room_id: " + room_id);
 
-        var bookCheck = checkIfBooked(bookedFrom, bookedTo, room_id);
+        var bookable = canBook(bookedFrom, bookedTo, room_id);
         //alert("bookable = " + bookCheck);
 
-        if(bookCheck == false) {
+        if(bookable == false) {
           alert("Reservasjonen kan ikke fullføres. Rommet er opptatt ved gitt tidspunkt");
           //$('.form-horizontal').attr('method', "GET");
           //$('.form-horizontal').val();
