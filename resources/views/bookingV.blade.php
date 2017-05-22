@@ -100,7 +100,7 @@
         var table = '<div class="col-sm-4 col-md-3"><table class="roomTable" id=' + roomId + '>'
           + '<div class="room_header text-center"><h4 class="room_title">'
             + '<a href="/rooms/'+ rooms[i]['id'] +'" style="text-decoration: none;">'+ rooms[i]['name'] +'</a></h4>'
-            + '<p>'+ rooms[i]['capacity'] +'</p><p>'+ rooms[i]['equipment'] +'</p>'
+            + '<p>Plass til '+ rooms[i]['capacity'] +' personer</p><p>Utstyr: '+ rooms[i]['equipment'] +'</p>'
           + '</div>'
         +'</table></div>';
         $(table).appendTo('#calender-table');

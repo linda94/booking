@@ -426,7 +426,7 @@ input[type="number"]::-webkit-inner-spin-button {
 #limit_elements li:nth-of-type(1n+8) {
 	display: none;
 }
-/* ------------------- user list ----------- */
+/* ------------------- user list & annet ----------- */
 #userlist_spacing {
 margin-top: 1px;
 padding-top: 15px;
@@ -477,9 +477,6 @@ border: 1px solid;
 }
 
 /* ------------------- Navbar-fixed-side import ----------------- */
-body {
-	font-family: "Lato";
-} 
 .roomTable {
 	width: 100%;
 	color: black !important;
@@ -506,7 +503,8 @@ body {
 		margin-left:-15px;margin-right:-15px
 	}
 }
-@media (min-width: 768px){
+@media (min-width: 768px)
+{
 	.navbar-fixed-side{
 		position:fixed;
 		margin:0 -15px;

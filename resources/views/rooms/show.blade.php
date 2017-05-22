@@ -54,9 +54,8 @@
 					<div class="row">
 						<div class="well well-sm">
 							<br/>
-							<p><b>Room for:</b><span> {{ $room->capacity }} people</span></p>
-							<p><b>Equipment:</b><span> {{ $room->equipment }} </span></p>
-							<p><b>Floor number:</b><span> 2 </span></p>
+							<p><b>Rom til:</b><span> {{ $room->capacity }} personer</span></p>
+							<p><b>Utstyr:</b><span> {{ $room->equipment }} </span></p>
 						</div>
 					</div>
 				</div>

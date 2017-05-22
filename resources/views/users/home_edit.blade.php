@@ -33,7 +33,7 @@
 						</div>
 						<div class="col-sm-1 text-left">
 							<div class="col-sm-12 edit_room_div">
-								<a class="color_edit_button" href="/users/home" data-toggle="tooltip" data-placement="bottom" 
+								<a class="color_edit_button btn-danger" href="/users/home" data-toggle="tooltip" data-placement="bottom" 
 								title="Avbryt endringene dine"> Avbryt </a>
 							</div>
 						</div>
