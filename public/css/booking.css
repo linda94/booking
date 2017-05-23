@@ -61,3 +61,7 @@
 .save_booking {
   margin-bottom: -15px;
 }
+
+.delete_form {
+  display: inline-block;
+}

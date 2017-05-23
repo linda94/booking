@@ -586,15 +586,15 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
 
-                  <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
-                  {{ Form::close() }}
-                  {{Form::open(['url' => 'foo/bar', 'method' => 'delete'])}}
-                  {{ csrf_field() }}
-                  <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
-                  {{ Form::close() }}
-                  <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
+                    {{ Form::close() }}
+                    {{Form::open(['url' => 'foo/bar', 'method' => 'delete', 'class' => 'delete_form'])}}
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger" id="delete_booking">Slett booking</button>
+                    {{ Form::close() }}
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
               </div>
             </div>
