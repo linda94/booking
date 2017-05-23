@@ -30,6 +30,7 @@
     var users = {!! str_replace("'", "\'", json_encode($users)) !!};
     var user_idAuth = {!! Auth::user()->id !!};
     var dateStr = {!! json_encode(session('dateStr')) !!};
+    var gbl_actualBookingObject = "";
 
     /* Initialiserer datofeltet og velgeren, med dagens dato */
     var initializeDate = function() {
@@ -241,6 +242,8 @@
       var nyBookingID = tdClickedOn.getAttribute('holdID');
       var actualBookingObject = findBookingInList(bookings, nyBookingID);
 
+      gbl_actualBookingObject = actualBookingObject;
+
       $('#delete_booking').hide();
       $('.form_change_booking, .upd_booking').hide();
       $('.div_booking_from, .div_booking_to').show();
@@ -255,7 +258,7 @@
         var momentTo = moment(actualBookingObject['to'], "HHmmss").format("HH:mm");
         $("input[name='upd_to']").val(momentTo);
 
-        $('.upd_booking').attr('type', "button");
+        /*$('.upd_booking').attr('type', "button");
 
 
         $('.upd_booking').click(function(e) {
@@ -293,7 +296,7 @@
               dispBookingForDate();
             }
           }
-        });
+        });*/
       }
 
       var url = window.location.href + "/" + nyBookingID;
@@ -408,8 +411,41 @@
     });
 
     $('.upd_booking').click(function(e) {
-      console.log();
-    });
+          console.log("actual booking ID: " + gbl_actualBookingObject['id']);
+
+          $('table#'+ gbl_actualBookingObject['room_id'] +' td').filter(function(){
+            if(gbl_actualBookingObject['id'] == this.getAttribute('holdID')) {
+              // "Resette" tabellrad
+              $(this).attr('class', 'roomTd tdSpacing').attr('id', $(this).attr("name")).html("").attr('data-target', "#myModal").removeAttr('holdID').removeAttr('bookUser_id');
+            }
+
+
+          });
+
+          var bookedFrom = $(".datetimepicker4").find("input[name='upd_from']").val() + ":00";
+          var bookedTo = $(".datetimepicker4").find("input[name='upd_to']").val() + ":00";
+
+          var bookedFromTime = moment(bookedFrom, "HHmmss").format("HH:mm");
+          var bookedToTime = moment(bookedTo, "HHmmss").format("HH:mm");
+
+          if (bookedFromTime >= bookedToTime) {
+            alert("Du kan ikke booke på grunn av valgt tid");
+            $('.upd_booking').attr('type', "button");
+          } 
+          else {
+            var room_id = gbl_actualBookingObject['room_id'];
+            var bookable = canBook(bookedFrom, bookedTo, room_id);
+            if(bookable) {
+              $('.upd_booking').attr('type', "sumbit button");
+              //$('.upd_booking').off("click");
+            }
+            else {
+              alert("Reservasjonen kan ikke fullføres. Rommet er opptatt ved gitt tidspunkt");
+              $('.upd_booking').attr('type', "button");
+              dispBookingForDate();
+            }
+          }
+        });
 
 
     $("td").click(function () {
