@@ -35,11 +35,13 @@
 								<input class="room_inputs highlight_inputfields" id="room_spacing_name" type="text" name="room_name" value="{{ $room->name }}" required ></input>
 							</h1>
 						</div>
-						<div class="col-sm-2">
+						<div class="col-sm-1">
 							<a href="/rooms/{{ $room->id }}" class="btn btn-default room_button"
 							data-toggle="tooltip" data-placement="bottom" title="Tilbake til profil siden">Tilbake
 								<!--<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>-->
 							</a>
+						</div>
+						<div class="col-sm-1">
 							<a id="avbryt_knapp" class="btn btn-danger room_button" href="/rooms/{{ $room->id }}" data-toggle="tooltip" data-placement="bottom" 
 									title="Avbryt endringene, dette vil ikke slette rommet"> Avbryt </a>
 						</div>

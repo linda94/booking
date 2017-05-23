@@ -586,7 +586,7 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
 
                     <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
                     {{ Form::close() }}
