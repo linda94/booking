@@ -31,6 +31,14 @@ Tjenesten er bygd hovedsakelig på Laravel, et PHP rammeverk som tilbyr store me
 
 	- [Video tutorials for de som lærer bedre visuelt](https://laracasts.com/series/laravel-from-scratch-2017)
 
+> php artisan migrate
+
+- migrerer database tabeller til din database. Husk å konfigurere din .env fil og database.php riktig.
+
+> php artisan serve
+
+- Kjører en versjon av siden fra din localhost (127.0.0.1:8000), hvor du kan utforske og teste mens utvikling pågår.
+
 ## Heroku
 
 Dette prosjektet er satt opp for å kunne brukes med [Heroku](https://www.heroku.com). Her følger en ekstra hjelpeguide for å gjøre Heroku setup noe enklere.

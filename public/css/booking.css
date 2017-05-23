@@ -6,6 +6,23 @@
   border: 1px solid lightgrey;
   text-align: center;
 }
+
+/* Navn som er lengre enn td-lengde går ikke nedover*/
+.roomTable tr td {
+  max-width:20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info_user_booking {
+  margin-bottom: 2%;
+}
+
+.remove_padding {
+  padding: 0 !important;
+}
+
 .roomTdNoBorder {
   border: 0px !important;
 }
@@ -19,6 +36,10 @@
   margin-left: 15px !important;
   margin-right: 15px !important;
 }
+.form_change_booking {
+  margin-left: 30px !important;
+  margin-right: 30px !important;
+}
 .colorMe {
   background-color: #4CAF50;
   border-top: none !important;
@@ -31,4 +52,16 @@
 
 #bookStart {
   border-top: 1px solid lightgrey !important;
+}
+
+.control-label {
+  margin-bottom: 1% !important;
+}
+
+.save_booking {
+  margin-bottom: -15px;
+}
+
+.delete_form {
+  display: inline-block;
 }

@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
-  <link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -55,9 +54,8 @@
 					<div class="row">
 						<div class="well well-sm">
 							<br/>
-							<p><b>Room for:</b><span> {{ $room->capacity }} people</span></p>
-							<p><b>Equipment:</b><span> {{ $room->equipment }} </span></p>
-							<p><b>Floor number:</b><span> 2 </span></p>
+							<p><b>Rom til:</b><span> {{ $room->capacity }} personer</span></p>
+							<p><b>Utstyr:</b><span> {{ $room->equipment }} </span></p>
 						</div>
 					</div>
 				</div>

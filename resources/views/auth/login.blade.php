@@ -10,17 +10,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
-	<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
 	<script type="text/javascript">
 		var cookie = document.cookie
-
-
 	</script>
   </head>
 <body>
+@if(session()->has('success'))
+  <div class="alert alert-success">
+	{{ session('success') }}
+  </div>
+@endif
 <div class="container-fluid">
 	<div class="frame">
         <h1 class="form-signing-heading">Logg inn</h1>
@@ -40,13 +42,13 @@
 			</div>
 			<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 				<label for="email" class="label_log_in">E-post</label>
-				<input id="email" type="email" class="form-control" id="email" placeholder="E-post"
+				<input id="email" type="email" class="form-control" id="email" placeholder="Din e-post"
 				data-toggle="tooltip" data-placement="right" title="Må ha følgende format: 'test@test.com'"
 				name="email" value="{{ old('email') }}" required autofocus>
 			</div>
 			<div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 				<label for="pwd" class="label_log_in">Passord</label>
-				<input type="password" class="form-control" id="pwd" placeholder="Passord" name="password" required>
+				<input type="password" class="form-control" id="pwd" placeholder="Skriv ditt passord" name="password" required>
 			</div>           
 			<div class="checkbox">
 				<label>
@@ -55,7 +57,7 @@
 			</div>
 			<button type="submit" class="btn_frontPage" id="btn_log_in" > Logg inn </button>
 			<button class="btn_frontPage" id="btn_new_user" onclick="location.href='{{ route('register') }}'"> Ny bruker</button>
-			<a class="btn btn-link" href="{{ route('password.request') }}"> Glemt ditt passord? </a>
+			<a class="btn btn-link" id="flytt_deg" href="{{ route('password.request') }}"> Glemt ditt passord? </a>
 		</form>
     </div>
 </div>

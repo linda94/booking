@@ -79,9 +79,6 @@
 		  title="Administrer din løsning">Administrative </a> </li>
 		  @endrole
 		  <li> <a href="{{ route('logout') }}"> Logg ut </a> </li>
-		  <li><a href="#" data-toggle="tooltip" data-placement="bottom" 
-		  title="Bytt vising på booking til horisontal visning"> 
-		  <span class="glyphicon glyphicon-th-list glyphicon_style"> </span> Bytt visning </a> </li>
 		</ul>
 		
 		</div><!-- /.navbar-collapse -->

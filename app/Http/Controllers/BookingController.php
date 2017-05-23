@@ -92,7 +92,19 @@ class BookingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $booking = DB::table('bookings')->find($id);
+        $dateStr = $booking->dateString;
+
+        $from = $request->upd_from;
+        $to = $request->upd_to;
+
+        $success = "Endringene er lagret";
+        
+        DB::table('bookings')
+            ->where('id', $id)
+            ->update(array('from' => $from, 'to' => $to));
+            
+        return redirect()->back()->with(compact('dateStr'));
     }
 
     /**

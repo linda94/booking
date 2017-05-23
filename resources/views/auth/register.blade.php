@@ -10,8 +10,7 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 		<!-- Custom styles for this template -->
-		<link href="{{ asset('css/signin.css') }}" rel="stylesheet">
-		<link href="{{ asset('css/navbar-fixed-side.css') }}" rel="stylesheet">
+		<link href="{{ asset('css/main.css') }}" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
@@ -51,7 +50,7 @@
 		</div>
 		<div class="text-center{{ $errors->has('password') ? ' has-error' : '' }}">
 			<input id="password" type="password" class="register-input required_input" 
-			id="confirm_password" placeholder="Passord" name="password" 
+			id="confirm_password" placeholder="Velg et passord" name="password" 
 			data-toggle="tooltip" data-placement="right" title="Minimum 6 karakterer" required>
 		</div>
 		<div class="text-center">
