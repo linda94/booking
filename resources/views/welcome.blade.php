@@ -27,13 +27,13 @@
 				 </ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active"> 
-						<img src="{{ asset('images/Slideshow1.JPG')}}" width="600" height="800">
+						<img src="{{ asset('images/Slideshow1.JPG')}}" width="600" height="800" class="center-block">
 					</div>
 					<div class="item"> 
-						<img src="{{ asset('images/Slideshow2.JPG')}}" width="600" height="800">
+						<img src="{{ asset('images/Slideshow2.JPG')}}" width="600" height="800" class="center-block">
 					</div>
 					<div class="item"> 
-						<img src="{{ asset('images/Slideshow3.JPG')}}" width="600" height="800">
+						<img src="{{ asset('images/Slideshow3.JPG')}}" width="600" height="800" class="center-block">
 					</div>
 				</div>
 
