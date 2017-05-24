@@ -555,8 +555,6 @@
                     {{Form::open(['url' => 'foo/bar', 'method' => 'PUT', 'class' => 'form-horizontal form_change_booking'])}}
                     {{ csrf_field() }}
                     <div class="row">
-                      
-                    
                       <div class="form-group">
                           <label for="message-text" class="control-label">Fra</label>
                             <div class='input-group date datetimepicker4'>
@@ -587,8 +585,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
-
-                    <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
+                    <button type="submit" class="btn btn-success upd_booking" id="save_changes">Lagre endringer</button>
                     {{ Form::close() }}
                     {{Form::open(['url' => 'foo/bar', 'method' => 'delete', 'class' => 'delete_form'])}}
                     {{ csrf_field() }}
@@ -659,7 +656,7 @@
                         <!--</div>-->
 
                         <div class="form-group">
-                          <button type="submit button" class="btn btn-default save_booking"> Lagre </button>
+                          <button type="submit button" class="btn btn-success save_booking"> Lagre </button>
                         </div class="form-group">
                       </form>
                   </div>

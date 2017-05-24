@@ -60,8 +60,13 @@
 
 .save_booking {
   margin-bottom: -15px;
+  float: right;
+  width: 15%;
 }
 
 .delete_form {
   display: inline-block;
+}
+#save_changes {
+  margin-left: 0;
 }
