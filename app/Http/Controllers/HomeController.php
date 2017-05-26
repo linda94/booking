@@ -32,6 +32,7 @@ class HomeController extends Controller
         $users -> email = $request->email;
         $users -> phone = $request->phone;
 		$users -> company = $request->company;
+		$users -> description = $request->description;
 		
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
@@ -47,6 +48,7 @@ class HomeController extends Controller
         $users -> email = $request->email;
         $users -> phone = $request->phone;
 		$users -> company = $request->company;
+		$users -> description = $request->description;
 		
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();
@@ -61,10 +63,12 @@ class HomeController extends Controller
 		$Users_name = $request->users_name;
         $Users_phone = $request->users_phone;
 		$Users_company = $request->users_company;
+		$Users_description = $request->users_description;
 		
 		DB::table('users')
 			->where('id', $id)
-			->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company));
+			->update(array('name' => $Users_name, 'phone' => $Users_phone,
+			'company' => $Users_company, 'description' => $Users_description));
 			
 		return redirect()->route('users_return', ['id' => $id]);
     }
@@ -77,6 +81,7 @@ class HomeController extends Controller
         $users -> email = $request->email;
         $users -> phone = $request->phone;
 		$users -> company = $request->company;
+		$users -> description = $request->description;
 		
 		$rooms = DB::table('room')->get();
 		$users = DB::table('users')->get();

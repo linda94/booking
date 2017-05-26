@@ -31,16 +31,14 @@
 							value="{{ $user->name }}" required ></input></h1>
 						</div>
 						<div class="col-sm-1">
-						<a href="/user_list/{{$user->id}}" class="btn btn-default btn-lg room_button"
-						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">
-							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						<a href="/user_list/{{$user->id}}" class="btn btn-default room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">Tilbake
+							<!--<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>-->
 						</a>
 						</div>
-						<div class="col-sm-1 text-left">
-							<div class="col-sm-12 edit_room_div">
-								<a class="color_edit_button" href="/user_list/{{$user->id}}" data-toggle="tooltip" data-placement="bottom" 
+						<div class="col-sm-1">
+								<a id="avbryt_knapp" class="btn btn-danger room_button" href="/user_list/{{$user->id}}" data-toggle="tooltip" data-placement="bottom" 
 								title="Avbryt endringene dine"> Avbryt </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -60,9 +58,9 @@
 							value="{{ $user->phone }}"></input></span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
-							<textarea class="form-control" rows="9" id="comment" name="desciption">Ikke implementert enda</textarea>
+							<textarea class="form-control" rows="9" id="comment" name="users_description"> {{$user->description }} </textarea>
 							<br/>
-							<button type="submit" class="btn_frontPage"> Lagre endringene </button>
+							<button type="submit" class="btn btn-success btn_save"> Lagre endringene </button>
 						</div>
 					</div>
 				</div>
@@ -72,9 +70,9 @@
 				</div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="50%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
-						<button type="submit" class="btn_frontPage"> Slett bruker </button>
+						<button type="submit" class="btn btn-danger btn_save"> Slett bruker </button>
 						<br/><br/>
 						{{ Form::close() }}
 					</div>
@@ -83,7 +81,7 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<button class="btn_frontPage" href="/auth/passwords/email"> Endre passord </button>
+						<button class="btn btn-success btn_save" href="/auth/passwords/email"> Endre passord </button>
 						<br/></br>
 						<div class="dropdown">
 							<button class="btn dropdown-toggle" id="home_dd_styling" href="#" data-toggle="dropdown" 

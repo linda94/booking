@@ -320,8 +320,8 @@
         $('#showBookingModalCompanyName').html(findUserWithBooking(bookUser_id)['company']).css("font-style", "normal"); 
       }
       
-      $('.booking_from').html(actualBookingObject['from']);
-      $('.booking_to').html(actualBookingObject['to']);
+      $('.booking_from').html(actualBookingObject['from'].substring(0, 5));
+      $('.booking_to').html(actualBookingObject['to'].substring(0, 5));
 
       //console.log("actualBookingObject from: " + actualBookingObject['from']);
     });
@@ -555,8 +555,6 @@
                     {{Form::open(['url' => 'foo/bar', 'method' => 'PUT', 'class' => 'form-horizontal form_change_booking'])}}
                     {{ csrf_field() }}
                     <div class="row">
-                      
-                    
                       <div class="form-group">
                           <label for="message-text" class="control-label">Fra</label>
                             <div class='input-group date datetimepicker4'>
@@ -586,9 +584,8 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Lukk</button>
-
-                    <button type="submit" class="btn btn-primary upd_booking"> Lagre endringer </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Lukk</button>
+                    <button type="submit" class="btn btn-success upd_booking" id="save_changes">Lagre endringer</button>
                     {{ Form::close() }}
                     {{Form::open(['url' => 'foo/bar', 'method' => 'delete', 'class' => 'delete_form'])}}
                     {{ csrf_field() }}
@@ -619,7 +616,7 @@
                         <div class="form-group">
                           <label for="message-text" class="control-label">Dato</label>
                           <div class="input-group date" id="date" name="date">
-                            <input class="form-control dateString" type="text" name="dateString">
+                            <input class="form-control dateString" type="text" name="dateString" readonly>
                             <div class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </div>
@@ -659,7 +656,7 @@
                         <!--</div>-->
 
                         <div class="form-group">
-                          <button type="submit button" class="btn btn-default save_booking"> Lagre </button>
+                          <button type="submit button" class="btn btn-success save_booking"> Lagre </button>
                         </div class="form-group">
                       </form>
                   </div>

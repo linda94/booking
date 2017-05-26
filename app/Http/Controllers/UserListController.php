@@ -105,10 +105,12 @@ class UserListController extends Controller
         $Users_name = $request->users_name;
         $Users_phone = $request->users_phone;
         $Users_company = $request->users_company;
+		$Users_description = $request->users_description;
         
         DB::table('users')
             ->where('id', $id)
-            ->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company));
+            ->update(array('name' => $Users_name, 'phone' => $Users_phone, 'company' => $Users_company,
+			'description' => $Users_description));
             
         return redirect()->route('users_profiles', ['id' => $id]);
     }

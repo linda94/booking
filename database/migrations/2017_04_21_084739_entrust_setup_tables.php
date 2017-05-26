@@ -201,26 +201,30 @@ class EntrustSetupTables extends Migration
 		
 		$newroom = new App\Room();
 		$newroom->name = 'Nytt rom';
-		$newroom->equipment = "Default";
+		$newroom->equipment = "Ikke oppgitt";
         $newroom->capacity = 0;
+		$newroom->floor = 0;
         $newroom->Save();
 		
 		$newroom = new App\Room();
 		$newroom->name = 'Nytt rom';
-		$newroom->equipment = 'Default';
+		$newroom->equipment = "Ikke oppgitt";
         $newroom->capacity = 0;
+		$newroom->floor = 0;
         $newroom->Save();
 		
 		$newroom = new App\Room();
 		$newroom->name = 'Nytt rom';
-		$newroom->equipment = 'Default';
+		$newroom->equipment = "Ikke oppgitt";
         $newroom->capacity = 0;
+		$newroom->floor = 0;
         $newroom->Save();
 		
 		$newroom = new App\Room();
 		$newroom->name = 'Nytt rom';
-		$newroom->equipment = 'Default';
+		$newroom->equipment = "Ikke oppgitt";
         $newroom->capacity = 0;
+		$newroom->floor = 0;
         $newroom->Save();
     }
 

@@ -26,16 +26,14 @@
 							value="{{ Auth::user()->name }}" required ></input></h1>
 						</div>
 						<div class="col-sm-1">
-						<a href="/users/home" class="btn btn-default btn-lg room_button"
-						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">
-							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						<a href="/users/home" class="btn btn-default room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden"> Tilbake
+							<!--<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>-->
 						</a>
 						</div>
-						<div class="col-sm-1 text-left">
-							<div class="col-sm-12 edit_room_div">
-								<a class="color_edit_button btn-danger" href="/users/home" data-toggle="tooltip" data-placement="bottom" 
+						<div class="col-sm-1">
+								<a id="avbryt_knapp" class="btn btn-danger room_button" href="/users/home" data-toggle="tooltip" data-placement="bottom" 
 								title="Avbryt endringene dine"> Avbryt </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -52,12 +50,12 @@
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"><input class="room_inputs no-spin" type="number" 
 							id="myInput" name="users_phone"
 							data-toggle="tooltip" data-placement="right" title="max og minimum 8 tall. Eksempel: '12345678'"
-							value="{{ Auth::user()->phone }}" required ></input></span></p>
+							value="{{ Auth::user()->phone }}" ></input></span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
-							<textarea class="form-control" rows="9" id="comment" name="desciption">Ikke implementert enda</textarea>
+							<textarea class="form-control" rows="9" id="comment" name="users_description">{{ Auth::user()->description }}</textarea>
 							<br/>
-							<button type="submit" class="btn_frontPage"> Lagre endringene </button>
+							<button type="submit" class="btn btn-success btn_save"> Lagre endringene </button>
 						</div>
 					</div>
 				</div>
@@ -67,9 +65,9 @@
 				</div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="50%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
-						<button type="submit" class="btn_frontPage"  data-toggle="tooltip" data-placement="bottom" 
+						<button type="submit" class="btn btn-danger btn_save"  data-toggle="tooltip" data-placement="bottom" 
 						title="Slette din bruker fra BAM"> Slett bruker </button>
 						<br/><br/>
 						{{ Form::close() }}
@@ -79,7 +77,7 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<a class="btn btn_frontPage" href="/auth/passwords/email" width="100%">Endre passord </a>
+						<a class="btn btn-success btn_save" href="/auth/passwords/email" width="100%">Endre passord </a>
 						<br/></br>
 					</div>
 				</div>

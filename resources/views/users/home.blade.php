@@ -52,7 +52,7 @@
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"> {{ Auth::user()->phone }} </span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
-							<textarea readonly class="form-control" rows="9" id="comment">Ikke implementert enda</textarea>
+							<textarea readonly class="form-control" rows="9" id="comment"> {{ Auth::user()->description }} </textarea>
 							<br/><br/>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 				<div class="container-fluid col-sm-1"></div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="100%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="100%" width="100%"/>
 						<br/> <br/>
 					</div>
 				</div>

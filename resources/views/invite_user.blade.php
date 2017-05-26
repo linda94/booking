@@ -32,7 +32,7 @@
 				</div>
 				<div class="container-fluid col-sm-11 invite_user_spacer">
 					<div class="row">
-						<h3> Det blir sendt en registrerings mail til vedkommende hvor det er mulig &aring; registrere seg
+						<h4> Det blir sendt en registrerings mail til vedkommende hvor det er mulig &aring; registrere seg
 						til din l&oslash;sning</h3>
 					</div>
 				</div> </br></br>
@@ -46,11 +46,6 @@
 						</div>
 					</div>
 				</form>
-				<div class="container-fluid col-sm-11 invite_user_spacer">
-					<div class="row">
-						<h2> Ventende invitasjoner | Listen er ikke implementert enda </h2>
-					</div>
-				</div>
 				<div class="container-fluid col-sm-11 invite_user_spacer">
 					<div class="row">
 						<div class="book_a_room col-sm-12">
