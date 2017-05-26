@@ -72,7 +72,7 @@
 					<div class="row">
 						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
-						<button type="submit" class="btn_frontPage"> Slett bruker </button>
+						<button type="submit" class="btn btn-danger btn_save"> Slett bruker </button>
 						<br/><br/>
 						{{ Form::close() }}
 					</div>
@@ -81,7 +81,7 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<button class="btn_frontPage" href="/auth/passwords/email"> Endre passord </button>
+						<button class="btn btn-success btn_save" href="/auth/passwords/email"> Endre passord </button>
 						<br/></br>
 						<div class="dropdown">
 							<button class="btn dropdown-toggle" id="home_dd_styling" href="#" data-toggle="dropdown" 

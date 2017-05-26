@@ -67,7 +67,7 @@
 					<div class="row">
 						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
-						<button type="submit" class="btn btn-danger btn_frontPage"  data-toggle="tooltip" data-placement="bottom" 
+						<button type="submit" class="btn btn-danger btn_save"  data-toggle="tooltip" data-placement="bottom" 
 						title="Slette din bruker fra BAM"> Slett bruker </button>
 						<br/><br/>
 						{{ Form::close() }}
@@ -77,7 +77,7 @@
 				</div>
 				<div class="col-sm-5 container-fluid">
 					<div class="row">
-						<a class="btn btn_frontPage" href="/auth/passwords/email" width="100%">Endre passord </a>
+						<a class="btn btn-success btn_save" href="/auth/passwords/email" width="100%">Endre passord </a>
 						<br/></br>
 					</div>
 				</div>
