@@ -320,8 +320,8 @@
         $('#showBookingModalCompanyName').html(findUserWithBooking(bookUser_id)['company']).css("font-style", "normal"); 
       }
       
-      $('.booking_from').html(actualBookingObject['from']);
-      $('.booking_to').html(actualBookingObject['to']);
+      $('.booking_from').html(actualBookingObject['from'].substring(0, 5));
+      $('.booking_to').html(actualBookingObject['to'].substring(0, 5));
 
       //console.log("actualBookingObject from: " + actualBookingObject['from']);
     });
@@ -616,7 +616,7 @@
                         <div class="form-group">
                           <label for="message-text" class="control-label">Dato</label>
                           <div class="input-group date" id="date" name="date">
-                            <input class="form-control dateString" type="text" name="dateString">
+                            <input class="form-control dateString" type="text" name="dateString" readonly>
                             <div class="input-group-addon">
                               <span class="glyphicon glyphicon-calendar"></span>
                             </div>
