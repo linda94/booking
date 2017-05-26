@@ -60,7 +60,7 @@
 				<div class="container-fluid col-sm-1"></div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="100%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="100%" width="100%"/>
 						<br/> <br/>
 					</div>
 				</div>

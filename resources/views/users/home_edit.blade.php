@@ -65,7 +65,7 @@
 				</div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="50%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
 						<button type="submit" class="btn_frontPage"  data-toggle="tooltip" data-placement="bottom" 
 						title="Slette din bruker fra BAM"> Slett bruker </button>

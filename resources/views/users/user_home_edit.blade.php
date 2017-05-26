@@ -31,16 +31,14 @@
 							value="{{ $user->name }}" required ></input></h1>
 						</div>
 						<div class="col-sm-1">
-						<a href="/user_list/{{$user->id}}" class="btn btn-default btn-lg room_button"
-						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">
-							<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+						<a href="/user_list/{{$user->id}}" class="btn btn-default room_button"
+						data-toggle="tooltip" data-placement="bottom" title="Gå tilbake til profil-siden">Tilbake
+							<!--<span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>-->
 						</a>
 						</div>
-						<div class="col-sm-1 text-left">
-							<div class="col-sm-12 edit_room_div">
-								<a class="color_edit_button" href="/user_list/{{$user->id}}" data-toggle="tooltip" data-placement="bottom" 
+						<div class="col-sm-1">
+								<a id="avbryt_knapp" class="btn btn-danger room_button" href="/user_list/{{$user->id}}" data-toggle="tooltip" data-placement="bottom" 
 								title="Avbryt endringene dine"> Avbryt </a>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -72,7 +70,7 @@
 				</div>
 				<div class="container-fluid col-sm-5">
 					<div class="row">
-						<img src="{{ asset('images/meeting-room-g1.jpg')}}" height="50%" width="100%"/>
+						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
 						<button type="submit" class="btn_frontPage"> Slett bruker </button>
 						<br/><br/>
