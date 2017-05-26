@@ -18,6 +18,7 @@ class CreateTableRooms extends Migration
             $table->string('name');
             $table->integer('capacity')->nullable();
             $table->string('equipment')->nullable();
+			$table->integer('floor')->nullable();
             $table->timestamps();
         });
     }

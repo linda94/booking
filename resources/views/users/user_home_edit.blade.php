@@ -60,7 +60,7 @@
 							value="{{ $user->phone }}"></input></span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
-							<textarea class="form-control" rows="9" id="comment" name="desciption">Ikke implementert enda</textarea>
+							<textarea class="form-control" rows="9" id="comment" name="desciption"> {{$user->description }} </textarea>
 							<br/>
 							<button type="submit" class="btn_frontPage"> Lagre endringene </button>
 						</div>

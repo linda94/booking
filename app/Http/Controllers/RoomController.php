@@ -69,6 +69,7 @@ class RoomController extends Controller
         $room -> name = $request->name;
         $room -> capacity = $request->capacity;
         $room -> equipment = $request->equipment;
+		$room -> floor = $request->floor;
 
         $room->save();
 
@@ -123,12 +124,14 @@ class RoomController extends Controller
 		$Room_name = $request->room_name;
         $Room_capacity = $request->room_space;
         $Room_Equipment = $request->room_equipment;
+		$Room_floor = $request->room_floor;
 
         $success = $Room_name . " lagret";
 		
 		DB::table('room')
 			->where('id', $id)
-			->update(array('name' => $Room_name, 'capacity' => $Room_capacity, 'equipment' => $Room_Equipment));
+			->update(array('name' => $Room_name, 'capacity' => $Room_capacity, 'equipment' => $Room_Equipment, 
+			'floor' => $Room_floor));
 			
 		return redirect()->route('room_profile', ['id' => $id])->with(compact('success'));
     }

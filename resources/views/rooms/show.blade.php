@@ -56,6 +56,7 @@
 							<br/>
 							<p><b>Rom til:</b><span> {{ $room->capacity }} personer</span></p>
 							<p><b>Utstyr:</b><span> {{ $room->equipment }} </span></p>
+							<p><b>Etasje:</b><span> {{ $room->floor }} </span></p>
 						</div>
 					</div>
 				</div>

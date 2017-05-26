@@ -52,7 +52,7 @@
 							<p><b class="col-sm-3">Telefon:</b><span class="col-sm-9"> {{$user->phone }} </span></p>
 							</div>
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
-							<textarea readonly class="form-control" rows="9" id="comment">Ikke implementert enda</textarea>
+							<textarea readonly class="form-control" rows="9" id="comment"> {{$user->description }} </textarea>
 							<br/><br/>
 						</div>
 					</div>

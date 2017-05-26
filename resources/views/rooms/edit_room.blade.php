@@ -66,12 +66,7 @@
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
 								<p><b class="col-sm-4">Etasje:</b><span class="col-sm-8">
 								<input class="room_inputs" type="text" name="room_floor" 
-								value="Ikke implementert" readonly></input></span></p>
-							</div>
-							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing">
-								<p><b class="col-sm-4">Adresse til bygg:</b><span class="col-sm-8">
-								<input class="room_inputs" type="text" name="room_adress" value="Ikke implementert"
-								data-toggle="tooltip" data-placement="bottom" title="Eksempel: 'testeveien21, 4518 oslo'" readonly></input></span></p>
+								value="{{ $room->floor }}"></input></span></p>
 							</div>
 							<div class="col-sm-12 home_spacing_div home_margin_spacing test_spacing" id="drop_this_div">
 								<button type="submit" class="btn btn-success  col-sm-5" id="margin_left_button">Lagre endringene</button>
