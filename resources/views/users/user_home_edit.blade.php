@@ -60,7 +60,7 @@
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
 							<textarea class="form-control" rows="9" id="comment" name="desciption"> {{$user->description }} </textarea>
 							<br/>
-							<button type="submit" class="btn_frontPage"> Lagre endringene </button>
+							<button type="submit" class="btn btn-success btn_save"> Lagre endringene </button>
 						</div>
 					</div>
 				</div>

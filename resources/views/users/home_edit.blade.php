@@ -55,7 +55,7 @@
 							<label for="comment" id="home_spacing_label"><b>Beskrivelse:</b></label>
 							<textarea class="form-control" rows="9" id="comment" name="users_description">{{ Auth::user()->description }}</textarea>
 							<br/>
-							<button type="submit" class="btn_frontPage"> Lagre endringene </button>
+							<button type="submit" class="btn btn-success btn_save"> Lagre endringene </button>
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,7 @@
 					<div class="row">
 						<img src="{{ asset('images/no_profile_picture.gif')}}" height="50%" width="100%"/>
 						<br/><br/>
-						<button type="submit" class="btn_frontPage"  data-toggle="tooltip" data-placement="bottom" 
+						<button type="submit" class="btn btn-danger btn_frontPage"  data-toggle="tooltip" data-placement="bottom" 
 						title="Slette din bruker fra BAM"> Slett bruker </button>
 						<br/><br/>
 						{{ Form::close() }}

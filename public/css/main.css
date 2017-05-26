@@ -68,6 +68,9 @@ padding: 7px;
 background-color: #4CAF50;
 color: #ffffff;
 }
+.btn_save {
+	width: 100%;
+}
 .div_for_btn {
   width: 100%;
   background-color: red;
